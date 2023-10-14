@@ -1,10 +1,12 @@
 import { ThemeToggle } from "@/components/ThemeToggle";
+import Hero from "@/components/home/hero";
 import Image from "next/image";
 
 export default function Home() {
 	return (
-		<main className="flex min-h-screen flex-col items-center justify-between p-24">
+		<main>
 			<ThemeToggle />
+			<Hero title={`Hi I am a developer`} />
 		</main>
 	);
 }
