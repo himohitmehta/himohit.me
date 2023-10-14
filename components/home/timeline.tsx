@@ -70,15 +70,14 @@ const TimelineEntry = ({
 		className="group hidden grid-cols-9 items-center md:grid"
 	>
 		<div className="col-span-2">
-			<p className="sr-only">Published on</p>
-			<p className="text-base font-medium text-gray-400 transition-colors group-hover:text-gray-700">
+			<p className="text-base font-medium text-gray-400 transition-colors group-hover:text-gray-700 group-hover:dark:text-white">
 				{post.title}
 			</p>
 		</div>
 		<div className="col-span-7 flex items-center">
 			<div className="relative ml-4">
 				<div className="h-16 border-l border-gray-400 pr-8" />
-				<div className="absolute -left-1 top-[1.6875rem] h-2.5 w-2.5 rounded-full bg-gray-400 transition-colors group-hover:bg-gray-700" />
+				<div className="absolute -left-1 top-[1.6875rem] h-2.5 w-2.5 rounded-full bg-gray-400 transition-colors group-hover:bg-gray-700 group-hover:dark:bg-white" />
 			</div>
 			<h3 className="text-2xl font-medium tracking-tight text-gray-700 transition-colors group-hover:text-black group-hover:dark:text-white">
 				{post.description}

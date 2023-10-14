@@ -1,7 +1,8 @@
 import { ThemeToggle } from "@/components/ThemeToggle";
 import Hero from "@/components/home/hero";
+import Projects from "@/components/home/projects";
 import Timeline from "@/components/home/timeline";
-import Image from "next/image";
+
 
 export default function Home() {
 	return (
@@ -9,6 +10,7 @@ export default function Home() {
 			<ThemeToggle />
 			<Hero />
 			<Timeline />
+			{/* <Projects /> */}
 		</main>
 	);
 }

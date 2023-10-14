@@ -1,4 +1,4 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+My portfolio Website. Deployed on [https://mohitmehta.dev](https://mohitmehta.dev)
 
 ## Getting Started
 
@@ -9,7 +9,7 @@ npm run dev
 # or
 yarn dev
 # or
-pnpm dev
+pnpm de
 # or
 bun dev
 ```
