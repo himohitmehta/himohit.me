@@ -6,7 +6,7 @@ export default function Home() {
 	return (
 		<main>
 			<ThemeToggle />
-			<Hero title={`Hi I am a developer`} />
+			<Hero />
 		</main>
 	);
 }
