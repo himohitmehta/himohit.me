@@ -10,7 +10,7 @@ export default function Home() {
 			<ThemeToggle />
 			<Hero />
 			<Timeline />
-			{/* <Projects /> */}
+			<Projects />
 		</main>
 	);
 }
