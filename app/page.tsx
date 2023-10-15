@@ -6,7 +6,7 @@ import Timeline from "@/components/home/timeline";
 
 export default function Home() {
 	return (
-		<main>
+		<main className="px-4">
 			<ThemeToggle />
 			<Hero />
 			<Timeline />

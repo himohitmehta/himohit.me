@@ -95,10 +95,10 @@ const data = [
 export default function Projects() {
 	return (
 		<div className="max-w-6xl mx-auto py-8">
-			<h1 className="text-6xl text-center font-semibold py-8">
+			<h1 className="md:text-6xl text-2xl text-center font-semibold py-8">
 				All Projects
 			</h1>
-			<div className="max-w-4xl grid grid-cols-2 gap-4 mx-auto">
+			<div className="md:max-w-4xl max-w-md grid md:grid-cols-2 grid-cols-1 gap-4 mx-auto">
 				{data.map((item) => (
 					<LinkCard
 						key={item.title}

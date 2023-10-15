@@ -30,9 +30,12 @@ export default function Timeline() {
 	return (
 		<div className="space-y-5 pt-20 md:space-y-10 pb-12">
 			<div className="mx-auto max-w-md text-center sm:max-w-xl">
-				<h2 className="font-display text-4xl dark:text-white font-extrabold leading-tight text-black sm:text-5xl sm:leading-tight">
+				<h2 className="font-display text-4xl dark:text-white/80 font-extrabold leading-tight text-black sm:text-5xl sm:leading-tight">
 					What I have{" "}
-					<span className="bg-gradient-to-br from-green-600 to-green-300 bg-clip-text pr-2 italic text-transparent">
+					<span
+						// className="bg-gradient-to-br from-green-600 to-green-300 bg-clip-text pr-2 italic text-transparent"
+						className="bg-gradient-to-r from-blue-300 via-blue-500 to-violet-800 italic pr-2 bg-clip-text text-transparent"
+					>
 						Built
 					</span>
 				</h2>

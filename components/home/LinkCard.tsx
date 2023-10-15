@@ -24,7 +24,7 @@ export default function LinkCard({
 	builtWith: string;
 }) {
 	return (
-		<div className="flex max-w-md  items-center justify-between rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-white/10 p-3 shadow-lg transition-[border-color] hover:border-black dark:hover:border-white active:cursor-grabbing">
+		<div className="flex max-w-md  items-center justify-between rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-white/10 p-3 shadow-lg transition-[border-color] hover:border-black dark:hover:border-white active:cursor-grabbing overflow-hidden">
 			<div className="flex items-start space-x-3">
 				{/* <Link2Icon
 					// src={`${imageSrc}`}
@@ -34,33 +34,22 @@ export default function LinkCard({
 					height={20}
 				/> */}
 				<div>
-					<div className="grid grid-cols-1">
-						<span
-							className="text-xl font-semibold text-blue-800 dark:text-white"
-							// href={link}
-							// target="_blank"
-							// rel="noreferrer"
+					<div>
+						<h3
+						// className="text-xl font-semibold text-blue-800 dark:text-white"
 						>
-							{title}
-						</span>
-						<span
-							className="text-md my-4 font-medium text-black/50 dark:text-white/70"
-							// href={link}
-							// target="_blank"
-							// rel="noreferrer"
-						>
+							<span className="text-xl font-semibold bg-gradient-to-r from-blue-300 via-blue-500 to-violet-700 bg-clip-text text-transparent">
+								{title}
+							</span>
+						</h3>
+						<p className="text-md my-4 font-medium text-black/50 dark:text-white/70">
 							{description}
-						</span>
-						<span
-							className="text-sm mb-2 dark:text-white/50"
-							// href={link}
-							// target="_blank"
-							// rel="noreferrer"
-						>
+						</p>
+						<p className="text-sm mb-2 dark:text-white/50">
 							{builtWith}
-						</span>
+						</p>
 					</div>
-					<div className="flex items-center justify-start">
+					<div className="flex items-center justify-start max-w-full">
 						<a
 							href={url}
 							target="_blank"
@@ -69,13 +58,7 @@ export default function LinkCard({
 						>
 							{url}{" "}
 						</a>
-						<ExternalLink
-							// src={`${imageSrc}`}
-							// alt={"image"}
-							className="pointer-events-none ml-2 h-[16px] w-[16px] rounded-full"
-							// width={20}
-							// height={20}
-						/>
+						<ExternalLink className="pointer-events-none ml-2 h-[16px] w-[16px] rounded-full" />
 					</div>
 				</div>
 			</div>
