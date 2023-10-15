@@ -95,8 +95,10 @@ const data = [
 export default function Projects() {
 	return (
 		<div className="max-w-6xl mx-auto py-8">
-			<h1 className="md:text-6xl text-2xl text-center font-semibold py-8">
-				All Projects
+			<h1 className="md:text-6xl text-2xl text-center font-bold py-8  ">
+				<span className="bg-gradient-to-r from-blue-300  via-blue-500 to-violet-700 italic pr-2 bg-clip-text text-transparent">
+					My Projects
+				</span>
 			</h1>
 			<div className="md:max-w-4xl max-w-md grid md:grid-cols-2 grid-cols-1 gap-4 mx-auto">
 				{data.map((item) => (
