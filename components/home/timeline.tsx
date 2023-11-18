@@ -2,8 +2,14 @@ import Link from "next/link";
 
 const data = [
 	{
+		title: "Lattis.ai",
+		publishedAt: "2023-11-18",
+		link: "https://lattis.ai",
+		description: "Platform OS for AI Agents.",
+	},
+	{
 		title: "Bluecom",
-		publishedAt: "2021-09-01",
+		publishedAt: "2023-09-01",
 		link: "https://bluecom.ai",
 		description: "Multi channel ecommerce platform",
 	},
@@ -44,7 +50,7 @@ export default function Timeline() {
 					hivepath
 				</p>
 			</div>
-			<ul className="mx-5 max-w-2xl md:mx-auto md:translate-x-28">
+			<ul className="mx-5 max-w-2xl md:mx-auto ">
 				{data
 					.sort((a, b) => b.publishedAt.localeCompare(a.publishedAt))
 					.slice(0, 6)
@@ -68,10 +74,7 @@ const TimelineEntry = ({
 		publishedAt: string;
 	};
 }) => (
-	<a
-		href={post.link}
-		className="group hidden grid-cols-9 items-center md:grid"
-	>
+	<a href={post.link} className="group  grid-cols-9 items-center grid">
 		<div className="col-span-2">
 			<p className="text-base font-medium text-gray-400 transition-colors group-hover:text-gray-700 group-hover:dark:text-white">
 				{post.title}
