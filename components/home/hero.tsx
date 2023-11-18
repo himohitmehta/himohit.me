@@ -27,11 +27,11 @@ const Hero = ({}) => {
 				Tailwind CSS, Redux, Vercel, and PlanetScale. I&apos;m building{" "}
 				<a
 					className="text-blue-700 font-semibold hover:underline underline-offset-2 bg-gradient-to-r from-blue-400 via-blue-500 to-violet-800 bg-clip-text text-transparent"
-					href="https://bluecom.ai"
+					href="https://lattis.ai"
 					target="_blank"
 					rel="noreferrer"
 				>
-					bluecom.ai
+					lattis.ai
 				</a>{" "}
 				at hivepath and working on{" "}
 				<a

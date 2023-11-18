@@ -6,11 +6,18 @@ import LinkCard from "./LinkCard";
 
 const data = [
 	{
+		title: "Lattis.ai",
+		publishedAt: "2021-09-01",
+		link: "https://lattis.ai",
+		description: "Platform OS for AI Agents.",
+		builtWith: "NextJS, Tailwind CSS, Shadcn UI, and Vercel",
+	},
+	{
 		title: "Bluecom",
 		publishedAt: "2021-09-01",
 		link: "https://bluecom.ai",
 		description: "Multi channel ecommerce platform",
-		builtWith: "NextJS, Material UI",
+		builtWith: "NextJS, Material UI and Vercel",
 	},
 	{
 		title: "Saroh",
