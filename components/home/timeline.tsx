@@ -1,4 +1,7 @@
+"use client";
 import Link from "next/link";
+import { motion } from "framer-motion";
+import TextTypingEffect from "./typing-text/typing-text-effect";
 
 const data = [
 	{
@@ -32,10 +35,62 @@ const data = [
 		description: "Professional Networking platform ",
 	},
 ];
+
+const container = {
+	hidden: { opacity: 0 },
+	show: {
+		opacity: 1,
+		transition: {
+			delayChildren: 0.3,
+			staggerChildren: 0.4,
+		},
+	},
+};
+const containerItem = {
+	hidden: { opacity: 0, y: 20 },
+	show: {
+		opacity: 1,
+		y: 0,
+	},
+};
+
+const timelineContainer = {
+	hidden: { opacity: 0 },
+	show: {
+		opacity: 1,
+		transition: {
+			delayChildren: 0.2,
+			staggerChildren: 0.3,
+		},
+	},
+};
+const timelineItem = {
+	hidden: {
+		opacity: 0,
+		// y: 20
+	},
+	show: {
+		opacity: 1,
+		// y: 0,
+	},
+};
+
 export default function Timeline() {
 	return (
-		<div className="space-y-5 pt-20 md:space-y-10 pb-12">
-			<div className="mx-auto max-w-md text-center sm:max-w-xl">
+		<motion.div
+			variants={container}
+			initial="hidden"
+			whileInView={"show"}
+			viewport={{
+				// amount: 0.7,
+				once: true,
+			}}
+			className="space-y-5 pt-20 md:space-y-10 pb-12"
+		>
+			<motion.div
+				variants={containerItem}
+				className="mx-auto max-w-md text-center sm:max-w-xl"
+			>
 				<h2 className="font-display text-4xl dark:text-white/80 font-extrabold leading-tight text-black sm:text-5xl sm:leading-tight">
 					What I have{" "}
 					<span
@@ -49,18 +104,23 @@ export default function Timeline() {
 					Check out The projects I have built while working on
 					hivepath
 				</p>
-			</div>
-			<ul className="mx-5 max-w-2xl md:mx-auto ">
+			</motion.div>
+			<motion.ul
+				variants={timelineContainer}
+				initial="hidden"
+				whileInView="show"
+				className="mx-5 max-w-2xl md:mx-auto "
+			>
 				{data
 					.sort((a, b) => b.publishedAt.localeCompare(a.publishedAt))
 					.slice(0, 6)
 					.map((post) => (
-						<li key={post.title}>
+						<motion.li variants={timelineItem} key={post.title}>
 							<TimelineEntry post={post} />
-						</li>
+						</motion.li>
 					))}
-			</ul>
-		</div>
+			</motion.ul>
+		</motion.div>
 	);
 }
 
@@ -80,7 +140,10 @@ const TimelineEntry = ({
 				{post.title}
 			</p>
 		</div>
-		<div className="col-span-7 flex items-center">
+		<div
+			// variants={containerItem}
+			className="col-span-7 flex items-center"
+		>
 			<div className="relative ml-4">
 				<div className="h-16 border-l border-gray-400 pr-8" />
 				<div className="absolute -left-1 top-[1.6875rem] h-2.5 w-2.5 rounded-full bg-gray-400 transition-colors group-hover:bg-gray-700 group-hover:dark:bg-white" />
