@@ -3,7 +3,7 @@
 import React from "react";
 import Tilt from "react-parallax-tilt";
 import LinkCard from "./LinkCard";
-
+import { motion } from "framer-motion";
 const data = [
 	{
 		title: "Lattis.ai",
@@ -127,6 +127,26 @@ const data = [
 		description: "My Portfolio as a beginner.",
 	},
 ];
+
+const container = {
+	hidden: { opacity: 0 },
+	show: {
+		opacity: 1,
+		transition: {
+			delayChildren: 0.2,
+			staggerChildren: 0.3,
+		},
+	},
+};
+
+const containerItem = {
+	hidden: { opacity: 0, y: 20 },
+	show: {
+		opacity: 1,
+		y: 0,
+	},
+};
+
 export default function Projects() {
 	return (
 		<div className="max-w-6xl mx-auto py-8">
@@ -135,18 +155,25 @@ export default function Projects() {
 					My Projects
 				</span>
 			</h1>
-			<div className="md:max-w-4xl max-w-md grid md:grid-cols-2 grid-cols-1 gap-4 mx-auto">
+			<motion.div
+				variants={container}
+				initial="hidden"
+				whileInView="show"
+				className="md:max-w-4xl max-w-md grid md:grid-cols-2 grid-cols-1 gap-4 mx-auto"
+			>
 				{data.map((item) => (
-					<LinkCard
-						key={item.title}
-						title={item.title}
-						url={item.link}
-						description={item.description}
-						builtWith={item.builtWith}
-					/>
+					<motion.div variants={containerItem}>
+						<LinkCard
+							key={item.title}
+							title={item.title}
+							url={item.link}
+							description={item.description}
+							builtWith={item.builtWith}
+						/>
+					</motion.div>
 					// <ProjectCard key={item.title} data={item} />
 				))}
-			</div>
+			</motion.div>
 		</div>
 	);
 }
