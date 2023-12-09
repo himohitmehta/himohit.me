@@ -56,7 +56,7 @@ const Hero = ({}) => {
 				className="mt-5 dark:text-gray-400 text-gray-600 sm:text-xl"
 			>
 				Building web applications with React, Next.JS, Material UI,
-				Tailwind CSS, Redux, Vercel, and PlanetScale. I'm building
+				Tailwind CSS, Redux, Vercel, and PlanetScale. I&apos;m building
 				{/* Building web applications with React, Next.JS, Material UI,
 				Tailwind CSS, Redux, Vercel, and PlanetScale. I&apos;m building{" "} */}
 				<a
