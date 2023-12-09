@@ -162,9 +162,8 @@ export default function Projects() {
 				className="md:max-w-4xl max-w-md grid md:grid-cols-2 grid-cols-1 gap-4 mx-auto"
 			>
 				{data.map((item) => (
-					<motion.div variants={containerItem}>
+					<motion.div variants={containerItem} key={item.title}>
 						<LinkCard
-							key={item.title}
 							title={item.title}
 							url={item.link}
 							description={item.description}
