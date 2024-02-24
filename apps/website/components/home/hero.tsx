@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import TextTypingEffect from "./typing-text/typing-text-effect";
+import { MovingBorder, MovingBorderButton } from "../ui/moving-border";
 
 const container = {
 	hidden: { opacity: 0 },
@@ -28,17 +29,11 @@ const Hero = ({}) => {
 			variants={container}
 			initial="hidden"
 			animate="show"
-			className="mx-auto mb-10 mt-12 max-w-md px-2.5 text-center sm:max-w-lg sm:px-0"
+			className="mx-auto mb-10 mt-16 max-w-md px-2.5 text-center sm:max-w-lg sm:px-0"
 		>
-			<motion.span
-				variants={containerItem}
-				// href={`/${link}`}
-				className="group mx-auto flex max-w-fit items-center justify-center space-x-2 overflow-hidden rounded-full border border-gray-200 bg-white px-7 py-2 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.1)] backdrop-blur transition-all hover:border-gray-300 hover:bg-white/50"
-			>
-				<p className="text-sm font-semibold text-gray-700">
-					Hi, I&apos;m Mohit
-				</p>
-			</motion.span>
+			<MovingBorderButton className="text-sm font-semibold text-white">
+				Hi, I&apos;m Mohit
+			</MovingBorderButton>
 
 			<motion.h1
 				variants={containerItem}
@@ -75,6 +70,7 @@ const Hero = ({}) => {
 					target="_blank"
 					rel="noreferrer"
 				>
+					{" "}
 					saroh.io
 				</a>{" "}
 				in weekends.{" "}

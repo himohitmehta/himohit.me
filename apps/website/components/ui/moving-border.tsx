@@ -10,7 +10,7 @@ import {
 import { useRef } from "react";
 import { cn } from "@/lib/utils";
 
-export function Button({
+export function MovingBorderButton({
 	borderRadius = "1.75rem",
 	children,
 	as: Component = "button",
@@ -56,7 +56,7 @@ export function Button({
 
 			<div
 				className={cn(
-					"relative bg-slate-900/[0.8] border border-slate-800 backdrop-blur-xl text-white flex items-center justify-center w-full h-full text-sm antialiased",
+					"relative bg-blue-400  bg-slate-900/[0.8] border border-slate-800 backdrop-blur-xl text-white flex items-center justify-center w-full h-full text-sm antialiased",
 					className,
 				)}
 				style={{
