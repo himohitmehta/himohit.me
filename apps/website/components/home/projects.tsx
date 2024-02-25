@@ -43,9 +43,9 @@ export default function Projects() {
 					<motion.div variants={containerItem} key={item.title}>
 						<LinkCard
 							title={item.title}
-							url={item.link}
-							description={item.description}
-							builtWith={item.builtWith}
+							url={item.link as string}
+							description={item.description as string}
+							builtWith={item.builtWith as string}
 						/>
 					</motion.div>
 					// <ProjectCard key={item.title} data={item} />
