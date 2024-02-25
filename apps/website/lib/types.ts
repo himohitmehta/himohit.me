@@ -34,12 +34,11 @@ type ProjectStatus =
 
 type TechStack = {
 	name: string;
-    id: string;
+	id: string;
 	icon?: IconType;
 	type: TechStackType | TechStackType[];
-    color?: string;
-
+	color?: string;
 };
-type TechStackType = "frontend" | "backend" | "database"|"hosting"| | "other";
+type TechStackType = "frontend" | "backend" | "database" | "hosting" | "other";
 
 export type { Project, TechStack };
