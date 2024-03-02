@@ -1,0 +1,316 @@
+---
+title: Converting a NextJS app to mono-repo using turbo-repo
+date: 2024-02-13
+description: Step by step guide to convert a NextJS app to a mono-repo using turbo-repo.
+author: Mohit Mehta
+tag: NextJS, Turbo repo
+---
+
+Recently, I wanted to convert my portfolio repository to a mono-repo using turbo-repo. I wanted to convert the NextJS app to turbo-repo so that I could build multiple apps in the same repo which can share packages among them.
+
+You can check the starter source code here: [https://github.com/himohitmehta/himohit.me/tree/before-turbo-repo](https://github.com/himohitmehta/himohit.me/tree/before-turbo-repo), this is deployed to [himohit.me](himohit.me). After converting this to a mono-repo I can deploy the apps to:
+
+-   [himohit.me](himohit.me)
+-   [blogs.himohit.me](blogs.himohit.me)
+
+## Why turbo?
+
+[turbo](https://turbo.build/) is an incremental bundler and build system optimized for JavaScript and TypeScript, written in Rust.
+
+It consists of 2 parts:
+
+-   Turborepo: A CLI tool that runs on your machine and is responsible for building your project.
+-   Turbopack: an incremental bundler (the successor to Webpack)
+
+Jared Palmer, who is also the creator of Formik, built Turbo, and Vercel acquired it in 2021.
+
+I’ve written this guide to help others convert their project into a mono repo.
+
+## Let's begin:
+
+Clone the repository [https://github.com/himohitmehta/himohit.me/tree/before-turbo-repo](https://github.com/himohitmehta/himohit.me/tree/before-turbo-repo) and install the dependencies using `pnpm install` and then run the application to check if everything is working fine, run the app using `pnpm dev`.
+You should see something like this
+
+![My PortFolio Image](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/fyfe5agbxq523c8vjea8.png)
+
+Next Step:
+Stop the server and continue
+
+## Adding Turborepo
+
+```bash copy
+pnpm add turbo --global
+```
+
+the next step is to add `turbo.json` file in the root directory of the project:
+
+```json copy
+{
+	"$schema": "https://turbo.build/schema.json",
+	"pipeline": {
+		"build": {
+			"outputs": [".next/**", "!.next/cache/**"]
+		},
+		"lint": {}
+	}
+}
+```
+
+We can now run `turbo dev` to run the app
+
+```bash copy
+turbo dev
+```
+
+If everything was successful, you should see a similar output:
+
+![Terminal Output](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/q2dbdlleym40dtuaji6a.png)
+
+## Convert the project to monorepo
+
+To convert our single project to a monorepo, we need three steps:
+
+1. Move our single app to an apps folder, where our web applications will be
+2. Define our workspace by creating a package.json in the root folder
+3. Create a packages folder. That's where we'll put our shared components and logic
+
+### Move our single app to the `apps` folder
+
+Run the following commands in the root folder of our project:
+
+```bash copy
+# create the directory
+ mkdir -p ./apps/website
+
+# move the directory
+mv ./** ./.** ./apps/website
+```
+
+The error shown below is because the `git bash` is not running as an Administrator.
+
+```bash
+mv: cannot move './apps' to a subdirectory of itself, './apps/website/apps'
+mv: cannot move './components' to './apps/website/components': Permission denied
+mv: cannot move './node_modules' to './apps/website/node_modules': Permission denied
+mv: cannot move './.git' to './apps/website/.git': Permission denied
+mv: cannot move './.next' to './apps/website/.next': Permission denied
+```
+
+![Terminal screenshot](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/m0cqx7sm3amlwbsgyh5r.png)
+
+you might see the above error in Windows, to resolve this, run the `git bash` as an Administrator and close the current VS Code window.
+
+Now you should see something like this.
+![Terminal screenshot](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/2dv8lcplcbs0nkqf5o41.png)
+
+The current folder structure will look like this:
+
+![Folder structure](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/8u870vmt4htu47tv7a55.png)
+
+Now let's move back the .git folder, .gitignore and .turbo files
+
+```bash copy
+mv ./apps/website/.git ./apps/website/.gitignore ./apps/website/.turbo ./apps/website/turbo.json ./
+
+```
+
+The current folder structure looks like this:
+
+![Folder structure](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/zjusi050tc0xchylz1de.png)
+
+## Create `package.json` in the root folder
+
+```json copy
+{
+	"name": "himohit.me",
+	"version": "0.1.0",
+	"private": true,
+	"packageManager": "pnpm@6.14.1",
+	"scripts": {
+		"dev": "turbo dev"
+	}
+}
+```
+
+### Add the workspace config:
+
+**pnpm-workspace.yaml**
+
+```yaml copy
+packages:
+    - "apps/*"
+    - "packages/*"
+```
+
+## Create the `packages` folder:
+
+We’d now want to create the packages folder to put our shared components in. Run this command to create it:
+
+```bash copy
+mkdir -p packages/ui/components
+```
+
+Run `pnpm init` inside the ui folder.
+
+![create package](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/3mxyhcp0l1j0ue5a5e1c.png)
+
+We will continue working on this `ui` package later. For now, we will focus on building a `blogs` app using `Nextra`.
+
+Let's create a new app in the apps folder by using the following command:
+
+```bash copy
+mkdir -p ./apps/blogs
+
+# create `package.json`
+pnpm init
+
+# add the dependencies
+pnpm add next react react-dom nextra nextra-theme-blog
+
+```
+
+Create the following `next.config.js` file in your blogs directory:
+
+```js copy
+const withNextra = require("nextra")({
+	theme: "nextra-theme-blog",
+	themeConfig: "./theme.config.jsx",
+});
+
+module.exports = withNextra();
+
+// If you have other Next.js configurations, you can pass them as the parameter:
+// module.exports = withNextra({ /* other next.js config */ })
+```
+
+create the corresponding `theme.config.jsx` file in your blog's directory. This will be used to configure the Nextra Blog theme:
+
+```jsx copy
+export default {
+	footer: <p>MIT 2023 © Nextra.</p>,
+	head: ({ title, meta }) => (
+		<>
+			{meta.description && (
+				<meta name="description" content={meta.description} />
+			)}
+			{meta.tag && <meta name="keywords" content={meta.tag} />}
+			{meta.author && <meta name="author" content={meta.author} />}
+		</>
+	),
+	readMore: "Read More →",
+	postFooter: null,
+	darkMode: false,
+	navs: [
+		{
+			url: "https://github.com/shuding/nextra",
+			name: "Nextra",
+		},
+	],
+};
+```
+
+Inside `pages` create an `index.mdx` file with the content you want.
+
+Update the `turbo.json` with the following:
+
+```json copy
+{
+	"$schema": "https://turbo.build/schema.json",
+	"globalDependencies": ["**/.env.*local"],
+	"pipeline": {
+		"build": {
+			"dependsOn": ["^build"],
+			"outputs": [".next/**", "!.next/cache/**"]
+		},
+		"lint": {},
+		"dev": {
+			"cache": false,
+			"persistent": true
+		}
+	}
+}
+```
+
+If everything is fine: you should be able to see this in the terminal after running `pnpm dev`:
+
+![Running the repo apps](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/9uctdij2mgc17tbq3jpq.png)
+Open the URL in the browser:
+[http://localhost:3000/](http://localhost:3000/)
+
+![Running localhost:3000](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/mdkjic7ijumjesw9pf6y.png)
+
+[http://localhost:3001](http://localhost:3001)
+
+![Running localhost:3000](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/zgj4v6wi4vmce3wxpezz.png)
+
+Great it's working. Congratulations 🎉🎊 you have successfully completed the migration.
+
+The final code is present here: https://github.com/himohitmehta/himohit.me/tree/after-turbo-repo
+The deployed link: [himohit.me](himohit.me)
+
+> Note: Please Update the `.gitignore` file to ignore the `node_modules` and `.next` folder
+
+**.gitignore**
+
+```.gitignore copy
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# next.js
+.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# local env files
+.env*.local
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+.turbo
+```
+
+## Bonus: Updating the Vercel deployment settings:
+
+Go to `Project Settings` in Vercel dashboard:
+
+![Project Settings in vercel](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/b2iph1mvsf3jwbpk29iy.png)
+
+Update the Build command to:
+
+```bash copy
+cd ../.. && turbo run build --filter={apps/website}...
+```
+
+and `Root Directory` to:
+
+![Root Directory in vercel](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/qhy3cf7ti6zns3u0lv9p.png)
+
+Update the Website name inside the `apps/website` directory `package.json`, name to "website".
+
+That's it, you have deployed your app on Vercel.
+
+You can check the Source code here: [https://github.com/himohitmehta/himohit.me](https://github.com/himohitmehta/himohit.me) and deployed link: [himohit.me](himohit.me)
+
+Thanks for your time. I hope this will be helpful to you guys.

@@ -9,7 +9,6 @@ export default function Home() {
 	return (
 		<main className="px-4">
 			{/* <ThemeToggle /> */}
-			<Navbar className="top-2" />
 			{/* <TracingBeam> */}
 			<Hero />
 			<Timeline />
