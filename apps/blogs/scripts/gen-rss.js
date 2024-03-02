@@ -11,7 +11,7 @@ async function generate() {
 	});
 
 	const posts = await fs.readdir(
-		path.join(__dirname, "..", "pages", "posts"),
+		path.join(__dirname, "..", "pages", ),
 	);
 	const allPosts = [];
 	await Promise.all(
@@ -19,13 +19,13 @@ async function generate() {
 			if (name.startsWith("index.")) return;
 
 			const content = await fs.readFile(
-				path.join(__dirname, "..", "pages", "posts", name),
+				path.join(__dirname, "..", "pages", name),
 			);
 			const frontmatter = matter(content);
 
 			allPosts.push({
 				title: frontmatter.data.title,
-				url: "/posts/" + name.replace(/\.mdx?/, ""),
+				url: "/" + name.replace(/\.mdx?/, ""),
 				date: frontmatter.data.date,
 				description: frontmatter.data.description,
 				categories: frontmatter.data.tag.split(", "),
