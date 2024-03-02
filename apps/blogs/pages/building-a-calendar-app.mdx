@@ -1,0 +1,1036 @@
+---
+title: Building a calendar app with Nextjs, mongodb, react-big-calendar and redux.
+date: 2023-06-24
+description: In this tutorial, we will be building a calendar app with `nextjs`, `react-big-calendar`, `material-ui`, `redux`, and `mongodb`.
+author: Mohit Mehta
+---
+
+## Calendar app built with Nextjs
+
+Before we begin, here is the code and demo of what we are building
+
+-   Github Repository: [https://github.com/himohitmehta/calendar-app-tutorial](https://github.com/himohitmehta/calendar-app-tutorial)
+-   Demo : [https://calendar-app.mohitmehta.dev/](https://calendar-app.mohitmehta.dev/)
+
+In this tutorial, we will be building a calendar app with `nextjs`, `react-big-calendar`, `material-ui`, `redux`, and `mongodb`.
+
+### Create the project
+
+In order to build our project, we need to run the following command:
+
+```bash copy
+npx creat-next-app calendar-app-nextjs
+```
+
+Once the project is created after the above mentioned command you need to open the folder in `VS Code` or any `IDE` of your choice.
+
+Now run the following command to add the dependencies to your project
+
+```
+npm install @reduxjs/toolkit date-fns date-fns-tz mongoose react-big-calendar react-redux redux redux-logger redux-persist redux-saga redux-thunk @emotion/styled @emotion/react @mui/material
+```
+
+This command will add the required dependencies to the project.
+
+Now, we need to start building the application
+
+Your folder structure should look like this at this point:
+
+```bash
+- pages
+- public
+- styles
+```
+
+Now start by adding a `jsconfig.json` file to the project. This will help you configure absolute imports in your project.
+
+```json copy
+{
+	"compilerOptions": {
+		"baseUrl": "./"
+	}
+}
+```
+
+Now create `theme` directory and add a `index.js` file in it. This file will be responsible for setting the material-ui theme. Add the following code to the file:
+
+```js copy
+import { createTheme } from "@mui/material";
+const theme = createTheme({
+	typography: {
+		fontFamily: "Montserrat, sans-serif",
+	},
+	palette: {
+		primary: {
+			main: "#07617D",
+			dark: "#07617D",
+		},
+	},
+});
+
+export default theme;
+```
+
+After this, we will be adding redux to our application for state management.
+
+### Adding redux for state management
+
+Create a directory named `redux` in your project. Then create files named `configureStore.js`,`rootReducer.js`, `rootSaga.js` and a directory named `events`, inside `events` add the files named `events.helpers.js`, `events.saga.js` and `eventsSlice.js`.
+Let's add code to the files:
+
+```js copy
+`eventsSlice.js`;
+
+import { createSlice } from "@reduxjs/toolkit";
+
+const initialState = {
+	event: {},
+	events: [],
+};
+
+export const eventsSlice = createSlice({
+	name: "events",
+	initialState,
+	reducers: {
+		setEventData(state, action) {
+			state.event = action.payload;
+		},
+		fetchEventsStart() {},
+		setEvents(state, action) {
+			state.events = action.payload;
+		},
+	},
+});
+
+// Action creators are generated for each case reducer function
+export const { setEventData, setEvents, fetchEventsStart, setSchedules } =
+	eventsSlice.actions;
+
+export default eventsSlice.reducer;
+```
+
+events.helper.js
+
+```js copy
+export const handleFetchEvents = () => {
+	return new Promise((resolve, reject) => {
+		fetch("/api/events")
+			.then((res) => res.json())
+			.then((json) => {
+				return resolve(json);
+			})
+			.catch((error) => {
+				reject(error);
+			});
+	});
+};
+```
+
+events.saga.js
+
+```js copy
+import { all, call, put, takeLatest } from "redux-saga/effects";
+import { handleFetchEvents } from "./events.helpers";
+import { fetchEventsStart, setEvents } from "./eventsSlice";
+
+export function* fetchEvents({ payload }) {
+	try {
+		const events = yield handleFetchEvents();
+		yield put(setEvents(events));
+	} catch (error) {
+		console.log(error);
+	}
+}
+export function* onFetchEventsStart() {
+	yield takeLatest(fetchEventsStart.type, fetchEvents);
+}
+export default function* eventsSagas() {
+	yield all([call(onFetchEventsStart)]);
+}
+```
+
+rootSaga.js
+
+```js copy
+import { all, call } from "redux-saga/effects";
+import eventsSagas from "./events/events.saga";
+
+export default function* rootSaga() {
+	yield all([call(eventsSagas)]);
+}
+```
+
+rootReducer.js
+
+```js copy
+import { combineReducers } from "@reduxjs/toolkit";
+import storage from "redux-persist/lib/storage";
+import { persistReducer } from "redux-persist";
+import eventsSlice from "./events/eventsSlice";
+
+export const rootReducer = combineReducers({
+	eventsData: eventsSlice,
+});
+
+const configStorage = {
+	key: "root",
+	storage,
+	whitelist: ["events"],
+};
+
+export default persistReducer(configStorage, rootReducer);
+```
+
+configureStore.js
+
+```js copy
+import logger from "redux-logger";
+import createSagaMiddle from "redux-saga";
+import {
+	persistStore,
+	FLUSH,
+	REHYDRATE,
+	PAUSE,
+	PERSIST,
+	PURGE,
+	REGISTER,
+} from "redux-persist";
+import rootReducer from "./rootReducer";
+import { configureStore } from "@reduxjs/toolkit";
+import rootSaga from "./rootSaga";
+
+const sagaMiddleware = createSagaMiddle();
+
+export const store = configureStore({
+	reducer: rootReducer,
+	middleware:
+		process.env.NODE_ENV !== "production"
+			? (getDefaultMiddleware) =>
+					getDefaultMiddleware({
+						serializableCheck: false,
+					})
+						.concat(logger)
+						.concat(sagaMiddleware)
+			: (getDefaultMiddleware) =>
+					getDefaultMiddleware({
+						serializableCheck: {
+							ignoredActions: [
+								FLUSH,
+								REHYDRATE,
+								PAUSE,
+								PERSIST,
+								PURGE,
+								REGISTER,
+							],
+						},
+					}).concat(sagaMiddleware),
+	devTools: process.env.NODE_ENV !== "production",
+});
+
+export const persistor = persistStore(store);
+sagaMiddleware.run(rootSaga);
+
+export default {
+	store,
+	persistor,
+};
+```
+
+Here we have successfully completed the redux setup.
+
+Now we need to add the redux store and theme to the application. To do so, we will be editing the `_app.js` file inside `pages` directory.
+Replace the existing code with the following code:
+
+```jsx copy
+import { Provider } from "react-redux";
+import { persistor, store } from "redux/configureStore";
+import { PersistGate } from "redux-persist/integration/react";
+import "styles/globals.css";
+import { CssBaseline, ThemeProvider } from "@mui/material";
+import theme from "theme";
+
+function MyApp({ Component, pageProps }) {
+	return (
+		<Provider store={store}>
+			<PersistGate persistor={persistor}>
+				<ThemeProvider theme={theme}>
+					<CssBaseline />
+					<Component {...pageProps} />
+				</ThemeProvider>
+			</PersistGate>
+		</Provider>
+	);
+}
+
+export default MyApp;
+```
+
+## Creating the backend APIs
+
+now we will create a directory named `backend`. This will have all the backend code required to connect to the `mongodb` database.
+Inside `backend` directory, create two directories named `controllers` and `models`. Inside `models` we are going to create a file `eventModel.js`, this will be the schema file for `events`.
+Add the following code to the `eventmodel.js` file:
+
+```js copy
+const mongoose = require("mongoose");
+
+const Schema = mongoose.Schema;
+mongoose.Promise = global.Promise;
+const eventSchema = new Schema(
+	{
+		title: {
+			type: String,
+			required: true,
+		},
+		start: {
+			type: Date,
+			required: true,
+		},
+		end: {
+			type: Date,
+			required: true,
+		},
+		description: String,
+		timezone: String,
+		start_date: String,
+		end_date: String,
+		start_time: String,
+		end_time: String,
+		background: String,
+	},
+	{ timestamps: true, _id: true },
+);
+
+module.exports = mongoose.models.Event || mongoose.model("Event", eventSchema);
+```
+
+now inside `controllers` directory add a file named `eventController.js` and add the following code
+
+```js copy
+import Event from "../models/eventModel";
+import mongoose from "mongoose";
+
+// get all Events
+const getEvents = async (req, res) => {
+	const events = await Event.find({}).sort({ createdAt: -1 });
+
+	res.status(200).json(events);
+};
+
+// get a single Event
+const getEvent = async (req, res) => {
+	const {
+		query: { id },
+	} = req;
+
+	if (!mongoose.Types.ObjectId.isValid(id)) {
+		return res.status(404).json({ error: "No such Event" });
+	}
+
+	const event = await Event.findById(id);
+
+	if (!event) {
+		return res.status(404).json({ error: "No such Event" });
+	}
+
+	res.status(200).json(event);
+};
+
+// create a new Event
+const createEvent = async (req, res) => {
+	const { title } = req.body;
+
+	let emptyFields = [];
+
+	if (!title) {
+		emptyFields.push("title");
+	}
+	if (emptyFields.length > 0) {
+		return res
+			.status(400)
+			.json({ error: "Please fill in all fields", emptyFields });
+	}
+
+	// add to the database
+	try {
+		const event = await Event.create({
+			...req.body,
+		});
+		res.status(200).json({ result: event, status: "success" });
+	} catch (error) {
+		res.status(400).json({ error: error.message });
+	}
+};
+
+// delete a Event
+const deleteEvent = async (req, res) => {
+	const { id } = req.body;
+
+	// console.log({ body: req.body, id: req.body.id });
+	if (!mongoose.Types.ObjectId.isValid(id)) {
+		return res.status(400).json({
+			error: "Something is wrong",
+		});
+	}
+
+	const event = await Event.findOneAndDelete({ _id: id });
+
+	if (!event) {
+		return res.status(400).json({ error: "No such Event" });
+	}
+
+	res.status(200).json(event);
+};
+
+// update a Event
+const updateEvent = async (req, res) => {
+	const { id } = req.query;
+
+	if (!mongoose.Types.ObjectId.isValid(id)) {
+		return res.status(400).json({ error: "No such Event" });
+	}
+
+	const event = await Event.findOneAndUpdate(
+		{ _id: id },
+		{
+			...req.body,
+		},
+	);
+
+	if (!event) {
+		return res.status(400).json({ error: "No such Event" });
+	}
+
+	res.status(200).json(event);
+};
+
+module.exports = {
+	getEvents,
+	getEvent,
+	createEvent,
+	deleteEvent,
+	updateEvent,
+};
+```
+
+now that we have completed the required files we need to create a utility file that will help in setting up the connection with mongodb.
+Now create a directory named `utils` and add a file named `mongoDbConnect.js` to it. Add the following code to this file:
+
+```js copy
+import mongoose from "mongoose";
+
+const MONGODB_URI = process.env.MONGODB_URI;
+
+if (!MONGODB_URI) {
+	throw new Error(
+		"Please define the MONGODB_URI environment variable inside .env.local",
+	);
+}
+
+let cached = global.mongoose;
+
+if (!cached) {
+	cached = global.mongoose = { conn: null, promise: null };
+}
+
+async function dbConnect() {
+	if (cached.conn) {
+		return cached.conn;
+	}
+
+	if (!cached.promise) {
+		const opts = {
+			bufferCommands: false,
+		};
+
+		cached.promise = mongoose
+			.connect(MONGODB_URI, opts)
+			.then((mongoose) => {
+				return mongoose;
+			});
+	}
+
+	try {
+		cached.conn = await cached.promise;
+	} catch (e) {
+		cached.promise = null;
+		throw e;
+	}
+
+	return cached.conn;
+}
+
+export default dbConnect;
+```
+
+-   The only requirement here is the `MONGODB_URI`, you can get this from mongodb_atlas dashboard. This is the connection string to connect to mongodb Atlas.
+
+Now we will be creating the api for fetching the data.
+For this we'll have to create `events` directory inside `pages/api` directory. inside `events` create `index.js` and the following code:
+
+```js copy
+import dbConnect from "utils/mongoDbConnect";
+import {
+	getEvents,
+	createEvent,
+	deleteEvent,
+} from "backend/controllers/eventController";
+
+export default async function handler(req, res) {
+	const { method } = req;
+
+	await dbConnect();
+
+	switch (method) {
+		case "GET":
+			await getEvents(req, res);
+			break;
+		case "POST":
+			await createEvent(req, res);
+			break;
+		case "DELETE":
+			await deleteEvent(req, res);
+			break;
+		default:
+			res.status(400).json({ success: false });
+			break;
+	}
+}
+```
+
+that's it our backend is ready
+you can try this integration here [https://localhost:3000/api/events](https://localhost:3000/api/events)
+
+it will show an empty array in response.
+
+now, let's build the frontend
+
+### Building the calendar
+
+Let's create a folder named `components` and then inside `components` create a `Buttons` folder and a `Dialog` folder.
+Inside `Buttons` create `PrimayButton.js` file and add the following code:
+
+```jsx copy
+import { Button, styled } from "@mui/material";
+import React from "react";
+
+const StyledButton = styled(Button)(({ theme, ...props }) => ({
+	textTransform: "initial",
+	textTransform: "inherit",
+	borderColor: "white",
+	borderRadius: "50px",
+	color: "white",
+	paddingRight: "24px",
+	paddingLeft: "24px",
+	height: "48px",
+	background: " #07617D",
+
+	"&:hover": {
+		background: " #07617D",
+	},
+}));
+
+const PrimaryButton = ({ children, ...props }) => {
+	return (
+		<StyledButton
+			variant="contained"
+			sx={{
+				...props.sx,
+			}}
+			{...props}
+		>
+			{children}
+		</StyledButton>
+	);
+};
+
+export default PrimaryButton;
+```
+
+Inside `Dialog` folder create `index.js` file and add the following code
+
+```jsx copy
+import { Dialog, DialogContent, DialogTitle, IconButton } from "@mui/material";
+import React from "react";
+import { MdClose } from "react-icons/md";
+const BaseDialog = ({ open, handleClose, children, title }) => {
+	return (
+		<Dialog open={open} onClose={handleClose} sx={{}} scroll="paper">
+			<IconButton
+				onClick={() => handleClose()}
+				sx={{ position: "absolute", top: "10px", right: "10px" }}
+			>
+				<MdClose />
+			</IconButton>
+			{title && <DialogTitle>{title}</DialogTitle>}
+			<DialogContent>{children}</DialogContent>
+		</Dialog>
+	);
+};
+
+export default BaseDialog;
+```
+
+Now inside `components` folder create a folder `CustomCalendar`, Create three files named: `index.js`,`CreateEventPopup.js` and `DeleteEventPopup.js` and add the following code to the files
+
+**index.js**
+
+```jsx copy
+import React, { useState } from "react";
+import { Calendar, dateFnsLocalizer } from "react-big-calendar";
+import format from "date-fns/format";
+import parse from "date-fns/parse";
+import startOfWeek from "date-fns/startOfWeek";
+import getDay from "date-fns/getDay";
+import enUS from "date-fns/locale/en-US";
+import "react-big-calendar/lib/css/react-big-calendar.css";
+import withDragAndDrop from "react-big-calendar/lib/addons/dragAndDrop";
+import { useDispatch, useSelector } from "react-redux";
+import CreateEventPopUp from "./CreateEventPopup";
+import { setEventData } from "redux/events/eventsSlice";
+import DeleteEventPopup from "./DeleteEventPopup";
+const DragAndDropCalendar = withDragAndDrop(Calendar);
+
+const locales = {
+	"en-US": enUS,
+};
+
+let currentDate = new Date();
+let currentDay = currentDate.getDay();
+
+const localizer = dateFnsLocalizer({
+	format,
+	parse,
+	startOfWeek: () => startOfWeek(currentDate, { weekStartsOn: currentDay }),
+	getDay,
+	locales,
+});
+
+const customDayPropGetter = (date) => {
+	const currentDate = new Date();
+	if (date < currentDate)
+		return {
+			className: "disabled-day",
+			style: {
+				cursor: "not-allowed",
+				background: "rgba(184, 184, 184, 0.1)",
+			},
+		};
+	else return {};
+};
+
+const CustomCalendar = ({ events = [], height, style, ...calendarProps }) => {
+	const calendarRef = React.createRef();
+	const dispatch = useDispatch();
+	const [openDialog, setOpenDialog] = useState(false);
+	const [openRemoveDialog, setOpenRemoveDialog] = useState(false);
+	const [data, setData] = useState({});
+
+	const setEventCellStyling = (event) => {
+		if (event.background) {
+			let style = {
+				background: "rgba(7, 97, 125, 0.1)",
+				border: `1px solid ${event.background}`,
+				color: "#07617D",
+				borderLeft: `3px solid ${event.background}`,
+
+				fontWeight: 600,
+				fontSize: "11px",
+			};
+			return { style };
+		}
+		let style = {
+			background: "rgba(7, 97, 125, 0.1)",
+			border: `1px solid #07617D`,
+			color: "#07617D",
+			borderLeft: "3px solid #07617D",
+
+			fontWeight: 600,
+			fontSize: "11px",
+		};
+		return { style };
+	};
+
+	const formats = {
+		weekdayFormat: "EEE",
+		timeGutterFormat: "hh a",
+	};
+
+	const handleSelect = ({ start, end }) => {
+		const currentDate = new Date();
+		if (start < currentDate) {
+			return null;
+		}
+		if (start > end) return;
+
+		handleOpenPopup();
+		dispatch(setEventData({ start, end }));
+	};
+	const handleOpenPopup = () => {
+		setOpenDialog(true);
+	};
+	const handleEventSelect = (event) => {
+		handleRemoveDialogOpen();
+		setData(event);
+	};
+	const handleRemoveDialogOpen = () => {
+		setOpenRemoveDialog(true);
+	};
+	const handleRemoveDialogClose = () => {
+		setOpenRemoveDialog(false);
+		setEventData({});
+	};
+	const handleDialogClose = () => {
+		setOpenDialog(false);
+		dispatch(setEventData({}));
+	};
+
+	return (
+		<>
+			<DragAndDropCalendar
+				ref={calendarRef}
+				localizer={localizer}
+				formats={formats}
+				popup={true}
+				events={events}
+				selectable
+				resizable
+				longPressThreshold={1}
+				eventPropGetter={setEventCellStyling}
+				dayPropGetter={customDayPropGetter}
+				onSelectSlot={handleSelect}
+				onSelectEvent={handleEventSelect}
+				views={{ week: true }}
+				step={30}
+				drilldownView={"week"}
+				scrollToTime={currentDate.getHours()}
+				defaultView={"week"}
+				style={{ height: height ? height : "68vh", ...style }}
+				{...calendarProps}
+			/>
+
+			<CreateEventPopUp
+				open={openDialog}
+				handleClose={handleDialogClose}
+			/>
+			<DeleteEventPopup
+				open={openRemoveDialog}
+				handleClose={handleRemoveDialogClose}
+				event={data}
+			/>
+		</>
+	);
+};
+
+export default CustomCalendar;
+```
+
+**CreateEventPopup.js**
+
+```jsx copy
+import React from "react";
+import {
+	Container,
+	Dialog,
+	DialogTitle,
+	TextField,
+	Typography,
+} from "@mui/material";
+import { useState } from "react";
+import PrimaryButton from "components/Common/Buttons/PrimaryButton";
+import { useDispatch, useSelector } from "react-redux";
+import { format } from "date-fns";
+import { fetchEventsStart } from "redux/events/eventsSlice";
+import BaseDialog from "components/Common/Dialog";
+
+const mapState = ({ eventsData }) => ({
+	event: eventsData.event,
+});
+
+const CreateEventPopUp = ({ handleClose, open }) => {
+	const { event } = useSelector(mapState);
+	const startTimeAndDate = event.start;
+	const endTimeAndDate = event.end;
+	const from_time = startTimeAndDate && format(startTimeAndDate, "hh:mma");
+	const formattedStartDate =
+		startTimeAndDate && format(startTimeAndDate, "eeee, MMMM dd, yyyy ");
+	const to_time = endTimeAndDate && format(endTimeAndDate, "hh:mma");
+	const [title, setTitle] = useState("");
+	const [backgroundColor, setBackgroundColor] = useState("#000000");
+	const dispatch = useDispatch();
+
+	const handleCreateEvent = (e) => {
+		e.preventDefault();
+
+		try {
+			const schema = {
+				title: title,
+				description: "",
+				background: backgroundColor,
+				start: startTimeAndDate,
+				end: endTimeAndDate,
+			};
+			const url = "/api/events";
+			fetch(url, {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify(schema),
+			})
+				.then((res) => res.json())
+				.then((json) => {
+					dispatch(fetchEventsStart({ url: "/api/events" }));
+					setTitle("");
+				});
+		} catch (error) {
+			console.log(error);
+		}
+		handleClose();
+	};
+
+	return (
+		<BaseDialog open={open} handleClose={handleClose} scroll={`body`}>
+			<DialogTitle
+				style={{
+					fontSize: "21px",
+					fontWeight: "bold",
+					marginTop: "-24px",
+				}}
+			>
+				Add Event
+			</DialogTitle>
+
+			<Container
+				sx={{
+					background: "white",
+					top: "30%",
+					left: "10%",
+					minWidth: "450px",
+					paddingBottom: "64px",
+				}}
+			>
+				{formattedStartDate && (
+					<Typography sx={{ fontSize: "18px", fontWeight: "500" }}>
+						{formattedStartDate}, {from_time} - {to_time}
+					</Typography>
+				)}
+				<TextField
+					fullWidth
+					sx={{ marginTop: "16px" }}
+					placeholder="Title"
+					label="Title"
+					value={title}
+					onChange={(e) => setTitle(e.target.value)}
+				/>
+				<div>
+					<div style={{ paddingTop: "16px" }}>
+						<label style={{ fontWeight: 700 }}>Select Color</label>
+						<div style={{ display: "flex" }}>
+							{colorsList.map((item) => {
+								return (
+									<div
+										key={item}
+										style={{
+											width: "20px",
+											height: "20px",
+											background: item,
+											marginRight: "8px",
+										}}
+										onClick={() => setBackgroundColor(item)}
+									></div>
+								);
+							})}
+						</div>
+
+						<input
+							type={"color"}
+							value={backgroundColor}
+							onChange={(e) => setBackgroundColor(e.target.value)}
+							style={{
+								width: "100%",
+								marginTop: "4px",
+								border: "none",
+								background: "none",
+							}}
+						/>
+						<Typography>
+							Selected color: <b>{backgroundColor}</b>
+						</Typography>
+					</div>
+				</div>
+
+				<div
+					style={{
+						display: "flex",
+						padding: "8px",
+						justifyContent: "center",
+						paddingTop: "32px",
+					}}
+				>
+					<PrimaryButton
+						onClick={handleCreateEvent}
+						sx={{
+							paddingRight: "32px",
+							paddingLeft: "32px",
+						}}
+					>
+						Confirm
+					</PrimaryButton>
+				</div>
+			</Container>
+		</BaseDialog>
+	);
+};
+
+export default CreateEventPopUp;
+
+const colorsList = [
+	"#624b4b",
+	"#bc2020",
+	"#bc20b6",
+	" #420b40",
+	"#1fad96",
+	"#3538ed",
+	" #1c474a",
+	"#32bb30",
+	"#cae958",
+	"#dc3e09",
+];
+```
+
+**DeleteEventPopup.js**
+
+```jsx copy
+import React from "react";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { FormControlLabel, Radio, Typography } from "@mui/material";
+import BaseDialog from "components/Common/Dialog";
+import { fetchEventsStart } from "redux/events/eventsSlice";
+import PrimaryButton from "components/Common/Buttons/PrimaryButton";
+
+const DeleteEventPopup = ({ event, open, handleClose }) => {
+	const dispatch = useDispatch();
+
+	const handleRemoveEvent = () => {
+		const data = {
+			id: event._id,
+		};
+		fetch("/api/events", {
+			method: "DELETE",
+			headers: {
+				"Content-Type": "application/json",
+			},
+
+			body: JSON.stringify(data),
+		})
+			.then((res) => res.json())
+			.then((json) => {
+				handleClose();
+
+				dispatch(fetchEventsStart());
+			});
+	};
+
+	return (
+		<BaseDialog open={open} handleClose={handleClose}>
+			<div
+				style={{
+					display: "flex",
+					justifyContent: "center",
+					maxWidth: "480px",
+					flexDirection: "column",
+					paddingLeft: "8px",
+					paddingRight: "8px",
+					marginTop: "16px",
+				}}
+			>
+				<Typography
+					fontSize={`20px`}
+					fontWeight={`700`}
+					paddingBottom="16px"
+				>
+					Do you really want to delete this event?
+				</Typography>
+
+				<div
+					style={{
+						justifyContent: "center",
+						display: "flex",
+					}}
+				>
+					<PrimaryButton
+						title={`Confirm`}
+						onClick={handleRemoveEvent}
+					>
+						Confirm
+					</PrimaryButton>
+				</div>
+			</div>
+		</BaseDialog>
+	);
+};
+
+export default DeleteEventPopup;
+```
+
+Now that we have created the calendar, it's time for us to add the calendar to the `pages/index.js` by replacing all the existing code with the following code:
+
+```jsx copy
+import CustomCalendar from "components/CustomCalendar";
+import Head from "next/head";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchEventsStart } from "redux/events/eventsSlice";
+
+const mapState = ({ eventsData }) => ({
+	events: eventsData.events,
+});
+export default function Home() {
+	const dispatch = useDispatch();
+	const { events } = useSelector(mapState);
+
+	const getAllEvents = () => {
+		// fetch()
+		dispatch(fetchEventsStart());
+	};
+	useEffect(() => {
+		getAllEvents();
+	}, []);
+	const calendarEvents = events.map((item) => {
+		const { start, end } = item;
+		return {
+			...item,
+			start: new Date(start),
+			end: new Date(end),
+		};
+	});
+	return (
+		<div>
+			<Head>
+				<title>Calendar App</title>
+				<meta
+					name="description"
+					content="Generated by create next app"
+				/>
+				<link rel="icon" href="/favicon.ico" />
+			</Head>
+			<CustomCalendar height={"100vh"} events={calendarEvents} />
+		</div>
+	);
+}
+```
+
+That's it the frontend is now ready. you can add or delete the events.
+
+Congratulations! you have successfully created your calendar application.
+
+here is the code and demo of what we just built, you can clone the project and test it
+
+-   Github Repository: [https://github.com/himohitmehta/calendar-app-tutorial](https://github.com/himohitmehta/calendar-app-tutorial)
+-   Demo : [https://calendar-app.mohitmehta.dev/](https://calendar-app.mohitmehta.dev/)
+
+In the coming days I'll also add authentication and the ability to update the events in the calendar.
+
+I hope this is helpful for everyone 😊.
