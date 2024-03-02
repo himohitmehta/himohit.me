@@ -10,6 +10,7 @@ const projectsData: Project[] = [
 		builtWith: "NextJS, Tailwind CSS, Shadcn UI, and Vercel",
 		status: "completed",
 		type: "official",
+		image: "lattis.png",
 	},
 	{
 		id: "bluecom",
@@ -20,6 +21,7 @@ const projectsData: Project[] = [
 		builtWith: "NextJS, Material UI and Vercel",
 		status: "completed",
 		type: "official",
+		image: "bluecom.png",
 	},
 	{
 		id: "saroh",
@@ -30,6 +32,7 @@ const projectsData: Project[] = [
 		builtWith: "NextJS, Tailwind CSS, PlanetScale, Vercel and Stripe",
 		status: "in-progress",
 		type: ["personal", "open-source"],
+		image: "saroh.png",
 	},
 	{
 		id: "books-wagon-clone",
@@ -40,6 +43,7 @@ const projectsData: Project[] = [
 		builtWith: "NextJS, Material UI",
 		status: "completed",
 		type: ["personal", "open-source"],
+		image: "books-wagon-clone.png",
 	},
 	// {
 	// 	id: "calendar-app",
@@ -59,6 +63,7 @@ const projectsData: Project[] = [
 		builtWith: "React, TipTap Editor",
 		status: "completed",
 		type: "open-source",
+		image: "text-editor.png",
 	},
 	{
 		id: "calpad",
@@ -69,6 +74,7 @@ const projectsData: Project[] = [
 		builtWith: "NextJS, Material UI, ",
 		status: ["completed", "archived"],
 		type: "official",
+		image: "calpad.png",
 	},
 	{
 		id: "zello",
@@ -79,6 +85,7 @@ const projectsData: Project[] = [
 		builtWith: "Kotlin, Android, Firebase, Room Database",
 		status: ["completed", "not-maintained"],
 		type: "official",
+		image: "zello.png",
 	},
 	{
 		id: "hivepath",
@@ -89,6 +96,7 @@ const projectsData: Project[] = [
 		builtWith: "React, Material UI, ",
 		status: ["completed", "not-maintained"],
 		type: ["official", "work"],
+		image: "hivepath.png",
 	},
 
 	{
@@ -102,6 +110,7 @@ const projectsData: Project[] = [
 
 		status: ["completed", "not-maintained"],
 		type: ["tutorial", "open-source"],
+		image: "calendar-app-tutorial.png",
 	},
 	{
 		id: "nft-marketplace-demo",
