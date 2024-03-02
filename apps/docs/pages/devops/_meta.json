@@ -1,0 +1,23 @@
+{
+	"index": {
+		"title": "Introduction to DevOps"
+	},
+	"cloud-computing": {
+		"title": "Intro to Cloud Computing"
+	},
+	"app-security-devops": {
+		"title": "Application Security for DevOps"
+	},
+	"ci-cd": {
+		"title": "Continuous Integration and Continuous Deployment (CI/CD)"
+	},
+	"containers": {
+		"title": "Intro to Containers with Docker and Kubernetes"
+	},
+	"git-and-github": {
+		"title": "Get started with Git and GitHub"
+	},
+	"monitoring-devops": {
+		"title": "Monitoring for development and DevOps"
+	}
+}

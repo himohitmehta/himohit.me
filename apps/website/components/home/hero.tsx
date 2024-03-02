@@ -4,6 +4,9 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import TextTypingEffect from "./typing-text/typing-text-effect";
 import { MovingBorder, MovingBorderButton } from "../ui/moving-border";
+import ProjectHoverCard from "../shared/hover-card-component";
+import projectsData from "@/lib/data/projects";
+import { Project } from "@/lib/types";
 
 const container = {
 	hidden: { opacity: 0 },
@@ -63,8 +66,16 @@ const Hero = ({}) => {
 					{" "}
 					lattis.ai
 				</a>{" "}
-				at hivepath and working on
-				<a
+				at hivepath and working on{" "}
+				<ProjectHoverCard
+					name={"saroh.io"}
+					data={
+						projectsData.find(
+							(item) => item.id === "saroh",
+						) as Project
+					}
+				/>
+				{/* <a
 					className="text-blue-700 font-semibold hover:underline underline-offset-2 bg-gradient-to-r from-blue-400 via-blue-500 to-violet-800 bg-clip-text text-transparent"
 					href="https://saroh.io"
 					target="_blank"
@@ -72,7 +83,7 @@ const Hero = ({}) => {
 				>
 					{" "}
 					saroh.io
-				</a>{" "}
+				</a> */}{" "}
 				in weekends.{" "}
 			</motion.h2>
 
@@ -82,19 +93,22 @@ const Hero = ({}) => {
 			>
 				<a
 					href={`https://www.linkedin.com/in/himohit`}
-					className="rounded-full border border-black bg-black px-5 py-2 text-sm text-white shadow-lg transition-all hover:bg-white hover:text-black"
 					target="_blank"
 					rel="noreferrer"
+					className="relative inline-flex h-12 overflow-hidden rounded-md p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50"
 				>
-					Linkedin
+					<span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
+					<span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-md bg-slate-950 px-3 py-1 text-sm font-medium text-white backdrop-blur-3xl">
+						Linkedin
+					</span>
 				</a>
 				<a
-					className="flex items-center justify-center space-x-2 rounded-full border dark:text-black border-gray-300 bg-white px-5 py-2 shadow-lg transition-all hover:border-gray-800"
 					href="https://github.com/himohitmehta"
 					target="_blank"
 					rel="noreferrer"
+					className="inline-flex h-12 animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50"
 				>
-					<p className="text-sm"> GitHub</p>
+					Github
 				</a>
 			</motion.div>
 		</motion.div>

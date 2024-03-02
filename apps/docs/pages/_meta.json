@@ -1,0 +1,53 @@
+{
+	"index": "Home",
+	"web-development": {
+		"title": "Web Development",
+		"type": "menu",
+		"items": {
+			"html": {
+				"title": "HTML"
+			},
+			"css": {
+				"title": "CSS"
+			},
+			"js": {
+				"title": "Javascript"
+			},
+			"react": {
+				"title": "React"
+			},
+			"next-js": {
+				"title": "NextJS"
+			}
+		}
+	},
+	"databases": {
+		"title": "Databases",
+
+		"type": "page"
+	},
+	"devops": {
+		"title": "DevOps",
+		"type": "menu",
+		"items": {
+			"cloud-computing": {
+				"title": "Intro to Cloud Computing"
+			},
+			"app-security-devops": {
+				"title": "Application Security for DevOps"
+			},
+			"ci-cd": {
+				"title": "Continuous Integration and Continuous Deployment (CI/CD)"
+			},
+			"containers": {
+				"title": "Intro to Containers with Docker and Kubernetes"
+			},
+			"git-and-github": {
+				"title": "Get started with Git and GitHub"
+			},
+			"monitoring-devops": {
+				"title": "Monitoring for development and DevOps"
+			}
+		}
+	}
+}
