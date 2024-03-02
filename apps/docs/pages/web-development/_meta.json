@@ -1,0 +1,20 @@
+{
+	"index": {
+		"title": "Intro to web development"
+	},
+	"react": {
+		"title": "React"
+	},
+	"next-js": {
+		"title": "Next.js"
+	},
+	"html": {
+		"title": "HTML"
+	},
+	"css": {
+		"title": "CSS"
+	},
+	"js": {
+		"title": "JavaScript"
+	}
+}
