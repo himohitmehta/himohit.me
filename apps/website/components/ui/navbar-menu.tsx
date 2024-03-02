@@ -17,12 +17,14 @@ export const MenuItem = ({
 	setActive,
 	active,
 	item,
+	href,
 	children,
 }: {
 	setActive?: (item: string) => void;
 	active?: string | null;
 	item: string;
 	children?: React.ReactNode;
+	href?: string;
 }) => {
 	return (
 		<div
@@ -33,7 +35,7 @@ export const MenuItem = ({
 				transition={{ duration: 0.3 }}
 				className="cursor-pointer text-black hover:opacity-[0.7] dark:text-white"
 			>
-				{item}
+				{href ? <Link href={href}>{item}</Link> : item}
 			</motion.p>
 			{/* {active !== null && (
 				<motion.div

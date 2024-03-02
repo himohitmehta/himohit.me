@@ -3,12 +3,13 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import AppProvider from "./provider";
+import { Navbar } from "@/components/shared/navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-	title: "Mohit Mehta - software engineer at Hivepath. Building Bluecom.ai. ",
-	description: `I am software engineer at Hivepath. Building Bluecom.ai a multi-channel e-commerce platform with Next.JS, React, Typescript, Material UI, WooCommerce, Shopify, BigCommerce and Stripe. `,
+	title: "Mohit Mehta - software engineer at Hivepath. Building saroh.io ",
+	description: `I am software engineer at Hivepath. Building some really good projects with React, NextJS, TailwindCSS and Material UI. Recently, I have started building my own open-source projects. Currently I'm working on saroh.io. `,
 };
 export default function RootLayout({
 	children,
@@ -26,6 +27,8 @@ export default function RootLayout({
 						enableSystem
 						disableTransitionOnChange
 					>
+						<Navbar className="top-2" />
+
 						{children}
 					</ThemeProvider>
 				</AppProvider>
