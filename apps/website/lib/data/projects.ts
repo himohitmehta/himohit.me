@@ -11,6 +11,7 @@ const projectsData: Project[] = [
 		status: "completed",
 		type: "official",
 		image: "lattis.png",
+		icons: ["react", "nextjs", "tailwindcss"],
 	},
 	{
 		id: "bluecom",

@@ -5,6 +5,9 @@ import {
 	HoverCardContent,
 	HoverCardTrigger,
 } from "../ui/hover-card";
+import { BackgroundGradient } from "../ui/background-gradient";
+import Image from "next/image";
+import technologiesData from "@/lib/data/technologies";
 
 export default function ProjectHoverCard({
 	name,
@@ -20,10 +23,37 @@ export default function ProjectHoverCard({
 					{name}
 				</button>
 			</HoverCardTrigger>
-			<HoverCardContent className="w-80">
-				<div className=" space-x-4">
-					<h1 className="text-lg">{data.title}</h1>
-					<p className="text-sm"> {data.description}</p>
+			<HoverCardContent className="w-120 backdrop-blur-0 border-none">
+				<div>
+					<BackgroundGradient className="rounded-[22px] max-w-sm  bg-white dark:bg-zinc-900">
+						{data.image && (
+							<Image
+								src={`/images/${data.image}`}
+								alt={data.title}
+								height="400"
+								width="400"
+								className="object-contain rounded-t-[22px] "
+							/>
+						)}{" "}
+						<div className="px-4">
+							<h1 className="text-base sm:text-xl text-black mt-4 mb-2 dark:text-neutral-200">
+								{data.title}
+							</h1>
+							<p className="text-sm text-neutral-600 dark:text-neutral-400">
+								{data.description}
+							</p>
+							<div className="flex gap-2 pb-2">
+								{data.icons?.map((item) => {
+									const Icon = technologiesData.find(
+										(i) => i.id === item,
+									)?.icon;
+									return (
+										<Icon key={item} className="w-6 h-6" />
+									);
+								})}
+							</div>
+						</div>
+					</BackgroundGradient>
 				</div>
 			</HoverCardContent>
 		</HoverCard>
