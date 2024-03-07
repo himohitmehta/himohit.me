@@ -5,6 +5,7 @@ import Tilt from "react-parallax-tilt";
 import LinkCard from "./LinkCard";
 import { motion } from "framer-motion";
 import projectsData from "@/lib/data/projects";
+import { ProjectType } from "@/lib/types";
 
 const container = {
 	hidden: { opacity: 0 },
@@ -25,12 +26,24 @@ const containerItem = {
 	},
 };
 
-export default function Projects() {
+export default function Projects({
+	filter,
+	title,
+}: {
+	filter?: ProjectType;
+	title?: string;
+}) {
+	const data =
+		projectsData.filter(
+			(item) =>
+				item.type === filter ||
+				item.type?.includes(filter as ProjectType),
+		) || projectsData;
 	return (
 		<div className="max-w-6xl mx-auto py-8">
 			<h1 className="md:text-6xl text-2xl text-center font-bold py-8  ">
 				<span className="bg-gradient-to-r from-blue-300  via-blue-500 to-violet-700 italic pr-2 bg-clip-text text-transparent">
-					My Projects
+					{title || "My Projects"}
 				</span>
 			</h1>
 			<motion.div
@@ -39,13 +52,14 @@ export default function Projects() {
 				whileInView="show"
 				className="md:max-w-4xl max-w-md grid md:grid-cols-2 grid-cols-1 gap-4 mx-auto"
 			>
-				{projectsData.map((item) => (
+				{data.map((item) => (
 					<motion.div variants={containerItem} key={item.title}>
 						<LinkCard
 							title={item.title}
 							url={item.link as string}
 							description={item.description as string}
 							builtWith={item.builtWith as string}
+							image={item.image as string}
 						/>
 					</motion.div>
 					// <ProjectCard key={item.title} data={item} />

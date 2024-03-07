@@ -41,4 +41,4 @@ type TechStack = {
 };
 type TechStackType = "frontend" | "backend" | "database" | "hosting" | "other";
 
-export type { Project, TechStack };
+export type { Project, TechStack, ProjectStatus, ProjectType, TechStackType };

@@ -5,7 +5,8 @@ export default function ProjectsPage() {
 	return (
 		<div className="pt-24">
 			{" "}
-			<Projects />
+			<Projects title="Built by me" filter="official" />
+			{/* <Projects title="Personal Projects" filter="personal" /> */}
 		</div>
 	);
 }

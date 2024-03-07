@@ -23,6 +23,7 @@ const projectsData: Project[] = [
 		status: "completed",
 		type: "official",
 		image: "bluecom.png",
+		icons: ["react", "nextjs", "mui"],
 	},
 	{
 		id: "saroh",
@@ -32,8 +33,9 @@ const projectsData: Project[] = [
 		description: "Storefront , Portfolio and Blogging platform",
 		builtWith: "NextJS, Tailwind CSS, PlanetScale, Vercel and Stripe",
 		status: "in-progress",
-		type: ["personal", "open-source"],
+		type: ["personal", "open-source",'official'],
 		image: "saroh.png",
+		icons: ["react", "nextjs", "tailwindcss"],
 	},
 	{
 		id: "books-wagon-clone",
@@ -43,8 +45,9 @@ const projectsData: Project[] = [
 		description: "Books Selling platform",
 		builtWith: "NextJS, Material UI",
 		status: "completed",
-		type: ["personal", "open-source"],
+		type: ["personal", ],
 		image: "books-wagon-clone.png",
+		icons: ["react", "nextjs", "tailwindcss"],
 	},
 	// {
 	// 	id: "calendar-app",
@@ -65,6 +68,7 @@ const projectsData: Project[] = [
 		status: "completed",
 		type: "open-source",
 		image: "text-editor.png",
+		icons: ["react", "nextjs", "tailwindcss"],
 	},
 	{
 		id: "calpad",
@@ -76,6 +80,7 @@ const projectsData: Project[] = [
 		status: ["completed", "archived"],
 		type: "official",
 		image: "calpad.png",
+		icons: ["react", "nextjs", "mui"],
 	},
 	{
 		id: "zello",
@@ -87,6 +92,7 @@ const projectsData: Project[] = [
 		status: ["completed", "not-maintained"],
 		type: "official",
 		image: "zello.png",
+		icons: ["kotlin", "android", "firebase"],
 	},
 	{
 		id: "hivepath",
@@ -98,6 +104,7 @@ const projectsData: Project[] = [
 		status: ["completed", "not-maintained"],
 		type: ["official", "work"],
 		image: "hivepath.png",
+		icons: ["react", "redux", "mui"],
 	},
 
 	{
@@ -112,6 +119,7 @@ const projectsData: Project[] = [
 		status: ["completed", "not-maintained"],
 		type: ["tutorial", "open-source"],
 		image: "calendar-app-tutorial.png",
+		icons: ["react", "mui", "mongodb", "redux"],
 	},
 	{
 		id: "nft-marketplace-demo",

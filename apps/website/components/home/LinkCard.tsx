@@ -17,18 +17,29 @@ export default function LinkCard({
 	url,
 	description,
 	builtWith,
+	image,
 }: {
 	title: string;
 	url: string;
 	description: string;
 	builtWith: string;
+	image: string;
 }) {
 	return (
 		<div className="mx-auto flex w-full items-center justify-center">
 			<div className=" w-full rounded-md hover:bg-gradient-to-r from-blue-300 via-blue-500 to-orange-700 p-1">
 				<div className=" h-full w-full ">
-					<div className="flex max-w-md  items-center justify-between rounded-md hover:bg-gray-100 hover:dark:bg-gray-800 bg-white dark:bg-black p-3 shadow-lg transition-[border-color]  active:cursor-grabbing overflow-hidden">
-						<div className="flex items-start space-x-3">
+					<div className=" max-w-md  items-center justify-between rounded-md hover:bg-gray-100 hover:dark:bg-gray-800 bg-white dark:bg-black shadow-lg transition-[border-color]  active:cursor-grabbing overflow-hidden">
+						{image && (
+							<Image
+								src={`/images/${image}`}
+								alt={title}
+								height="400"
+								width="400"
+								className="object-contain w-full h-[220px] "
+							/>
+						)}{" "}
+						<div className="flex items-start space-x-3 p-3">
 							{/* <Link2Icon
 					// src={`${imageSrc}`}
 					// alt={"image"}
