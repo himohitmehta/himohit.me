@@ -1,6 +1,7 @@
 import Hero from "@/components/home/hero";
 import Projects from "@/components/home/projects";
 import Timeline from "@/components/home/timeline";
+import Tools from "@/components/shared/tools";
 
 export default function Home() {
 	return (
@@ -8,7 +9,7 @@ export default function Home() {
 			{/* <ThemeToggle /> */}
 			{/* <TracingBeam> */}
 			<Hero />
-			{/* <Tools /> */}
+			<Tools />
 			<Timeline />
 			{/* <Projects filter="official" /> */}
 			{/* </TracingBeam> */}
