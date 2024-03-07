@@ -2,6 +2,10 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import TextTypingEffect from "./typing-text/typing-text-effect";
+import projectsData from "@/lib/data/projects";
+import { Project } from "@/lib/types";
+import { HoverCard } from "../ui/hover-card";
+import ProjectHoverCard from "../shared/hover-card-component";
 
 const data = [
 	{
@@ -76,6 +80,10 @@ const timelineItem = {
 };
 
 export default function Timeline() {
+	const data = projectsData.filter((item) => {
+		return item.type === "official" || item.type?.includes("official");
+	});
+	console.log({ data });
 	return (
 		<motion.div
 			variants={container}
@@ -92,16 +100,17 @@ export default function Timeline() {
 				className="mx-auto max-w-md text-center sm:max-w-xl"
 			>
 				<h2 className="font-display text-4xl dark:text-white/80 font-extrabold leading-tight text-black sm:text-5xl sm:leading-tight">
-					What I have{" "}
+					{/* Projects I have{" "} */}
 					<span
 						// className="bg-gradient-to-br from-green-600 to-green-300 bg-clip-text pr-2 italic text-transparent"
 						className="bg-gradient-to-r from-blue-300 via-blue-500 to-violet-800 italic pr-2 bg-clip-text text-transparent"
 					>
 						Built
 					</span>
+					by me
 				</h2>
 				<p className="mt-5 text-gray-600 sm:text-lg">
-					Check out The projects I have built while working on
+					Check out the projects I have built while working on
 					hivepath
 				</p>
 			</motion.div>
@@ -112,7 +121,7 @@ export default function Timeline() {
 				className="mx-5 max-w-2xl md:mx-auto "
 			>
 				{data
-					.sort((a, b) => b.publishedAt.localeCompare(a.publishedAt))
+					// .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt))
 					.slice(0, 6)
 					.map((post) => (
 						<motion.li variants={timelineItem} key={post.title}>
@@ -127,18 +136,20 @@ export default function Timeline() {
 const TimelineEntry = ({
 	post,
 }: {
-	post: {
-		title: string;
-		link: string;
-		description: string;
-		publishedAt: string;
-	};
+	post: Project;
+	// {
+	// 	title: string;
+	// 	link: string;
+	// 	description: string;
+	// 	publishedAt: string;
+	// };
 }) => (
 	<a href={post.link} className="group  grid-cols-9 items-center grid">
 		<div className="col-span-2">
-			<p className="text-base font-medium text-gray-400 transition-colors group-hover:text-gray-700 group-hover:dark:text-white">
+			<ProjectHoverCard name={post.title} data={post} />
+			{/* <p className="text-base font-medium text-gray-400 transition-colors group-hover:text-gray-700 group-hover:dark:text-white">
 				{post.title}
-			</p>
+			</p> */}
 		</div>
 		<div
 			// variants={containerItem}
