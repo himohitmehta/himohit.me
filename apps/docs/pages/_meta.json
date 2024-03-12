@@ -1,7 +1,7 @@
 {
 	"index": "Home",
-	"web-development": {
-		"title": "Web Development",
+	"development": {
+		"title": "Development",
 		"type": "menu",
 		"items": {
 			"html": {
