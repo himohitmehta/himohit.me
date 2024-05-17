@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import ReactPlayer from "react-player";
+import { CardBody, CardContainer, CardItem } from "../ui/3d-card";
 export default function VideoPlayer({ url }: { url: string }) {
 	const [isPlaying, setIsPlaying] = React.useState(false);
 
@@ -8,18 +9,18 @@ export default function VideoPlayer({ url }: { url: string }) {
 		<div
 			onMouseEnter={() => setIsPlaying(true)}
 			onMouseLeave={() => setIsPlaying(false)}
-			className="p-4"
+			className="wrapper"
 		>
-			{/* <ExamplePlayer url={url} /> */}
 			<ReactPlayer
-				className={"h-96 w-full"}
-				width={400}
-				height={240}
+				className={"react-player rounded-md"}
+				// width={400}
+				// height={240}
 				url={url}
 				playing={isPlaying}
 				volume={0}
-				// controls={true}
+				controls={isPlaying}
 			/>
+			{/* <ExamplePlayer url={url} /> */}
 		</div>
 	);
 }

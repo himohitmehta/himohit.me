@@ -1,16 +1,6 @@
 const madeWithUnityVideos = [
 	{
 		id: 1,
-		title: "Made with Unity videos",
-		videos: [
-			`https://assets.rmws.cloud/himohit/videos/movie_00121h42m2021-05-06.mp4`,
-			`https://assets.rmws.cloud/himohit/videos/movie_00221h44m2021-05-06.mp4`,
-			`https://assets.rmws.cloud/himohit/videos/movie_00321h50m2021-05-06.mp4`,
-			`https://assets.rmws.cloud/himohit/videos/movie_00421h57m2021-05-06.mp4`,
-		],
-	},
-	{
-		id: 2,
 		title: "Unity Examples and tutorials",
 		videos: [
 			`https://assets.rmws.cloud/himohit/videos/movie2020-07-1614h17m.mp4`,
@@ -19,15 +9,17 @@ const madeWithUnityVideos = [
 			`https://assets.rmws.cloud/himohit/videos/Rendered_Movie_take-002.mp4`,
 		],
 	},
-
 	{
-		id: 4,
-		title: "vehicle ai",
+		id: 2,
+		title: "Made with Unity videos",
 		videos: [
-			`https://assets.rmws.cloud/himohit/videos/vehicel-ai3.mp4`,
-			`https://assets.rmws.cloud/himohit/videos/vehicle-ai.mp4`,
+			`https://assets.rmws.cloud/himohit/videos/movie_00121h42m2021-05-06.mp4`,
+			`https://assets.rmws.cloud/himohit/videos/movie_00221h44m2021-05-06.mp4`,
+			`https://assets.rmws.cloud/himohit/videos/movie_00321h50m2021-05-06.mp4`,
+			`https://assets.rmws.cloud/himohit/videos/movie_00421h57m2021-05-06.mp4`,
 		],
 	},
+
 	{
 		id: 4,
 		title: "Exploring set ",
@@ -51,8 +43,6 @@ const madeWithUnityVideos = [
 			`https://assets.rmws.cloud/himohit/videos/movie_01922h31m.mp4`,
 			`https://assets.rmws.cloud/himohit/videos/movie_02122h34m.mp4`,
 			`https://assets.rmws.cloud/himohit/videos/movie_02311h28m.mp4`,
-			`https://assets.rmws.cloud/himohit/videos/movie_02422h07m.mp4`,
-			`https://assets.rmws.cloud/himohit/videos/movie_02522h10m.mp4`,
 		],
 	},
 ];

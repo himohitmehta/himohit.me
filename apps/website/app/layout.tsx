@@ -7,9 +7,16 @@ import { Navbar } from "@/components/shared/navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
+const title = "Mohit Mehta - software engineer at Hivepath. Building saroh.io ";
+const description = `I am software engineer at Hivepath. Building some really good projects with React, NextJS, TailwindCSS and Material UI. Recently, I have started building my own open-source projects. Currently I'm working on saroh.io. `;
 export const metadata: Metadata = {
-	title: "Mohit Mehta - software engineer at Hivepath. Building saroh.io ",
-	description: `I am software engineer at Hivepath. Building some really good projects with React, NextJS, TailwindCSS and Material UI. Recently, I have started building my own open-source projects. Currently I'm working on saroh.io. `,
+	title: title,
+	description: description,
+	openGraph: {
+		title: title,
+		description: description,
+	},
+	metadataBase: new URL("https://himohit.me"),
 };
 export default function RootLayout({
 	children,

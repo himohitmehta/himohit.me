@@ -27,7 +27,8 @@ export function Navbar({ className }: { className?: string }) {
 			<Menu setActive={setActive}>
 				<MenuItem item="Home" href="/"></MenuItem>
 				{/* <MenuItem item="About Me" href="/about"></MenuItem> */}
-				<MenuItem item="Projects" href="/projects"></MenuItem>
+				<MenuItem item="Web Projects" href="/projects"></MenuItem>
+				<MenuItem item="Built with unity" href="/videos"></MenuItem>
 				{/* <ThemeToggle /> */}
 			</Menu>
 		</div>
