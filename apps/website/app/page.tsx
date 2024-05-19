@@ -10,7 +10,9 @@ export default function Home() {
 			{/* <TracingBeam> */}
 			<Hero />
 			<Tools />
-			<Timeline />
+			{/* <Timeline /> */}
+			<Projects title="Built by me" filter="official" />
+
 			{/* <Projects filter="official" /> */}
 			{/* </TracingBeam> */}
 		</main>
