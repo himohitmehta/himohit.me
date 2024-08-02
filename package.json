@@ -3,7 +3,6 @@
 	"version": "0.1.0",
 	"private": true,
 	"packageManager": "pnpm@9.0.4",
-	
 	"scripts": {
 		"build": "turbo build",
 		"dev": "turbo dev --concurrency 100",
@@ -12,6 +11,6 @@
 	},
 	"devDependencies": {
 		"prettier": "^3.1.0",
-		"turbo": "latest"
+		"turbo": "^2.0.3"
 	}
 }
