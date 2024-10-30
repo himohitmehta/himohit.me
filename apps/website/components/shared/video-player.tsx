@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import ReactPlayer from "react-player";
-import { CardBody, CardContainer, CardItem } from "../ui/3d-card";
 export default function VideoPlayer({ url }: { url: string }) {
 	const [isPlaying, setIsPlaying] = React.useState(false);
 

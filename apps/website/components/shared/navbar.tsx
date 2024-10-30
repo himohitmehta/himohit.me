@@ -1,8 +1,7 @@
 "use client";
 import React, { useState } from "react";
-import { HoveredLink, Menu, MenuItem, ProductItem } from "../ui/navbar-menu";
+import { Menu, MenuItem } from "../ui/navbar-menu";
 import { cn } from "@/lib/utils";
-import { ThemeToggle } from "../ThemeToggle";
 
 // export function NavbarDemo() {
 //   return (
@@ -20,12 +19,16 @@ export function Navbar({ className }: { className?: string }) {
 	return (
 		<div
 			className={cn(
-				"fixed top-10 inset-x-0 max-w-sm mx-auto z-50 ",
+				"fixed top-10 inset-x-0 max-w-sm lg:max-w-lg mx-auto z-50 ",
 				className,
 			)}
 		>
 			<Menu setActive={setActive}>
 				<MenuItem item="Home" href="/"></MenuItem>
+				<MenuItem
+					item="Blogs"
+					href="https://blogs.himohit.me"
+				></MenuItem>
 				{/* <MenuItem item="About Me" href="/about"></MenuItem> */}
 				<MenuItem item="Web Projects" href="/projects"></MenuItem>
 				<MenuItem item="Built with unity" href="/videos"></MenuItem>

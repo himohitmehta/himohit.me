@@ -3,16 +3,14 @@ const path = require("path");
 const RSS = require("rss");
 const matter = require("gray-matter");
 
-async function generate() {
+async function Generate() {
 	const feed = new RSS({
 		title: "Mohit Mehta'",
 		site_url: "https://blogs.himohit.me",
 		feed_url: "https://blogs.himohit.me/feed.xml",
 	});
 
-	const posts = await fs.readdir(
-		path.join(__dirname, "..", "pages", ),
-	);
+	const posts = await fs.readdir(path.join(__dirname, "..", "pages"));
 	const allPosts = [];
 	await Promise.all(
 		posts.map(async (name) => {
@@ -41,4 +39,4 @@ async function generate() {
 	await fs.writeFile("./public/feed.xml", feed.xml({ indent: true }));
 }
 
-generate();
+Generate();

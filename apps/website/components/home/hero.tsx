@@ -1,9 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
-import TextTypingEffect from "./typing-text/typing-text-effect";
-import { MovingBorder, MovingBorderButton } from "../ui/moving-border";
+import { MovingBorderButton } from "../ui/moving-border";
 import ProjectHoverCard from "../shared/hover-card-component";
 import projectsData from "@/lib/data/projects";
 import { Project } from "@/lib/types";
@@ -45,28 +43,29 @@ const Hero = ({}) => {
 			>
 				Software Engineer
 				<br />
-				<span className="bg-gradient-to-r from-blue-300 via-blue-500 to-violet-800 bg-clip-text text-transparent">
+				{/* <span className="bg-gradient-to-r from-blue-300 via-blue-500 to-violet-800 bg-clip-text text-transparent">
 					at Hivepath
-				</span>
+				</span> */}
 			</motion.h1>
 			<motion.h2
 				variants={containerItem}
 				className="mt-5 dark:text-gray-400 text-gray-600 sm:text-xl"
 			>
 				Building web applications with React, Next.JS, Material UI,
-				Tailwind CSS, Redux, Vercel, and PlanetScale. I&apos;m building
+				Tailwind CSS, Redux, Vercel, React Query, Typescript, Shadcn UI,
+				Prisma, tRPC and MySQL. I&apos;m building
 				{/* Building web applications with React, Next.JS, Material UI,
 				Tailwind CSS, Redux, Vercel, and PlanetScale. I&apos;m building{" "} */}
 				<a
 					className="text-blue-700 font-semibold hover:underline underline-offset-2 bg-gradient-to-r from-blue-400 via-blue-500 to-violet-800 bg-clip-text text-transparent"
-					href="https://lattis.ai"
+					href="https://memox.pro"
 					target="_blank"
 					rel="noreferrer"
 				>
 					{" "}
-					lattis.ai
+					memox.pro
 				</a>{" "}
-				at hivepath and working on{" "}
+				and{" "}
 				<ProjectHoverCard
 					name={"saroh.io"}
 					data={
@@ -83,8 +82,8 @@ const Hero = ({}) => {
 				>
 					{" "}
 					saroh.io
-				</a> */}{" "}
-				in weekends.{" "}
+				</a> */}
+				{". "}
 			</motion.h2>
 
 			<motion.div
@@ -92,7 +91,7 @@ const Hero = ({}) => {
 				className="mx-auto mt-10 flex max-w-fit space-x-4"
 			>
 				<a
-					href={`https://www.linkedin.com/in/himohit`}
+					href={`https://www.linkedin.com/in/himohitmehta`}
 					target="_blank"
 					rel="noreferrer"
 					className="relative inline-flex h-12 overflow-hidden rounded-md p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50"

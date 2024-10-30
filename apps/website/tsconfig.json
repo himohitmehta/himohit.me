@@ -27,7 +27,8 @@
 		"**/*.ts",
 		"**/*.tsx",
 		".next/types/**/*.ts",
-		"components/shared/example-player.js"
+		"components/shared/example-player.js",
+		"components/shared/work-timeline"
 	],
 	"exclude": ["node_modules"]
 }
