@@ -1,4 +1,4 @@
-export const Theme = {
+export default {
 	footer: false,
 	head: ({ title, meta }) => (
 		<>
@@ -13,4 +13,3 @@ export const Theme = {
 	postFooter: null,
 	// darkMode: false,
 };
-export default Theme;

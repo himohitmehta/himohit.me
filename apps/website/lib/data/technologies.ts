@@ -17,6 +17,7 @@ import {
 	SiNetlify,
 	SiNextdotjs,
 	SiNodedotjs,
+	SiPostgresql,
 	SiPython,
 	SiReact,
 	SiReactquery,
@@ -26,6 +27,8 @@ import {
 	SiSlack,
 	SiTailwindcss,
 	SiTrello,
+	SiTrpc,
+	SiTypescript,
 	SiVercel,
 	SiVisualstudiocode,
 } from "react-icons/si";
@@ -237,6 +240,27 @@ const technologiesData: TechStack[] = [
 		id: "vscode",
 		icon: SiVisualstudiocode,
 		color: "#007ACC",
+	},
+	{
+		name: "tRPC",
+		type: "frontend",
+		id: "trpc",
+		icon: SiTrpc,
+		color: "#000000",
+	},
+	{
+		name: "PostgreSQL",
+		type: "database",
+		id: "postgresql",
+		icon: SiPostgresql,
+		color: "#336791",
+	},
+	{
+		name: "Typescript",
+		type: "frontend",
+		id: "typescript",
+		icon: SiTypescript,
+		color: "#3178C6",
 	},
 ];
 

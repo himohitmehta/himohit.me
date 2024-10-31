@@ -53,10 +53,11 @@ const Hero = ({}) => {
 			>
 				Building web applications with React, Next.JS, Material UI,
 				Tailwind CSS, Redux, Vercel, React Query, Typescript, Shadcn UI,
-				Prisma, tRPC and MySQL. I&apos;m building
+				Prisma, tRPC and MySQL.
+				{/* I&apos;m building */}
 				{/* Building web applications with React, Next.JS, Material UI,
 				Tailwind CSS, Redux, Vercel, and PlanetScale. I&apos;m building{" "} */}
-				<a
+				{/* <a
 					className="text-blue-700 font-semibold hover:underline underline-offset-2 bg-gradient-to-r from-blue-400 via-blue-500 to-violet-800 bg-clip-text text-transparent"
 					href="https://memox.pro"
 					target="_blank"
@@ -73,7 +74,7 @@ const Hero = ({}) => {
 							(item) => item.id === "saroh",
 						) as Project
 					}
-				/>
+				/> */}
 				{/* <a
 					className="text-blue-700 font-semibold hover:underline underline-offset-2 bg-gradient-to-r from-blue-400 via-blue-500 to-violet-800 bg-clip-text text-transparent"
 					href="https://saroh.io"
@@ -83,7 +84,6 @@ const Hero = ({}) => {
 					{" "}
 					saroh.io
 				</a> */}
-				{". "}
 			</motion.h2>
 
 			<motion.div
