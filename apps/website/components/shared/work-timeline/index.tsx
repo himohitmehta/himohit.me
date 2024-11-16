@@ -27,8 +27,7 @@ export function TimelineDemo() {
 						</span>
 					</div>
 					<div>
-						I have worked as a software engineer at Hivepath. I have
-						built the following apps.
+						Worked as a software engineer at Hivepath and built the following apps:
 					</div>
 					<Projects filter={"hivepath"} hideTitle />
 				</div>
