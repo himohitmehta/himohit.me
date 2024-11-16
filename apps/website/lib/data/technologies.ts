@@ -1,13 +1,17 @@
 import {
 	SiAndroid,
+	SiCss3,
 	SiDigitalocean,
 	SiExpress,
 	SiFigma,
 	SiFirebase,
 	SiFlask,
+	SiGatsby,
 	SiGit,
 	SiGithub,
 	SiGitlab,
+	SiHtml5,
+	SiJavascript,
 	SiJira,
 	SiJirasoftware,
 	SiKotlin,
@@ -28,6 +32,7 @@ import {
 	SiTailwindcss,
 	SiTrello,
 	SiTrpc,
+	SiTurborepo,
 	SiTypescript,
 	SiVercel,
 	SiVisualstudiocode,
@@ -45,6 +50,27 @@ import { TechStack } from "../types";
 
 const technologiesData: TechStack[] = [
 	{
+		name: "HTML",
+		type: "frontend",
+		id: "html",
+		icon: SiHtml5,
+		color: "#E34F26",
+	},
+	{
+		name: "CSS",
+		type: "frontend",
+		id: "css",
+		icon: SiCss3,
+		color: "#1572B6",
+	},
+	{
+		name: "Javascript",
+		type: "frontend",
+		id: "javascript",
+		icon: SiJavascript,
+		color: "#F7DF1E",
+	},
+	{
 		name: "React",
 		type: "frontend",
 		id: "react",
@@ -59,11 +85,25 @@ const technologiesData: TechStack[] = [
 		color: "#000000",
 	},
 	{
+		name: "Gatsby",
+		type: "frontend",
+		id: "gatsby",
+		icon: SiGatsby,
+		color: "#663399",
+	},
+	{
 		name: "Tailwind CSS",
 		type: "frontend",
 		id: "tailwindcss",
 		icon: SiTailwindcss,
 		color: "#06B6D4",
+	},
+	{
+		name: "Turborepo",
+		type: "other",
+		id: "turbo",
+		icon: SiTurborepo,
+		color: "#EF4444",
 	},
 	{
 		name: "Material UI",
@@ -131,6 +171,7 @@ const technologiesData: TechStack[] = [
 	{
 		name: "Vercel",
 		type: "hosting",
+
 		id: "vercel",
 		icon: SiVercel,
 		color: "#000000",

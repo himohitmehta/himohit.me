@@ -11,10 +11,10 @@ export default function VideosPage() {
 	}, []);
 
 	return (
-		<div>
+		<div className="px-4">
 			<Suspense fallback={"Loading"}>
 				{isClient ? (
-					<div className="mt-20">
+					<div className="mt-32 lg:mt-20">
 						<div className="my-8 mx-auto max-w-7xl text-center">
 							<h1 className="text-3xl font-medium">
 								Some cool things I built with Unity 🚀

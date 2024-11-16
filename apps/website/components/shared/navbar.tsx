@@ -30,7 +30,7 @@ export function Navbar({ className }: { className?: string }) {
 					href="https://blogs.himohit.me"
 				></MenuItem>
 				{/* <MenuItem item="About Me" href="/about"></MenuItem> */}
-				<MenuItem item="Web Projects" href="/projects"></MenuItem>
+				<MenuItem item="Projects" href="/projects"></MenuItem>
 				<MenuItem item="Built with unity" href="/videos"></MenuItem>
 				{/* <ThemeToggle /> */}
 			</Menu>

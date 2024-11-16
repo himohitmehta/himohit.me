@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import AppProvider from "./provider";
 import { Navbar } from "@/components/shared/navbar";
+import Contact from "@/components/shared/contact";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -37,6 +38,7 @@ export default function RootLayout({
 						<Navbar className="top-2" />
 
 						{children}
+						<Contact />
 					</ThemeProvider>
 				</AppProvider>
 			</body>

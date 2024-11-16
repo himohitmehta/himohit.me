@@ -30,7 +30,7 @@ const Hero = ({}) => {
 			variants={container}
 			initial="hidden"
 			animate="show"
-			className="mx-auto mb-10 mt-16 max-w-md px-2.5 text-center sm:max-w-lg sm:px-0"
+			className="mx-auto mb-10 mt-24 max-w-md px-2.5 text-center sm:max-w-lg sm:px-0"
 		>
 			<MovingBorderButton className="text-sm font-semibold text-white">
 				Hi, I&apos;m Mohit
@@ -41,7 +41,7 @@ const Hero = ({}) => {
 				data-testid="hero-text"
 				className="mt-5 font-display dark:text-white/80 text-4xl font-extrabold leading-[1.15] text-black sm:text-6xl sm:leading-[1.15]"
 			>
-				Software Engineer
+				a Software Engineer
 				<br />
 				{/* <span className="bg-gradient-to-r from-blue-300 via-blue-500 to-violet-800 bg-clip-text text-transparent">
 					at Hivepath

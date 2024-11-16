@@ -5,7 +5,7 @@ type Project = {
 	title: string;
 	description?: string;
 	image?: string;
-	builtWith: string | string[];
+	builtWith: string[];
 	icons?: string[];
 	githubLink?: string;
 	publishedAt?: string;
@@ -13,13 +13,16 @@ type Project = {
 	links?: string[];
 	status?: ProjectStatus | ProjectStatus[];
 	type?: ProjectType | ProjectType[];
+	from_date?: string;
+	to_date?: string;
 };
 type ProjectType =
 	| "official"
 	| "personal"
 	| "tutorial"
 	| "open-source"
-	| "work";
+	| "work"
+	| "hivepath";
 
 type ProjectStatus =
 	| "planned"

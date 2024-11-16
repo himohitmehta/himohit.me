@@ -1,3 +1,4 @@
+import { TracingBeamDemo } from "@/components/shared/tracing-beam-demo";
 import React from "react";
 
 export default function AboutMePage() {
@@ -7,6 +8,9 @@ export default function AboutMePage() {
 			Building some really good projects with React, NextJS, TailwindCSS
 			and Material UI. Recently, I have started building my own
 			open-source projects. Currently I&apos;m working on saroh.io.
+			<div>
+				<TracingBeamDemo />
+			</div>
 		</div>
 	);
 }
