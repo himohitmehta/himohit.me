@@ -6,6 +6,7 @@ import LinkCard from "./link-card";
 import { motion } from "framer-motion";
 import projectsData from "@/lib/data/projects";
 import { Project, ProjectType } from "@/lib/types";
+import { cn } from "@/lib/utils";
 
 const container = {
 	hidden: { opacity: 0 },
@@ -30,10 +31,12 @@ export default function Projects({
 	filter,
 	title,
 	hideTitle = false,
+	gridClassName,
 }: {
 	filter?: ProjectType;
 	title?: string;
 	hideTitle?: boolean;
+	gridClassName?: string;
 }) {
 	const data = filter
 		? projectsData.filter(
@@ -55,7 +58,10 @@ export default function Projects({
 				variants={container}
 				initial="hidden"
 				whileInView="show"
-				className="md:max-w-4xl max-w-md grid md:grid-cols-2 grid-cols-1 gap-4 mx-auto"
+				className={cn(
+					"md:max-w-4xl max-w-md grid md:grid-cols-2 grid-cols-1 gap-4 mx-auto",
+					gridClassName,
+				)}
 			>
 				{data.map((item: Project) => (
 					<motion.div

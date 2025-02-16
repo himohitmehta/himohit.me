@@ -10,6 +10,28 @@ import RenderTechIcon from "../render-tech-icon";
 export function TimelineDemo() {
 	const data = [
 		{
+			title: "Dattam Labs",
+			content: (
+				<div>
+					<h1 className="text-2xl font-medium mb-4">
+						Software Engineer
+					</h1>
+					<div className="flex justify-between mb-2">
+						<span className="text-sm  font-medium flex items-center gap-2">
+							<MapPin className="size-4" />
+							Remote{" "}
+						</span>
+						<span className="text-xs text-muted-foreground flex items-center gap-2">
+							<CalendarIcon className="size-4" />
+							Feb 2025 - Present
+						</span>
+					</div>
+					<div>
+					Working as a software engineer.</div>
+				</div>
+			),
+		},
+		{
 			title: "Hivepath",
 			content: (
 				<div>
@@ -27,7 +49,8 @@ export function TimelineDemo() {
 						</span>
 					</div>
 					<div>
-						Worked as a software engineer at Hivepath and built the following apps:
+						Worked as a software engineer at Hivepath and built the
+						following apps:
 					</div>
 					<Projects filter={"hivepath"} hideTitle />
 				</div>

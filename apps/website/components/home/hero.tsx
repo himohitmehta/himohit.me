@@ -5,6 +5,7 @@ import { MovingBorderButton } from "../ui/moving-border";
 import ProjectHoverCard from "../shared/hover-card-component";
 import projectsData from "@/lib/data/projects";
 import { Project } from "@/lib/types";
+import { SiGithub, SiLinkedin } from "react-icons/si";
 
 const container = {
 	hidden: { opacity: 0 },
@@ -43,9 +44,9 @@ const Hero = ({}) => {
 			>
 				a Software Engineer
 				<br />
-				{/* <span className="bg-gradient-to-r from-blue-300 via-blue-500 to-violet-800 bg-clip-text text-transparent">
-					at Hivepath
-				</span> */}
+				<span className="bg-gradient-to-r from-blue-300 via-blue-500 to-violet-800 bg-clip-text text-transparent">
+					at Dattam Labs
+				</span>
 			</motion.h1>
 			<motion.h2
 				variants={containerItem}
@@ -98,7 +99,7 @@ const Hero = ({}) => {
 				>
 					<span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
 					<span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-md bg-slate-950 px-3 py-1 text-sm font-medium text-white backdrop-blur-3xl">
-						Linkedin
+						<SiLinkedin className="mr-4" /> Linkedin
 					</span>
 				</a>
 				<a
@@ -107,7 +108,7 @@ const Hero = ({}) => {
 					rel="noreferrer"
 					className="inline-flex h-12 animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50"
 				>
-					Github
+					<SiGithub className="mr-4" /> Github
 				</a>
 			</motion.div>
 		</motion.div>
