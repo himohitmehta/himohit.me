@@ -9,8 +9,8 @@ import Contact from "@/components/shared/contact";
 const inter = Inter({ subsets: ["latin"] });
 
 const title =
-	"Mohit Mehta - software engineer at Dattam Labs. Building saroh.io ";
-const description = `I am software engineer at Dattam Labs. Building some really good projects with React, NextJS, TailwindCSS and Material UI. Recently, I have started building my own open-source projects. Currently I'm working on saroh.io. `;
+	"Mohit Mehta - Senior Software Engineer at Dattam Labs. Building saroh.io ";
+const description = `I am Senior Software Engineer at Dattam Labs. Building some really good projects with React, NextJS, TailwindCSS and Material UI. Recently, I have started building my own open-source projects. Currently I'm working on saroh.io. `;
 export const metadata: Metadata = {
 	title: title,
 	description: description,

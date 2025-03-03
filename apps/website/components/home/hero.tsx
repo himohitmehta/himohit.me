@@ -42,7 +42,7 @@ const Hero = ({}) => {
 				data-testid="hero-text"
 				className="mt-5 font-display dark:text-white/80 text-4xl font-extrabold leading-[1.15] text-black sm:text-6xl sm:leading-[1.15]"
 			>
-				a Software Engineer
+				a Senior Software Engineer
 				<br />
 				<span className="bg-gradient-to-r from-blue-300 via-blue-500 to-violet-800 bg-clip-text text-transparent">
 					at Dattam Labs
