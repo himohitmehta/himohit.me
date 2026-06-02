@@ -228,17 +228,12 @@ export const currentFocus: FocusItem[] = [
 	{
 		state: "building",
 		title: "Saroh, my platform for creators",
-		body: "My main project — one tool where creators can run their store, portfolio and blog together. I build every part myself, from design to backend, to learn by doing and to fully own something. It's open source, so others can learn from it too.",
+		body: "My main project — one tool where creators can run their store, portfolio and blog together. I build every part myself, from design to backend, using Claude and other AI tools to move fast and learn as I go. It's open source, so others can learn from it too.",
 	},
 	{
 		state: "shipping",
 		title: "Engineering at Dattam Labs",
 		body: "My day job — building and shipping software with a team, used by real customers at real scale.",
-	},
-	{
-		state: "exploring",
-		title: "Building with AI",
-		body: "Exploring how people and AI can work together well inside a product — using everything I learned building AI tools earlier.",
 	},
 ];
 

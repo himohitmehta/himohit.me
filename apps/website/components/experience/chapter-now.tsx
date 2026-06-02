@@ -28,7 +28,7 @@ export default function ChapterNow() {
 					</h2>
 				</Reveal>
 
-				<div className="grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-line bg-line md:grid-cols-3">
+				<div className="grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-line bg-line md:grid-cols-2">
 					{currentFocus.map((item, i) => {
 						const meta = stateMeta[item.state];
 						return (
