@@ -97,7 +97,7 @@ export const story: StoryBeat[] = [
 		year: "2025 → now",
 		kicker: "What I'm building today",
 		title: "Today I build products people rely on.",
-		body: "By day I'm a software engineer at Dattam Labs, building software used by real customers. By night I build Saroh — my own platform for creators, where I do every part myself to keep learning and to own something end to end. It's open source, so others can learn from it too.",
+		body: "By day I'm a software engineer at Dattam Labs, building software used by real customers. In my own time I work on Saroh — my own platform for creators, where I do every part myself to keep learning and to own something end to end. It's open source, so others can learn from it too.",
 	},
 ];
 
@@ -120,7 +120,7 @@ export const caseStudies: CaseStudy[] = [
 	{
 		id: "saroh",
 		name: "Saroh",
-		tag: "Building now · a home base for creators",
+		tag: "Personal project · a home base for creators",
 		year: "2023 → now",
 		image: "/images/saroh.png",
 		link: "https://saroh.in",
@@ -129,9 +129,9 @@ export const caseStudies: CaseStudy[] = [
 		vision:
 			"One place a creator can call home — store, portfolio and blog together in a single tool they fully own. Built openly, for everyone to use.",
 		system:
-			"I'm building all of it myself — the design, the frontend and the backend — with Next.js, Prisma and MySQL. It's where I get to try new ideas and learn by doing every part.",
+			"I build all of it myself — the design, the frontend and the backend — with Next.js, Prisma and MySQL. It's where I try new ideas and learn by doing every part, in my own time.",
 		impact:
-			"Saroh is the one I fully own: my decisions, my mistakes, mine to fix. I'm building it out in the open and as open source, so others can learn from it too.",
+			"Saroh is the one I fully own: my decisions, my mistakes, mine to fix. I work on it whenever I get the time, in the open and as open source, so others can learn from it too.",
 		stack: ["nextjs", "react", "typescript", "tailwindcss", "prisma", "mysql"],
 	},
 	{
@@ -228,7 +228,7 @@ export const currentFocus: FocusItem[] = [
 	{
 		state: "building",
 		title: "Saroh, my platform for creators",
-		body: "My main project — one tool where creators can run their store, portfolio and blog together. I build every part myself, from design to backend, using Claude and other AI tools to move fast and learn as I go. It's open source, so others can learn from it too.",
+		body: "A personal project I build in my own time — one tool where creators can run their store, portfolio and blog together. I work on every part myself, from design to backend, using Claude and other AI tools to learn as I go. It's open source, so others can learn from it too.",
 	},
 	{
 		state: "shipping",

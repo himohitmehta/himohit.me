@@ -66,7 +66,7 @@ export default function LinkCard({
 								<span className="absolute inline-flex h-full w-full animate-pulse-ring rounded-full bg-amber-bright opacity-60" />
 								<span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-amber-bright" />
 							</span>
-							Building now
+							In progress
 						</span>
 					)}
 					{isRetired && retiredStatus && (

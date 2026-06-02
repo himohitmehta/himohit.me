@@ -94,8 +94,8 @@ export default function ChapterHero() {
 					I&apos;m a software engineer who turns designs into fast,
 					polished web products people enjoy using. Right now
 					I&apos;m building at{" "}
-					<span className="text-ink">{founder.now.company}</span> and
-					on{" "}
+					<span className="text-ink">{founder.now.company}</span>, and
+					in my own time on{" "}
 					<a
 						href="https://saroh.in"
 						target="_blank"
