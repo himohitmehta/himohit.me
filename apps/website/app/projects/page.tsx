@@ -1,6 +1,21 @@
 import React from "react";
 import Projects from "@/components/home/projects";
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+	title: "Projects",
+	description:
+		"A full list of what Mohit Mehta has built — from Saroh and AI-agent platforms to commerce engines, open-source tools and early experiments. Built with React, Next.js and TypeScript.",
+	alternates: { canonical: "/projects" },
+	openGraph: {
+		title: "Projects · Mohit Mehta",
+		description:
+			"Everything Mohit Mehta has built, in one place — platforms, open-source tools and experiments.",
+		url: "https://himohit.me/projects",
+		type: "website",
+	},
+};
 
 export default function ProjectsPage() {
 	return (

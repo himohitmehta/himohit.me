@@ -22,31 +22,55 @@ const description =
 	"Mohit Mehta is a software engineer who builds fast, polished web products and turns designs into great frontends. Currently building at Dattam Labs and on Saroh, an open platform for creators. Open to interesting problems and collaborations.";
 
 export const metadata: Metadata = {
-	title,
+	title: {
+		default: title,
+		template: "%s · Mohit Mehta",
+	},
 	description,
+	applicationName: "Mohit Mehta",
 	keywords: [
 		"Mohit Mehta",
-		"founder",
 		"software engineer",
 		"frontend developer",
+		"full-stack developer",
+		"React developer",
+		"Next.js developer",
 		"product builder",
 		"Saroh",
 		"Dattam Labs",
-		"Next.js",
 		"TypeScript",
+		"web developer portfolio",
+		"hire software engineer",
 	],
 	authors: [{ name: "Mohit Mehta", url: "https://himohit.me" }],
+	creator: "Mohit Mehta",
+	publisher: "Mohit Mehta",
+	alternates: {
+		canonical: "/",
+	},
 	openGraph: {
 		title,
 		description,
 		url: "https://himohit.me",
-		siteName: "himohit.me",
+		siteName: "Mohit Mehta",
+		locale: "en_US",
 		type: "website",
 	},
 	twitter: {
 		card: "summary_large_image",
 		title,
 		description,
+		creator: "@himohitmehta",
+	},
+	robots: {
+		index: true,
+		follow: true,
+		googleBot: {
+			index: true,
+			follow: true,
+			"max-image-preview": "large",
+			"max-snippet": -1,
+		},
 	},
 	metadataBase: new URL("https://himohit.me"),
 };

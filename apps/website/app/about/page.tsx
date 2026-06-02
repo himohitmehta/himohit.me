@@ -1,5 +1,20 @@
 import React from "react";
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+	title: "About",
+	description:
+		"Mohit Mehta is a software engineer who builds web products end to end. From games in Unity to client sites, startup platforms at Hivepath, and now engineering at Dattam Labs — plus Saroh, his open-source project for creators.",
+	alternates: { canonical: "/about" },
+	openGraph: {
+		title: "About · Mohit Mehta",
+		description:
+			"From games in Unity to client sites, startup platforms, and engineering at Dattam Labs — the story of how Mohit Mehta builds software.",
+		url: "https://himohit.me/about",
+		type: "profile",
+	},
+};
 
 export default function AboutMePage() {
 	return (
