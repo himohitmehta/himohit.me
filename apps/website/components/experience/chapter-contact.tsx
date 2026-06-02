@@ -111,8 +111,7 @@ export default function ChapterContact() {
 						the open
 					</span>
 					<span>
-						Designed &amp; engineered from scratch — Next.js ·
-						TypeScript · Framer Motion
+						Built from scratch — Next.js · TypeScript · Framer Motion
 					</span>
 				</div>
 			</div>

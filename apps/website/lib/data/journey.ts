@@ -7,7 +7,7 @@
 
 export const founder = {
 	name: "Mohit Mehta",
-	roles: ["Software Engineer", "Product Builder", "Designer"],
+	roles: ["Software Engineer", "Frontend Developer", "Product Builder"],
 	location: "Remote",
 	email: "mohit@himohit.me",
 	links: {
@@ -32,7 +32,7 @@ export const ecosystem = [
 	"Systems",
 	"Next.js",
 	"TypeScript",
-	"Design",
+	"Frontend",
 	"Products",
 ];
 
@@ -64,7 +64,7 @@ export const story: StoryBeat[] = [
 		year: "2021 – 2024",
 		kicker: "Scaling up",
 		title: "Then I moved from building pages to building platforms.",
-		body: "I spent three years at the startup Hivepath, helping ship full products from the ground up. I learned to think beyond single screens and design the systems behind them — the kind other people build on top of.",
+		body: "I spent three years at the startup Hivepath, helping ship full products from the ground up. I learned to think beyond single screens and build the systems behind them — the kind other people build on top of.",
 		projects: [
 			{
 				name: "Lattis.ai",
@@ -131,7 +131,7 @@ export const caseStudies: CaseStudy[] = [
 		system:
 			"A complete platform I'm building myself, front to back, with Next.js, Prisma and MySQL — designed so each part works together instead of pulling apart.",
 		impact:
-			"My main project, and the clearest example of how I work: I'm the engineer, the designer and the first user, all at once.",
+			"My main project, and the clearest example of how I work: I'm the engineer and the first user, all at once.",
 		stack: ["nextjs", "react", "typescript", "tailwindcss", "prisma", "mysql"],
 	},
 	{
@@ -186,10 +186,10 @@ export const lenses: Lens[] = [
 		body: "A quick fix solves today's problem. A good system keeps solving it. I build with the next ten things you'll need in mind, not just the first one.",
 	},
 	{
-		id: "design",
-		label: "Design",
-		title: "Design is how it works.",
-		body: "Good design isn't just how something looks — it's how easily it works. If a product is hard to explain, it usually needs better design, not better marketing.",
+		id: "craft",
+		label: "Craft",
+		title: "The details decide how it feels.",
+		body: "A product is only as good as it feels to use. I sweat the small things in the build — smooth interactions, fast load times, nothing janky — because that's what people actually notice.",
 	},
 	{
 		id: "products",

@@ -91,9 +91,9 @@ export default function ChapterHero() {
 					transition={{ duration: 1, delay: 0.9 }}
 					className="mt-8 max-w-xl text-pretty text-lg leading-relaxed text-ink-dim"
 				>
-					I&apos;m a software engineer who designs and builds web
-					products end to end — from the first idea to launch.
-					Right now I&apos;m building at{" "}
+					I&apos;m a software engineer who turns designs into fast,
+					polished web products people enjoy using. Right now
+					I&apos;m building at{" "}
 					<span className="text-ink">{founder.now.company}</span> and
 					on{" "}
 					<a
