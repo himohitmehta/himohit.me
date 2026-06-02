@@ -67,7 +67,7 @@ const projectsData: Project[] = [
 		publishedAt: "2021-09-01",
 		link: "https://saroh.in",
 		description:
-			"My flagship — an operating system for creators. Storefront, portfolio and blog as one owned platform, built in the open.",
+			"My main project — a home base for creators with store, portfolio and blog in one. I build every part myself (design, frontend, backend), open source, to keep learning and own something end to end.",
 		builtWith: [
 			"html",
 			"css",

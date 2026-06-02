@@ -97,7 +97,7 @@ export const story: StoryBeat[] = [
 		year: "2025 → now",
 		kicker: "What I'm building today",
 		title: "Today I build products people rely on.",
-		body: "By day I'm a software engineer at Dattam Labs, building software used by real customers. By night I work on Saroh, my own platform for creators, out in the open. Both come down to one goal: building tools that make the next thing easier to build.",
+		body: "By day I'm a software engineer at Dattam Labs, building software used by real customers. By night I build Saroh — my own platform for creators, where I do every part myself to keep learning and to own something end to end. It's open source, so others can learn from it too.",
 	},
 ];
 
@@ -129,9 +129,9 @@ export const caseStudies: CaseStudy[] = [
 		vision:
 			"One place a creator can call home — store, portfolio and blog together in a single tool they fully own. Built openly, for everyone to use.",
 		system:
-			"A complete platform I'm building myself, front to back, with Next.js, Prisma and MySQL — designed so each part works together instead of pulling apart.",
+			"I'm building all of it myself — the design, the frontend and the backend — with Next.js, Prisma and MySQL. It's where I get to try new ideas and learn by doing every part.",
 		impact:
-			"My main project, and the clearest example of how I work: I'm the engineer and the first user, all at once.",
+			"Saroh is the one I fully own: my decisions, my mistakes, mine to fix. I'm building it out in the open and as open source, so others can learn from it too.",
 		stack: ["nextjs", "react", "typescript", "tailwindcss", "prisma", "mysql"],
 	},
 	{
@@ -228,7 +228,7 @@ export const currentFocus: FocusItem[] = [
 	{
 		state: "building",
 		title: "Saroh, my platform for creators",
-		body: "My main project: one tool where creators can run their store, portfolio and blog together. I'm building it openly, end to end, and you can follow along as it grows.",
+		body: "My main project — one tool where creators can run their store, portfolio and blog together. I build every part myself, from design to backend, to learn by doing and to fully own something. It's open source, so others can learn from it too.",
 	},
 	{
 		state: "shipping",

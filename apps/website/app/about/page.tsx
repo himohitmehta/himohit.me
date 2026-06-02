@@ -38,6 +38,13 @@ export default function AboutMePage() {
 						, an open platform for creators, in my own time.
 					</p>
 					<p>
+						Saroh is special to me: I build every part of it myself —
+						design, frontend and backend. It&apos;s how I learn new
+						things and own something completely, mistakes included.
+						And because it&apos;s open source, others can learn from
+						it too.
+					</p>
+					<p>
 						What I enjoy most is making good tools — the kind that
 						make the next thing easier to build, both for me and for
 						the people who use them.
