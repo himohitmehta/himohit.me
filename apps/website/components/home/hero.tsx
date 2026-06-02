@@ -69,7 +69,7 @@ const Hero = ({}) => {
 				</a>{" "}
 				and{" "}
 				<ProjectHoverCard
-					name={"saroh.io"}
+					name={"saroh.in"}
 					data={
 						projectsData.find(
 							(item) => item.id === "saroh",
@@ -78,12 +78,12 @@ const Hero = ({}) => {
 				/> */}
 				{/* <a
 					className="text-blue-700 font-semibold hover:underline underline-offset-2 bg-gradient-to-r from-blue-400 via-blue-500 to-violet-800 bg-clip-text text-transparent"
-					href="https://saroh.io"
+					href="https://saroh.in"
 					target="_blank"
 					rel="noreferrer"
 				>
 					{" "}
-					saroh.io
+					saroh.in
 				</a> */}
 			</motion.h2>
 

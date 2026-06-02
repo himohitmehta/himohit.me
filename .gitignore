@@ -38,3 +38,5 @@ next-env.d.ts
 *.drawio
 
 .env*
+# local screenshot scratch
+apps/website/.screens/

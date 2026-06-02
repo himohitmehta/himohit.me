@@ -6,7 +6,8 @@ const projectsData: Project[] = [
 		title: "Lattis.ai",
 		publishedAt: "2021-09-01",
 		link: "https://lattis.ai",
-		description: "Platform OS for AI Agents.",
+		description:
+			"Platform OS for AI agents — the control plane to run, orchestrate and observe them.",
 		// builtWith: "NextJS, Tailwind CSS, Shadcn UI, and Vercel",
 
 		builtWith: [
@@ -64,8 +65,9 @@ const projectsData: Project[] = [
 		id: "saroh",
 		title: "Saroh",
 		publishedAt: "2021-09-01",
-		link: "https://saroh.io",
-		description: "Storefront , Portfolio and Blogging platform",
+		link: "https://saroh.in",
+		description:
+			"My flagship — an operating system for creators. Storefront, portfolio and blog as one owned platform, built in the open.",
 		builtWith: [
 			"html",
 			"css",
@@ -117,8 +119,8 @@ const projectsData: Project[] = [
 		id: "tip-tap-editor",
 		title: "Tip Tap Editor",
 		publishedAt: "2021-09-01",
-		link: "https://	tip-tap-editor.vercel.app",
-		description: "A small Editor Wysiwyg editor built with TipTap Editor. ",
+		link: "https://tip-tap-editor.vercel.app",
+		description: "A small WYSIWYG editor built with the TipTap framework.",
 		builtWith: [
 			"react",
 			"nextjs",

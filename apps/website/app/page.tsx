@@ -1,21 +1,22 @@
-import Hero from "@/components/home/hero";
-import Projects from "@/components/home/projects";
-import Tools from "@/components/shared/tools";
-import { TimelineDemo } from "@/components/shared/work-timeline";
+import ChapterHero from "@/components/experience/chapter-hero";
+import ChapterStory from "@/components/experience/chapter-story";
+import ChapterWork from "@/components/experience/chapter-work";
+import ChapterThinking from "@/components/experience/chapter-thinking";
+import ChapterNow from "@/components/experience/chapter-now";
+// import ChapterVision from "@/components/experience/chapter-vision";
+import ChapterContact from "@/components/experience/chapter-contact";
 
 export default function Home() {
 	return (
-		<main className="px-4">
-			{/* <ThemeToggle /> */}
-			{/* <TracingBeam> */}
-			<Hero />
-			<Tools />
-			<TimelineDemo />
-			{/* <Timeline /> */}
-			{/* <Projects title="Built by me" filter="official" /> */}
-
-			{/* <Projects filter="official" /> */}
-			{/* </TracingBeam> */}
+		<main className="relative">
+			<ChapterHero />
+			<ChapterStory />
+			<ChapterWork />
+			<ChapterThinking />
+			<ChapterNow />
+			{/* Future Vision — hidden for now; bring back when building something of my own. */}
+			{/* <ChapterVision /> */}
+			<ChapterContact />
 		</main>
 	);
 }

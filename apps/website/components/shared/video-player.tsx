@@ -1,25 +1,30 @@
 "use client";
 import React from "react";
 import ReactPlayer from "react-player";
-export default function VideoPlayer({ url }: { url: string }) {
-	const [isPlaying, setIsPlaying] = React.useState(false);
 
+export default function VideoPlayer({
+	url,
+	title,
+}: {
+	url: string;
+	title?: string;
+}) {
 	return (
-		<div
-			onMouseEnter={() => setIsPlaying(true)}
-			onMouseLeave={() => setIsPlaying(false)}
-			className="wrapper"
-		>
+		<div className="relative aspect-video w-full overflow-hidden bg-bg">
 			<ReactPlayer
-				className={"react-player rounded-md"}
-				// width={400}
-				// height={240}
+				className="absolute inset-0"
 				url={url}
-				playing={isPlaying}
-				volume={0}
-				controls={isPlaying}
+				width="100%"
+				height="100%"
+				controls
+				light
+				config={{
+					youtube: {
+						playerVars: { modestbranding: 1, rel: 0 },
+					},
+				}}
 			/>
-			{/* <ExamplePlayer url={url} /> */}
+			{title ? <span className="sr-only">{title}</span> : null}
 		</div>
 	);
 }
