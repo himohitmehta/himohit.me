@@ -1,25 +1,56 @@
 import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Space_Grotesk, Inter } from "next/font/google";
 import AppProvider from "./provider";
-import { Navbar } from "@/components/shared/navbar";
-import Contact from "@/components/shared/contact";
+import SceneNav from "@/components/experience/scene-nav";
 
-const inter = Inter({ subsets: ["latin"] });
+const display = Space_Grotesk({
+	subsets: ["latin"],
+	variable: "--font-display",
+	display: "swap",
+});
 
-const title =
-	"Mohit Mehta - Senior Software Engineer at Dattam Labs. Building saroh.io ";
-const description = `I am Senior Software Engineer at Dattam Labs. Building some really good projects with React, NextJS, TailwindCSS and Material UI. Recently, I have started building my own open-source projects. Currently I'm working on saroh.io. `;
+const sans = Inter({
+	subsets: ["latin"],
+	variable: "--font-sans",
+	display: "swap",
+});
+
+const title = "Mohit Mehta — Builder of systems, products & worlds";
+const description =
+	"Mohit Mehta is a software engineer and systems designer building products that outlive their features — from AI-agent platforms and commerce engines to Saroh, an open-source platform for creators. Currently engineering at Dattam Labs.";
+
 export const metadata: Metadata = {
-	title: title,
-	description: description,
+	title,
+	description,
+	keywords: [
+		"Mohit Mehta",
+		"founder",
+		"software engineer",
+		"systems designer",
+		"product builder",
+		"Saroh",
+		"Dattam Labs",
+		"Next.js",
+		"TypeScript",
+	],
+	authors: [{ name: "Mohit Mehta", url: "https://himohit.me" }],
 	openGraph: {
-		title: title,
-		description: description,
+		title,
+		description,
+		url: "https://himohit.me",
+		siteName: "himohit.me",
+		type: "website",
+	},
+	twitter: {
+		card: "summary_large_image",
+		title,
+		description,
 	},
 	metadataBase: new URL("https://himohit.me"),
 };
+
 export default function RootLayout({
 	children,
 }: {
@@ -27,7 +58,9 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en" suppressHydrationWarning>
-			<body className={inter.className}>
+			<body
+				className={`${display.variable} ${sans.variable} font-sans antialiased grain`}
+			>
 				<AppProvider>
 					<ThemeProvider
 						attribute="class"
@@ -36,10 +69,8 @@ export default function RootLayout({
 						enableSystem
 						disableTransitionOnChange
 					>
-						<Navbar className="top-2" />
-
+						<SceneNav />
 						{children}
-						<Contact />
 					</ThemeProvider>
 				</AppProvider>
 			</body>

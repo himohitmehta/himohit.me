@@ -21,7 +21,30 @@ module.exports = {
 			},
 		},
 		extend: {
+			fontFamily: {
+				display: ["var(--font-display)", "ui-sans-serif", "system-ui", "sans-serif"],
+				sans: ["var(--font-sans)", "ui-sans-serif", "system-ui", "sans-serif"],
+			},
 			colors: {
+				bg: {
+					DEFAULT: "hsl(var(--bg))",
+					raised: "hsl(var(--bg-raised))",
+					elev: "hsl(var(--bg-elev))",
+				},
+				ink: {
+					DEFAULT: "hsl(var(--fg))",
+					dim: "hsl(var(--fg-dim))",
+					faint: "hsl(var(--fg-faint))",
+				},
+				amber: {
+					DEFAULT: "hsl(var(--amber))",
+					bright: "hsl(var(--amber-bright))",
+					deep: "hsl(var(--amber-deep))",
+				},
+				line: {
+					DEFAULT: "hsl(var(--line))",
+					strong: "hsl(var(--line-strong))",
+				},
 				border: "hsl(var(--border))",
 				input: "hsl(var(--input))",
 				ring: "hsl(var(--ring))",
@@ -83,12 +106,27 @@ module.exports = {
 						transform: "translate(calc(-50% - 0.5rem))",
 					},
 				},
+				"float-slow": {
+					"0%, 100%": { transform: "translateY(0)" },
+					"50%": { transform: "translateY(-12px)" },
+				},
+				"pulse-ring": {
+					"0%": { transform: "scale(0.85)", opacity: "0.7" },
+					"100%": { transform: "scale(2.2)", opacity: "0" },
+				},
+				marquee: {
+					from: { transform: "translateX(0)" },
+					to: { transform: "translateX(-50%)" },
+				},
 			},
 			animation: {
 				"accordion-down": "accordion-down 0.2s ease-out",
 				"accordion-up": "accordion-up 0.2s ease-out",
 				shimmer: "shimmer 2s linear infinite",
 				scroll: "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
+				"float-slow": "float-slow 7s ease-in-out infinite",
+				"pulse-ring": "pulse-ring 3s ease-out infinite",
+				marquee: "marquee var(--marquee-duration, 40s) linear infinite",
 			},
 		},
 	},

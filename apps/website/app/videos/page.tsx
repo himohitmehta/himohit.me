@@ -1,6 +1,7 @@
 "use client";
 import VideoPlayer from "@/components/shared/video-player";
 import madeWithUnityVideos from "@/lib/data/made-with-unity-videos";
+import Link from "next/link";
 import React, { Suspense, useEffect, useState } from "react";
 
 export default function VideosPage() {
@@ -11,47 +12,53 @@ export default function VideosPage() {
 	}, []);
 
 	return (
-		<div className="px-4">
-			<Suspense fallback={"Loading"}>
-				{isClient ? (
-					<div className="mt-32 lg:mt-20">
-						<div className="my-8 mx-auto max-w-7xl text-center">
-							<h1 className="text-3xl font-medium">
-								Some cool things I built with Unity 🚀
-							</h1>
-							<p>
-								These projects I built while I was learning Game
-								development with C# and Unity in 2020-21.
-							</p>
-						</div>
-						{madeWithUnityVideos.map((item) => {
-							const { id, title, videos } = item;
-							return (
-								<div
-									key={id}
-									className="my-8 mx-auto max-w-7xl"
+		<main className="chapter">
+			<div className="shell">
+				<Link
+					href="/"
+					className="eyebrow mb-10 inline-flex items-center gap-2 transition-colors hover:text-amber-bright"
+				>
+					<span>←</span> Back to the story
+				</Link>
+				<div className="max-w-3xl">
+					<p className="eyebrow mb-5">Where it began</p>
+					<h1 className="display text-balance text-[clamp(2rem,6vw,4rem)] text-ink">
+						Before the web,{" "}
+						<span className="amber-grad">
+							I built worlds in Unity.
+						</span>
+					</h1>
+					<p className="mt-6 text-lg leading-relaxed text-ink-dim">
+						A couple of cinematic scenes I built while learning game
+						development with C# and Unity in 2020–21 — composing
+						lighting, cameras and timelines. The first place I learned
+						to think in systems.
+					</p>
+				</div>
+
+				<Suspense fallback={null}>
+					{isClient && (
+						<div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-3">
+							{madeWithUnityVideos.map((item) => (
+								<figure
+									key={item.id}
+									className="group flex flex-col"
 								>
-									<h1 className="text-xl font-bold  mb-4">
-										{title}
-									</h1>
-									<div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-										{videos.map((video, index) => (
-											<div
-												key={index}
-												className="rounded-md border overflow-hidden"
-											>
-												<VideoPlayer url={video} />
-											</div>
-										))}
+									<div className="overflow-hidden rounded-xl border border-line bg-bg-raised transition-colors duration-300 group-hover:border-amber/40">
+										<VideoPlayer
+											url={item.url}
+											title={item.title}
+										/>
 									</div>
-								</div>
-							);
-						})}
-					</div>
-				) : (
-					""
-				)}
-			</Suspense>
-		</div>
+									<figcaption className="mt-4 font-display text-base text-ink">
+										{item.title}
+									</figcaption>
+								</figure>
+							))}
+						</div>
+					)}
+				</Suspense>
+			</div>
+		</main>
 	);
 }

@@ -2,67 +2,76 @@
 @tailwind components;
 @tailwind utilities;
 
+/*
+  himohit.me — "Builder of Worlds"
+  Dark, cinematic, editorial design system.
+  Warm amber accent on a near-black, slightly warm canvas.
+*/
+
 @layer base {
 	:root {
-		--background: 0 0% 100%;
-		--foreground: 222.2 84% 4.9%;
+		/* Surfaces */
+		--bg: 30 16% 4%; /* near-black, faint warm */
+		--bg-raised: 28 12% 7%;
+		--bg-elev: 26 10% 10%;
 
-		--card: 0 0% 100%;
-		--card-foreground: 222.2 84% 4.9%;
+		/* Ink */
+		--fg: 36 30% 92%; /* warm off-white */
+		--fg-dim: 34 10% 64%;
+		--fg-faint: 32 8% 42%;
 
-		--popover: 0 0% 100%;
-		--popover-foreground: 222.2 84% 4.9%;
+		/* Accent — warm amber / gold */
+		--amber: 35 92% 60%;
+		--amber-bright: 40 96% 66%;
+		--amber-deep: 28 80% 46%;
 
-		--primary: 222.2 47.4% 11.2%;
-		--primary-foreground: 210 40% 98%;
+		/* Lines */
+		--line: 34 14% 16%;
+		--line-strong: 34 12% 24%;
 
-		--secondary: 210 40% 96.1%;
-		--secondary-foreground: 222.2 47.4% 11.2%;
+		--radius: 0.75rem;
 
-		--muted: 210 40% 96.1%;
-		--muted-foreground: 215.4 16.3% 46.9%;
-
-		--accent: 210 40% 96.1%;
-		--accent-foreground: 222.2 47.4% 11.2%;
-
-		--destructive: 0 84.2% 60.2%;
-		--destructive-foreground: 210 40% 98%;
-
-		--border: 214.3 31.8% 91.4%;
-		--input: 214.3 31.8% 91.4%;
-		--ring: 222.2 84% 4.9%;
-
-		--radius: 0.5rem;
+		/* shadcn-compat aliases (kept so existing components don't break) */
+		--background: var(--bg);
+		--foreground: var(--fg);
+		--card: var(--bg-raised);
+		--card-foreground: var(--fg);
+		--popover: var(--bg-elev);
+		--popover-foreground: var(--fg);
+		--primary: var(--fg);
+		--primary-foreground: var(--bg);
+		--secondary: var(--bg-elev);
+		--secondary-foreground: var(--fg);
+		--muted: var(--bg-elev);
+		--muted-foreground: var(--fg-dim);
+		--accent: var(--amber);
+		--accent-foreground: var(--bg);
+		--destructive: 0 70% 45%;
+		--destructive-foreground: var(--fg);
+		--border: var(--line);
+		--input: var(--line);
+		--ring: var(--amber);
 	}
 
+	/* This site is dark-only; .dark mirrors :root */
 	.dark {
-		--background: 222.2 84% 4.9%;
-		--foreground: 210 40% 98%;
-
-		--card: 222.2 84% 4.9%;
-		--card-foreground: 210 40% 98%;
-
-		--popover: 222.2 84% 4.9%;
-		--popover-foreground: 210 40% 98%;
-
-		--primary: 210 40% 98%;
-		--primary-foreground: 222.2 47.4% 11.2%;
-
-		--secondary: 217.2 32.6% 17.5%;
-		--secondary-foreground: 210 40% 98%;
-
-		--muted: 217.2 32.6% 17.5%;
-		--muted-foreground: 215 20.2% 65.1%;
-
-		--accent: 217.2 32.6% 17.5%;
-		--accent-foreground: 210 40% 98%;
-
-		--destructive: 0 62.8% 30.6%;
-		--destructive-foreground: 210 40% 98%;
-
-		--border: 217.2 32.6% 17.5%;
-		--input: 217.2 32.6% 17.5%;
-		--ring: 212.7 26.8% 83.9%;
+		--background: var(--bg);
+		--foreground: var(--fg);
+		--card: var(--bg-raised);
+		--card-foreground: var(--fg);
+		--popover: var(--bg-elev);
+		--popover-foreground: var(--fg);
+		--primary: var(--fg);
+		--primary-foreground: var(--bg);
+		--secondary: var(--bg-elev);
+		--secondary-foreground: var(--fg);
+		--muted: var(--bg-elev);
+		--muted-foreground: var(--fg-dim);
+		--accent: var(--amber);
+		--accent-foreground: var(--bg);
+		--border: var(--line);
+		--input: var(--line);
+		--ring: var(--amber);
 	}
 }
 
@@ -70,20 +79,172 @@
 	* {
 		@apply border-border;
 	}
+
+	html {
+		scroll-behavior: smooth;
+		-webkit-font-smoothing: antialiased;
+		text-rendering: optimizeLegibility;
+	}
+
 	body {
 		@apply bg-background text-foreground;
+		font-feature-settings: "ss01", "cv01", "cv11";
+		overflow-x: hidden;
+	}
+
+	::selection {
+		background: hsl(var(--amber) / 0.28);
+		color: hsl(var(--fg));
+	}
+
+	/* Scrollbar */
+	::-webkit-scrollbar {
+		width: 10px;
+	}
+	::-webkit-scrollbar-track {
+		background: hsl(var(--bg));
+	}
+	::-webkit-scrollbar-thumb {
+		background: hsl(var(--line-strong));
+		border-radius: 999px;
+		border: 3px solid hsl(var(--bg));
+	}
+	::-webkit-scrollbar-thumb:hover {
+		background: hsl(var(--amber) / 0.5);
 	}
 }
 
+@layer components {
+	/* Editorial display heading */
+	.display {
+		font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+		letter-spacing: -0.03em;
+		line-height: 0.98;
+		font-weight: 500;
+	}
+
+	/* Tiny structural eyebrow / chapter label */
+	.eyebrow {
+		font-family: var(--font-sans), system-ui, sans-serif;
+		text-transform: uppercase;
+		letter-spacing: 0.32em;
+		font-size: 0.72rem;
+		font-weight: 500;
+		color: hsl(var(--fg-faint));
+	}
+
+	.amber-text {
+		color: hsl(var(--amber-bright));
+	}
+
+	/* Amber wash gradient text for emphasis words */
+	.amber-grad {
+		background: linear-gradient(
+			100deg,
+			hsl(var(--amber-bright)),
+			hsl(var(--amber)) 45%,
+			hsl(var(--amber-deep))
+		);
+		-webkit-background-clip: text;
+		background-clip: text;
+		color: transparent;
+	}
+
+	/* Hairline divider */
+	.hairline {
+		height: 1px;
+		width: 100%;
+		background: linear-gradient(
+			90deg,
+			transparent,
+			hsl(var(--line-strong)),
+			transparent
+		);
+	}
+
+	/* Frosted glass card */
+	.glass {
+		background: hsl(var(--bg-raised) / 0.6);
+		backdrop-filter: blur(14px);
+		-webkit-backdrop-filter: blur(14px);
+		border: 1px solid hsl(var(--line));
+	}
+
+	/* Section vertical rhythm */
+	.chapter {
+		position: relative;
+		padding-top: clamp(7rem, 16vh, 12rem);
+		padding-bottom: clamp(7rem, 16vh, 12rem);
+	}
+
+	.shell {
+		width: 100%;
+		max-width: 78rem;
+		margin-inline: auto;
+		padding-inline: clamp(1.25rem, 5vw, 3.5rem);
+	}
+}
+
+@layer utilities {
+	/* Film grain overlay */
+	.grain::before {
+		content: "";
+		position: fixed;
+		inset: 0;
+		z-index: 60;
+		pointer-events: none;
+		opacity: 0.04;
+		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+		mix-blend-mode: overlay;
+	}
+
+	.text-balance {
+		text-wrap: balance;
+	}
+	.text-pretty {
+		text-wrap: pretty;
+	}
+
+	/* Vignette for cinematic depth */
+	.vignette::after {
+		content: "";
+		position: absolute;
+		inset: 0;
+		pointer-events: none;
+		background: radial-gradient(
+			120% 90% at 50% 12%,
+			transparent 40%,
+			hsl(var(--bg) / 0.85) 100%
+		);
+	}
+
+	.mask-fade-b {
+		-webkit-mask-image: linear-gradient(to bottom, black 70%, transparent);
+		mask-image: linear-gradient(to bottom, black 70%, transparent);
+	}
+}
+
+/* Legacy classes kept from prior site (react-player on /videos) */
 .wrapper {
 	width: auto;
 	max-width: 100%;
 	max-height: 340px;
-
 }
-
 .react-player {
 	width: 100%;
 	max-width: 100%;
 	max-height: 320px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.001ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.001ms !important;
+	}
 }
