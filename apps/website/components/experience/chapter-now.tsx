@@ -62,7 +62,7 @@ export default function ChapterNow() {
 				<Reveal delay={0.1}>
 					<div className="mt-10 flex items-center gap-3 text-sm text-ink-faint">
 						<span className="h-px w-8 bg-line-strong" />
-						This roadmap is alive — it changes as the work does.
+						This list changes as my work does.
 					</div>
 				</Reveal>
 			</div>

@@ -8,10 +8,10 @@ import { caseStudies, type CaseStudy } from "@/lib/data/journey";
 import technologiesData from "@/lib/data/technologies";
 
 const STAGES: { key: keyof CaseStudy; label: string }[] = [
-	{ key: "challenge", label: "Challenge" },
-	{ key: "vision", label: "Vision" },
-	{ key: "system", label: "System built" },
-	{ key: "impact", label: "Impact" },
+	{ key: "challenge", label: "The problem" },
+	{ key: "vision", label: "The idea" },
+	{ key: "system", label: "What I built" },
+	{ key: "impact", label: "The result" },
 ];
 
 function techName(id: string) {
@@ -134,15 +134,15 @@ export default function ChapterWork() {
 				/>
 				<Reveal className="mb-4 max-w-4xl">
 					<h2 className="display text-balance text-[clamp(2rem,5vw,4rem)] text-ink">
-						Not projects. <span className="amber-grad">Systems</span>{" "}
-						— each one a problem turned into a platform.
+						A few things I&apos;ve built —{" "}
+						<span className="amber-grad">and the story behind each.</span>
 					</h2>
 				</Reveal>
 				<Reveal delay={0.1} className="max-w-2xl">
 					<p className="text-lg leading-relaxed text-ink-dim">
-						Every build follows the same arc: a real challenge, a
-						sharp vision, a system designed to scale, and the impact
-						it left behind.
+						For each one, here&apos;s the same simple story: the
+						problem it solved, the idea behind it, what I built, and
+						the difference it made.
 					</p>
 				</Reveal>
 
@@ -158,8 +158,8 @@ export default function ChapterWork() {
 						className="group inline-flex items-center gap-3 text-ink-dim transition-colors hover:text-ink"
 					>
 						<span className="text-sm">
-							See the full archive — every project, from games to
-							platforms
+							See everything I&apos;ve built — the full list of
+							projects
 						</span>
 						<span className="flex h-9 w-9 items-center justify-center rounded-full border border-line-strong transition-colors group-hover:border-amber">
 							<svg

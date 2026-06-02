@@ -7,7 +7,7 @@
 
 export const founder = {
 	name: "Mohit Mehta",
-	roles: ["Builder", "Systems Designer", "Product Thinker", "Engineer"],
+	roles: ["Software Engineer", "Product Builder", "Designer"],
 	location: "Remote",
 	email: "mohit@himohit.me",
 	links: {
@@ -51,20 +51,20 @@ export const story: StoryBeat[] = [
 		year: "2020",
 		kicker: "The beginning",
 		title: "I started by building worlds — literally.",
-		body: "Before the web, there was Unity. I spent nights composing scenes, lighting, cameras and timelines — learning that a believable world is really a system of small rules working together. That instinct never left me.",
+		body: "Before the web, I made games in Unity. I spent my nights working on scenes, lighting, cameras and animation — and learned how lots of small parts come together to make one thing feel real. That way of thinking has stayed with me ever since.",
 		cta: { label: "Watch the early Unity work", href: "/videos" },
 	},
 	{
 		year: "2020 – 2021",
 		kicker: "Learning the craft",
-		title: "Freelance taught me to ship for real people.",
-		body: "At Savimo I built client sites end to end — React, Gatsby, Node, Firebase. Real deadlines, real users, real consequences. I learned that taste is worthless until it survives contact with production.",
+		title: "Freelancing taught me to build for real people.",
+		body: "At Savimo I built websites for clients from start to finish, using React, Gatsby, Node and Firebase. Real deadlines and real users taught me what matters most: shipping work that actually holds up once people depend on it.",
 	},
 	{
 		year: "2021 – 2024",
 		kicker: "Scaling up",
-		title: "Then I learned to build platforms, not pages.",
-		body: "Across three years of startup work at Hivepath I helped ship real platforms end to end. I stopped thinking in screens and started thinking in architectures — systems other people build on top of.",
+		title: "Then I moved from building pages to building platforms.",
+		body: "I spent three years at the startup Hivepath, helping ship full products from the ground up. I learned to think beyond single screens and design the systems behind them — the kind other people build on top of.",
 		projects: [
 			{
 				name: "Lattis.ai",
@@ -96,8 +96,8 @@ export const story: StoryBeat[] = [
 	{
 		year: "2025 → now",
 		kicker: "What I'm building today",
-		title: "Now I build the systems products grow inside.",
-		body: "By day I engineer at Dattam Labs, shipping production software against real scale. By night I build Saroh in the open — my own platform for creators. One idea drives both: leverage. Tools and systems that make the next thing easier to build, for me and everyone after me.",
+		title: "Today I build products people rely on.",
+		body: "By day I'm a software engineer at Dattam Labs, building software used by real customers. By night I work on Saroh, my own platform for creators, out in the open. Both come down to one goal: building tools that make the next thing easier to build.",
 	},
 ];
 
@@ -120,52 +120,52 @@ export const caseStudies: CaseStudy[] = [
 	{
 		id: "saroh",
 		name: "Saroh",
-		tag: "Building now · an operating system for creators",
+		tag: "Building now · a home base for creators",
 		year: "2023 → now",
 		image: "/images/saroh.png",
 		link: "https://saroh.in",
 		challenge:
-			"Every creator duct-tapes five tools together just to sell, write and show their work. The presence is fragmented, the data is rented, and nothing compounds.",
+			"Most creators juggle five different tools just to sell, write and show their work. Everything lives in a different place, and none of it really belongs to them.",
 		vision:
-			"One platform where a creator's entire presence lives — storefront, portfolio and blog as a single, owned system. Built in the open, on my own terms.",
+			"One place a creator can call home — store, portfolio and blog together in a single tool they fully own. Built openly, for everyone to use.",
 		system:
-			"A full-stack platform I architect end to end: Next.js, Prisma and MySQL, NextAuth, in a Turborepo — designed so every surface reinforces the others instead of fragmenting.",
+			"A complete platform I'm building myself, front to back, with Next.js, Prisma and MySQL — designed so each part works together instead of pulling apart.",
 		impact:
-			"My flagship and the clearest proof of how I build — architect, designer and first user at once, shipping in public.",
+			"My main project, and the clearest example of how I work: I'm the engineer, the designer and the first user, all at once.",
 		stack: ["nextjs", "react", "typescript", "tailwindcss", "prisma", "mysql"],
 	},
 	{
 		id: "lattis",
 		name: "Lattis.ai",
-		tag: "Platform OS for AI agents",
+		tag: "A platform to run AI agents",
 		year: "2023 – 2024",
 		image: "/images/lattis.png",
 		link: "https://lattis.ai",
 		challenge:
-			"Teams wanted to deploy AI agents, but there was no operating layer to run, observe and control them. Everything was glue code and dashboards stitched by hand.",
+			"Teams wanted to use AI agents, but had no real way to run and keep an eye on them. It was all loose scripts and dashboards pieced together by hand.",
 		vision:
-			"An operating system where agents are first-class citizens — created, orchestrated and monitored from one surface, the way an OS manages processes.",
+			"One platform to create, run and watch AI agents — all from a single, clear screen, the way your computer manages the apps you open.",
 		system:
-			"I built the platform's front end: multi-tenant dashboards, real-time agent state, and orchestration UI — on a Next.js + Redux-Saga + Turborepo architecture built to scale.",
+			"I built the part people actually use: live dashboards that show what each agent is doing, on a setup with Next.js built to handle many teams at once.",
 		impact:
-			"Turned a pile of scripts into a product surface — a coherent control plane teams could actually reason about and ship on.",
+			"Turned a messy pile of scripts into a real product — one place a team could understand what was happening and build on it.",
 		stack: ["nextjs", "react", "typescript", "tailwindcss", "redux-saga", "turbo"],
 	},
 	{
 		id: "bluecom",
 		name: "Bluecom",
-		tag: "Multi-channel commerce engine",
+		tag: "Sell on every channel from one place",
 		year: "2023",
 		image: "/images/bluecom.png",
 		link: "https://bluecom.ai",
 		challenge:
-			"Sellers ran their business across many channels with no single control plane — inventory, orders and listings drifting out of sync everywhere.",
+			"Online sellers run their business across many places at once — and their stock, orders and listings keep falling out of sync across all of them.",
 		vision:
-			"One commerce brain. A single source of truth that speaks to every channel a seller touches.",
+			"One place to manage it all, so everything a seller has on every channel stays correct and up to date.",
 		system:
-			"I built core front-end systems for catalog, orders and channel sync — React, Next.js and Redux-Saga handling real, messy, high-volume commerce state.",
+			"I built the screens sellers use every day to manage products, orders and channels — keeping a lot of fast-moving data accurate and easy to work with.",
 		impact:
-			"Gave multi-channel sellers one surface to run from, instead of a browser full of tabs and spreadsheets.",
+			"Gave sellers a single place to run their whole business, instead of a browser full of tabs and spreadsheets.",
 		stack: ["nextjs", "react", "typescript", "redux-saga", "turbo"],
 	},
 ];
@@ -182,38 +182,38 @@ export const lenses: Lens[] = [
 	{
 		id: "systems",
 		label: "Systems",
-		title: "Build systems, not features.",
-		body: "A feature solves today. A system keeps solving. I design for the second, third and tenth thing you'll ask for — not just the first.",
+		title: "Build for the long run.",
+		body: "A quick fix solves today's problem. A good system keeps solving it. I build with the next ten things you'll need in mind, not just the first one.",
 	},
 	{
 		id: "design",
 		label: "Design",
 		title: "Design is how it works.",
-		body: "The interface is the argument. If a product is hard to explain, it's usually badly designed — not badly marketed.",
+		body: "Good design isn't just how something looks — it's how easily it works. If a product is hard to explain, it usually needs better design, not better marketing.",
 	},
 	{
 		id: "products",
 		label: "Products",
-		title: "A product is a point of view.",
-		body: "Every product is an opinion about how the world should work. The strong ones commit to that opinion instead of averaging it away.",
+		title: "A great product takes a stand.",
+		body: "Every product is a choice about how things should work. The best ones commit to a clear point of view instead of trying to please everyone.",
 	},
 	{
 		id: "technology",
 		label: "Technology",
-		title: "Technology is leverage.",
-		body: "The point of good tooling isn't speed — it's compounding. The right abstraction makes every future build cheaper.",
+		title: "Good tools pay off over time.",
+		body: "The point of good tools isn't just going faster today. It's that the right foundation makes everything you build after it easier.",
 	},
 	{
 		id: "business",
 		label: "Business",
-		title: "Distribution is a feature.",
-		body: "How a thing reaches people is part of the design, not an afterthought bolted on once it's 'done'.",
+		title: "Getting it to people matters too.",
+		body: "How a product reaches people is part of building it — not something you figure out only after it's finished.",
 	},
 	{
 		id: "creativity",
 		label: "Creativity",
-		title: "Ship to learn.",
-		body: "Taste develops in public. I'd rather build in the open, be wrong fast, and let real use sharpen the idea.",
+		title: "Ship early, then improve.",
+		body: "You learn the most once real people use your work. I'd rather put something out early, see what's wrong, and make it better from there.",
 	},
 ];
 
@@ -227,18 +227,18 @@ export type FocusItem = {
 export const currentFocus: FocusItem[] = [
 	{
 		state: "building",
-		title: "Saroh — my creator platform",
-		body: "My main focus: turning storefront, portfolio and blog into one owned system creators actually run on. Built full-stack, in the open, shipping in public.",
+		title: "Saroh, my platform for creators",
+		body: "My main project: one tool where creators can run their store, portfolio and blog together. I'm building it openly, end to end, and you can follow along as it grows.",
 	},
 	{
 		state: "shipping",
 		title: "Engineering at Dattam Labs",
-		body: "My current role — shipping production software with a team and proving my systems thinking against real-world scale every day.",
+		body: "My day job — building and shipping software with a team, used by real customers at real scale.",
 	},
 	{
 		state: "exploring",
-		title: "AI-native product surfaces",
-		body: "Carrying everything I learned building agent platforms into how humans and AI should actually share an interface.",
+		title: "Building with AI",
+		body: "Exploring how people and AI can work together well inside a product — using everything I learned building AI tools earlier.",
 	},
 ];
 
@@ -252,17 +252,17 @@ export type Horizon = {
 export const horizons: Horizon[] = [
 	{
 		span: "1 year",
-		title: "Put Saroh in the hands of real creators.",
-		body: "Take the open-source flagship from in-progress to in-use — and go deep on AI-native product surfaces.",
+		title: "Get Saroh into real creators' hands.",
+		body: "Take it from a work in progress to something people use every day — and keep learning how to build well with AI.",
 	},
 	{
 		span: "5 years",
-		title: "Build a small studio that ships opinionated products.",
-		body: "A tight team making platform-grade tools — things with a clear point of view that other builders choose to stand on.",
+		title: "Start a small studio that builds great products.",
+		body: "A small team making tools with a clear point of view — the kind other builders are happy to rely on.",
 	},
 	{
 		span: "10 years",
-		title: "Build systems that compound.",
-		body: "Infrastructure and companies that outlive any single product — the kind of foundations other people get to build their own worlds on.",
+		title: "Build things that last.",
+		body: "Tools and a company that outlive any single product — the kind of foundation other people can build their own work on.",
 	},
 ];

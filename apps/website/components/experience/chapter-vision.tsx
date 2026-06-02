@@ -66,15 +66,16 @@ export default function ChapterVision() {
 				/>
 				<Reveal className="mb-6 max-w-4xl">
 					<h2 className="display text-balance text-[clamp(2rem,5vw,4rem)] text-ink">
-						I&apos;m not optimizing for the next role.{" "}
+						I&apos;m not just chasing the next job.{" "}
 						<span className="amber-grad">
-							I&apos;m building toward a horizon.
+							I&apos;m building toward something bigger.
 						</span>
 					</h2>
 				</Reveal>
 				<Reveal delay={0.1} className="mb-12 max-w-2xl">
 					<p className="text-lg leading-relaxed text-ink-dim">
-						Three timelines, one trajectory — each built on the last.
+						Where I&apos;d like to be in one, five and ten years —
+						each step building on the one before.
 					</p>
 				</Reveal>
 

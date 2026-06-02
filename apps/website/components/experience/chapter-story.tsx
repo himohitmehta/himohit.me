@@ -141,9 +141,9 @@ export default function ChapterStory() {
 
 				<Reveal className="mb-10 max-w-3xl">
 					<h2 className="display text-balance text-[clamp(2rem,5vw,4rem)] text-ink">
-						Every system I build starts with the same question:{" "}
+						How I went from building game worlds to{" "}
 						<span className="amber-grad">
-							what could this become?
+							building real products.
 						</span>
 					</h2>
 				</Reveal>

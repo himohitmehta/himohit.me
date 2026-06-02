@@ -37,9 +37,9 @@ export default function ChapterContact() {
 
 				<Reveal delay={0.2}>
 					<p className="mx-auto mt-10 max-w-xl text-pretty text-lg leading-relaxed text-ink-dim">
-						If you&apos;re building a system, a product, or a world
-						worth building — I want to hear about it. The best things
-						start with a conversation.
+						Want to hire me, work together, or just talk shop? Whether
+						you have a product to build or a question to ask, my inbox
+						is open — say hello.
 					</p>
 				</Reveal>
 

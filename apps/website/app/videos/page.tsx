@@ -29,10 +29,10 @@ export default function VideosPage() {
 						</span>
 					</h1>
 					<p className="mt-6 text-lg leading-relaxed text-ink-dim">
-						A couple of cinematic scenes I built while learning game
-						development with C# and Unity in 2020–21 — composing
-						lighting, cameras and timelines. The first place I learned
-						to think in systems.
+						A few short scenes I made while learning to build games
+						with Unity in 2020–21 — working with lighting, cameras and
+						animation. This is where I first learned how small pieces
+						come together to make something feel real.
 					</p>
 				</div>
 

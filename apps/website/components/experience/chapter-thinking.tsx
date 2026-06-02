@@ -19,9 +19,9 @@ export default function ChapterThinking() {
 				/>
 				<Reveal className="mb-14 max-w-4xl">
 					<h2 className="display text-balance text-[clamp(2rem,5vw,4rem)] text-ink">
-						Six lenses I keep returning to —{" "}
+						A few ideas I come back to{" "}
 						<span className="amber-grad">
-							and how they connect.
+							in everything I build.
 						</span>
 					</h2>
 				</Reveal>

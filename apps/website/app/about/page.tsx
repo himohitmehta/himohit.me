@@ -13,19 +13,20 @@ export default function AboutMePage() {
 				</Link>
 				<p className="eyebrow mb-5">About</p>
 				<h1 className="display text-balance text-[clamp(2rem,6vw,4rem)] text-ink">
-					I&apos;m Mohit — I build the systems products live in.
+					I&apos;m Mohit — a software engineer who loves building
+					products.
 				</h1>
 				<div className="mt-8 space-y-6 text-lg leading-relaxed text-ink-dim">
 					<p>
-						I started in game development with Unity and C#, learning
-						that a believable world is just a system of small rules
-						working together. That instinct carried into the web.
+						I started out making games with Unity, where I learned how
+						many small parts come together to make one thing work.
+						That same curiosity led me to building for the web.
 					</p>
 					<p>
-						Since then I&apos;ve built client sites as a freelancer,
-						shipped platforms at Hivepath — from AI-agent operating
-						systems to multi-channel commerce — and today I engineer
-						at Dattam Labs while building{" "}
+						Since then I&apos;ve built websites for clients as a
+						freelancer, helped build full products at the startup
+						Hivepath, and today I work as an engineer at Dattam Labs
+						while building{" "}
 						<a
 							href="https://saroh.in"
 							target="_blank"
@@ -34,12 +35,12 @@ export default function AboutMePage() {
 						>
 							Saroh
 						</a>
-						, an open-source platform for creators, in the open.
+						, an open platform for creators, in my own time.
 					</p>
 					<p>
-						My focus is leverage: tools, platforms and systems that
-						make the next thing easier to build — for me, and for
-						everyone after me.
+						What I enjoy most is making good tools — the kind that
+						make the next thing easier to build, both for me and for
+						the people who use them.
 					</p>
 				</div>
 				<a

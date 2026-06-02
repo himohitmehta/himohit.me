@@ -17,9 +17,9 @@ const sans = Inter({
 	display: "swap",
 });
 
-const title = "Mohit Mehta — Builder of systems, products & worlds";
+const title = "Mohit Mehta — Software Engineer & Product Builder";
 const description =
-	"Mohit Mehta is a software engineer and systems designer building products that outlive their features — from AI-agent platforms and commerce engines to Saroh, an open-source platform for creators. Currently engineering at Dattam Labs.";
+	"Mohit Mehta is a software engineer who designs and builds web products from first idea to launch. Currently building at Dattam Labs and on Saroh, an open platform for creators. Open to interesting problems and collaborations.";
 
 export const metadata: Metadata = {
 	title,

@@ -91,10 +91,11 @@ export default function ChapterHero() {
 					transition={{ duration: 1, delay: 0.9 }}
 					className="mt-8 max-w-xl text-pretty text-lg leading-relaxed text-ink-dim"
 				>
-					Engineer, systems designer and product thinker. I turn messy
-					problems into platforms — most recently at{" "}
-					<span className="text-ink">{founder.now.company}</span>, and
-					in the open with{" "}
+					I&apos;m a software engineer who designs and builds web
+					products end to end — from the first idea to launch.
+					Right now I&apos;m building at{" "}
+					<span className="text-ink">{founder.now.company}</span> and
+					on{" "}
 					<a
 						href="https://saroh.in"
 						target="_blank"
@@ -136,7 +137,7 @@ export default function ChapterHero() {
 						Begin the story
 					</a>
 					<span className="hidden h-4 w-px bg-line-strong sm:block" />
-					<span>Seven chapters · scroll to enter</span>
+					<span>A short scroll through my work and how I think</span>
 				</motion.div>
 			</motion.div>
 		</section>
