@@ -45,7 +45,7 @@ const Hero = ({}) => {
 				a Senior Software Engineer
 				<br />
 				<span className="bg-gradient-to-r from-blue-300 via-blue-500 to-violet-800 bg-clip-text text-transparent">
-					at Dattam Labs
+					building Saroh
 				</span>
 			</motion.h1>
 			<motion.h2

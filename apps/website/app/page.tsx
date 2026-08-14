@@ -15,7 +15,12 @@ const personSchema = {
 	jobTitle: "Software Engineer",
 	worksFor: {
 		"@type": "Organization",
-		name: founder.now.company,
+		name: founder.now.focus,
+		url: "https://saroh.in",
+	},
+	alumniOf: {
+		"@type": "Organization",
+		name: founder.previous.company,
 	},
 	knowsAbout: [
 		"Software Engineering",

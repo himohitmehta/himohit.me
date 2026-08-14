@@ -92,10 +92,12 @@ export default function ChapterHero() {
 					className="mt-8 max-w-xl text-pretty text-lg leading-relaxed text-ink-dim"
 				>
 					I&apos;m a software engineer who turns designs into fast,
-					polished web products people enjoy using. Right now
-					I&apos;m building at{" "}
-					<span className="text-ink">{founder.now.company}</span>, and
-					in my own time on{" "}
+					polished web products people enjoy using. Most recently I
+					was an engineer at{" "}
+					<span className="text-ink">
+						{founder.previous.company}
+					</span>
+					. These days I&apos;m building{" "}
 					<a
 						href="https://saroh.in"
 						target="_blank"

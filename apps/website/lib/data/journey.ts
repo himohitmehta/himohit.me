@@ -2,7 +2,7 @@
   journey.ts — the narrative spine of himohit.me.
   All copy here is grounded in Mohit's real history:
   Unity/game-dev → freelance (Savimo) → startup (Hivepath) → Dattam Labs,
-  with Saroh as the personal open-source flagship.
+  with Saroh as the personal flagship.
 */
 
 export const founder = {
@@ -16,9 +16,14 @@ export const founder = {
 		blog: "https://blogs.himohit.me",
 	},
 	now: {
+		focus: "Saroh",
+		title: "Software Engineer",
+		since: "2023",
+	},
+	previous: {
 		company: "Dattam Labs",
 		title: "Software Engineer",
-		since: "Feb 2025",
+		period: "Feb 2025 – Aug 2026",
 	},
 };
 
@@ -94,10 +99,10 @@ export const story: StoryBeat[] = [
 		],
 	},
 	{
-		year: "2025 → now",
-		kicker: "What I'm building today",
-		title: "Today I build products people rely on.",
-		body: "By day I'm a software engineer at Dattam Labs, building software used by real customers. In my own time I work on Saroh — my own platform for creators, where I do every part myself to keep learning and to own something end to end. It's open source, so others can learn from it too.",
+		year: "2025 – 2026",
+		kicker: "Building at scale",
+		title: "I built products people rely on.",
+		body: "At Dattam Labs I worked as a software engineer, building software used by real customers. A year and a half of shipping with a team, on systems that had to keep working once people depended on them every day.",
 	},
 ];
 
@@ -108,7 +113,11 @@ export type CaseStudy = {
 	tag: string;
 	year: string;
 	image: string;
+	/* Extra product shots, rendered as a strip under the main visual. */
+	gallery?: { src: string; alt: string }[];
 	link: string;
+	/* Public source repo, when there is one. */
+	repo?: string;
 	challenge: string;
 	vision: string;
 	system: string;
@@ -120,53 +129,41 @@ export const caseStudies: CaseStudy[] = [
 	{
 		id: "saroh",
 		name: "Saroh",
-		tag: "Personal project · a home base for creators",
+		tag: "Personal project · one system to run a business",
 		year: "2023 → now",
-		image: "/images/saroh.png",
+		image: "/images/saroh/home.png",
+		gallery: [
+			{
+				src: "/images/saroh/modules.png",
+				alt: "Saroh's Modules screen, showing which capabilities are switched on and which still need setup",
+			},
+			{
+				src: "/images/saroh/leads.png",
+				alt: "The CRM leads list, with each opportunity's value and how long it has waited",
+			},
+			{
+				src: "/images/saroh/bookings.png",
+				alt: "The appointments schedule, showing upcoming bookings in the timezone each was booked in",
+			},
+		],
 		link: "https://saroh.in",
+		repo: "https://github.com/saroh-labs/saroh.in",
 		challenge:
-			"Most creators juggle five different tools just to sell, write and show their work. Everything lives in a different place, and none of it really belongs to them.",
+			"A small business ends up running on five or six tools that don't talk to each other — a website in one place, bookings in another, payments somewhere else, and customer records scattered across all of them.",
 		vision:
-			"One place a creator can call home — store, portfolio and blog together in a single tool they fully own. Built openly, for everyone to use.",
+			"Run your whole business from one place. Website, commerce, appointments and CRM in one system, where you switch on only the modules you need — and switch one off without losing anything behind it.",
 		system:
-			"I build all of it myself — the design, the frontend and the backend — with Next.js, Prisma and MySQL. It's where I try new ideas and learn by doing every part, in my own time.",
+			"I build all of it myself — the design, the frontend and the backend — with Next.js, Prisma and Postgres, across a monorepo of ten apps and eight shared packages. Eight modules that depend on each other cleanly: website, commerce, appointments, CRM, payments, communications, automations and insights. Home ranks your work by what needs attention, then what's overdue, then what's still to set up, instead of a dashboard of equal tiles.",
 		impact:
-			"Saroh is the one I fully own: my decisions, my mistakes, mine to fix. I work on it whenever I get the time, in the open and as open source, so others can learn from it too.",
-		stack: ["nextjs", "react", "typescript", "tailwindcss", "prisma", "mysql"],
-	},
-	{
-		id: "lattis",
-		name: "Lattis.ai",
-		tag: "A platform to run AI agents",
-		year: "2023 – 2024",
-		image: "/images/lattis.png",
-		link: "https://lattis.ai",
-		challenge:
-			"Teams wanted to use AI agents, but had no real way to run and keep an eye on them. It was all loose scripts and dashboards pieced together by hand.",
-		vision:
-			"One platform to create, run and watch AI agents — all from a single, clear screen, the way your computer manages the apps you open.",
-		system:
-			"I built the part people actually use: live dashboards that show what each agent is doing, on a setup with Next.js built to handle many teams at once.",
-		impact:
-			"Turned a messy pile of scripts into a real product — one place a team could understand what was happening and build on it.",
-		stack: ["nextjs", "react", "typescript", "tailwindcss", "redux-saga", "turbo"],
-	},
-	{
-		id: "bluecom",
-		name: "Bluecom",
-		tag: "Sell on every channel from one place",
-		year: "2023",
-		image: "/images/bluecom.png",
-		link: "https://bluecom.ai",
-		challenge:
-			"Online sellers run their business across many places at once — and their stock, orders and listings keep falling out of sync across all of them.",
-		vision:
-			"One place to manage it all, so everything a seller has on every channel stays correct and up to date.",
-		system:
-			"I built the screens sellers use every day to manage products, orders and channels — keeping a lot of fast-moving data accurate and easy to work with.",
-		impact:
-			"Gave sellers a single place to run their whole business, instead of a browser full of tabs and spreadsheets.",
-		stack: ["nextjs", "react", "typescript", "redux-saga", "turbo"],
+			"Free to start, and source-available under the Elastic License 2.0, so anyone can read the code. Businesses are being onboarded from a waitlist in small batches, so each one gets set up properly.",
+		stack: [
+			"nextjs",
+			"react",
+			"typescript",
+			"tailwindcss",
+			"prisma",
+			"postgresql",
+		],
 	},
 ];
 
@@ -227,13 +224,13 @@ export type FocusItem = {
 export const currentFocus: FocusItem[] = [
 	{
 		state: "building",
-		title: "Saroh, my platform for creators",
-		body: "A personal project I build in my own time — one tool where creators can run their store, portfolio and blog together. I work on every part myself, from design to backend, using Claude and other AI tools to learn as I go. It's open source, so others can learn from it too.",
+		title: "Saroh, one system to run a business",
+		body: "A personal project I build in my own time — website, commerce, appointments and CRM in one system, where you turn on only the modules you need. I work on every part myself, from design to backend, using Claude and other AI tools to learn as I go. It's source-available, so anyone can read the code.",
 	},
 	{
-		state: "shipping",
-		title: "Engineering at Dattam Labs",
-		body: "My day job — building and shipping software with a team, used by real customers at real scale.",
+		state: "exploring",
+		title: "What comes after Dattam Labs",
+		body: "I spent Feb 2025 to Aug 2026 as an engineer at Dattam Labs, shipping software with a team at real scale. That chapter is closed, and I'm working out which problem is worth the next one.",
 	},
 ];
 
@@ -247,8 +244,8 @@ export type Horizon = {
 export const horizons: Horizon[] = [
 	{
 		span: "1 year",
-		title: "Get Saroh into real creators' hands.",
-		body: "Take it from a work in progress to something people use every day — and keep learning how to build well with AI.",
+		title: "Get Saroh into real businesses' hands.",
+		body: "Take it from a waitlist to something businesses run on every day — and keep learning how to build well with AI.",
 	},
 	{
 		span: "5 years",

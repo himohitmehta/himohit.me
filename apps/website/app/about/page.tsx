@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
 	title: "About",
 	description:
-		"Mohit Mehta is a software engineer who builds web products end to end. From games in Unity to client sites, startup platforms at Hivepath, and now engineering at Dattam Labs — plus Saroh, his open-source project for creators.",
+		"Mohit Mehta is a software engineer who builds web products end to end. From games in Unity to client sites, startup platforms at Hivepath, and engineering at Dattam Labs — and now Saroh, his source-available platform for running a business.",
 	alternates: { canonical: "/about" },
 	openGraph: {
 		title: "About · Mohit Mehta",
@@ -40,8 +40,8 @@ export default function AboutMePage() {
 					<p>
 						Since then I&apos;ve built websites for clients as a
 						freelancer, helped build full products at the startup
-						Hivepath, and today I work as an engineer at Dattam Labs
-						while building{" "}
+						Hivepath, and spent a year and a half as an engineer at
+						Dattam Labs. Through all of it I&apos;ve kept building{" "}
 						<a
 							href="https://saroh.in"
 							target="_blank"
@@ -50,14 +50,15 @@ export default function AboutMePage() {
 						>
 							Saroh
 						</a>
-						, an open platform for creators, in my own time.
+						, one system for running a whole business, in my own
+						time.
 					</p>
 					<p>
 						Saroh is special to me: I build every part of it myself —
 						design, frontend and backend. It&apos;s how I learn new
 						things and own something completely, mistakes included.
-						And because it&apos;s open source, others can learn from
-						it too.
+						And because it&apos;s source-available, anyone can read
+						the code.
 					</p>
 					<p>
 						What I enjoy most is making good tools — the kind that

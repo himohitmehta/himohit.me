@@ -67,7 +67,7 @@ const projectsData: Project[] = [
 		publishedAt: "2021-09-01",
 		link: "https://saroh.in",
 		description:
-			"My personal project — a home base for creators with store, portfolio and blog in one. I build every part myself (design, frontend, backend), open source, in my own time to keep learning and own something end to end.",
+			"My personal project — website, commerce, appointments and CRM in one system, where a business switches on only the modules it needs. I build every part myself (design, frontend, backend), source-available, in my own time to keep learning and own something end to end.",
 		builtWith: [
 			"html",
 			"css",
@@ -85,8 +85,8 @@ const projectsData: Project[] = [
 			"mysql",
 		],
 		status: "in-progress",
-		type: ["personal", "open-source", "official"],
-		image: "saroh.png",
+		type: ["personal", "official"],
+		image: "saroh/home.png",
 		icons: ["react", "nextjs", "tailwindcss"],
 		from_date: "2023-09",
 		to_date: "Present",

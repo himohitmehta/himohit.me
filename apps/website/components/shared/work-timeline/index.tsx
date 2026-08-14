@@ -23,7 +23,7 @@ export function TimelineDemo() {
 						</span>
 						<span className="text-xs text-muted-foreground flex items-center gap-2">
 							<CalendarIcon className="size-4" />
-							Feb 2025 - Present
+							Feb 2025 - Aug 2026
 						</span>
 					</div>
 					<div>

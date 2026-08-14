@@ -19,7 +19,7 @@ const sans = Inter({
 
 const title = "Mohit Mehta — Software Engineer & Product Builder";
 const description =
-	"Mohit Mehta is a software engineer who builds fast, polished web products and turns designs into great frontends. Currently building at Dattam Labs and on Saroh, an open platform for creators. Open to interesting problems and collaborations.";
+	"Mohit Mehta is a software engineer who builds fast, polished web products and turns designs into great frontends. Previously an engineer at Dattam Labs, now building Saroh, one system for running a whole business. Open to interesting problems and collaborations.";
 
 export const metadata: Metadata = {
 	title: {
