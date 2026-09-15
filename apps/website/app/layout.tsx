@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
 import AppProvider from "./provider";
 import SiteHeader from "@/components/site-header";
+import SiteFooter from "@/components/site-footer";
 
 const display = Space_Grotesk({
 	subsets: ["latin"],
@@ -25,7 +26,7 @@ const sans = Inter({
 
 const title = "Mohit Mehta — Senior Software Engineer";
 const description =
-	"Mohit Mehta is a senior software engineer. Six years of React, Next.js and TypeScript — checkout flows, billing screens and dashboards, the screens where things actually go wrong. Currently building Saroh.";
+	"Mohit Mehta is a senior software engineer. Six years of React, Next.js and TypeScript — checkout flows, billing screens and dashboards, the screens where things actually go wrong. Currently building Saroh, a personal engineering project.";
 
 export const metadata: Metadata = {
 	title: {
@@ -102,6 +103,7 @@ export default function RootLayout({
 					>
 						<SiteHeader />
 						{children}
+						<SiteFooter />
 					</ThemeProvider>
 				</AppProvider>
 			</body>
