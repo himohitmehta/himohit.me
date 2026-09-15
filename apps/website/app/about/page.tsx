@@ -6,12 +6,12 @@ import { availability, saroh } from "@/lib/data/variants";
 export const metadata: Metadata = {
 	title: "About",
 	description:
-		"Mohit Mehta is a senior software engineer. Games built in Unity, then client sites, then platform work at Hivepath and Dattam Labs — and Saroh, built in his own time.",
+		"How Mohit Mehta got from games built in Unity to commerce and billing systems, and to Saroh — one system to run a business, built in his own time.",
 	alternates: { canonical: "/about" },
 	openGraph: {
 		title: "About · Mohit Mehta",
 		description:
-			"Games built in Unity, then client sites, then platform work at Hivepath and Dattam Labs — how Mohit Mehta got to building Saroh.",
+			"From games built in Unity to commerce and billing systems, and to Saroh — how Mohit Mehta got here.",
 		url: "https://himohit.me/about",
 		type: "profile",
 		/* A child openGraph block replaces the parent's outright, so the
@@ -20,35 +20,37 @@ export const metadata: Metadata = {
 	},
 };
 
-/* The one place the fuller history lives — the landing page stays on
-   qualities, this page carries the dates and the employers. */
-const history = [
+/*
+  Dates only. What I actually shipped at Dattam Labs and Hivepath is on
+  /projects — repeating it here just made a visitor read the same three
+  employers twice. The early years stay because they are not on that
+  page, and Saroh stays because it is the one thing worth meeting twice.
+*/
+const dates = [
 	{
 		when: "2023→",
 		what: "Saroh",
-		body: "One system to run a business, built in my own time. Website, commerce, appointments and CRM, where you switch on only the modules you need. I do all of it: design, API, deploys. The code is public.",
+		note: "One system to run a business, in my own time.",
 	},
 	{
 		when: "2025–26",
 		what: "Dattam Labs",
-		body: "Frontend across a product studio's client work — data platforms, an internal knowledge system, two SaaS products. I owned subscriptions and entitlements across the backend and the front end, so the billing rules were as much mine as the screens.",
+		note: "Client work, at a studio that builds for other people.",
 	},
 	{
 		when: "2021–24",
 		what: "Hivepath",
-		body: "Three years as lead frontend on the company's own products. I owned the front end of a multi-channel commerce platform: onboarding, inventory, purchase orders, billing.",
+		note: "Three years, mostly on one commerce platform.",
 	},
 	{
 		when: "2020–21",
 		what: "Freelance",
-		body: "Client sites end to end with React, Gatsby, Node and Firebase. Small projects, but I owned all of them, including the phone call when something broke on a Sunday.",
+		note: "Client sites end to end, on my own.",
 	},
 	{
-		/* The column holds employers, so this row is named for the work
-		   rather than the engine — "Unity" alone read as a job there. */
 		when: "2020",
 		what: "Making games",
-		body: "I built games in Unity before I built for the web. Nights spent on scenes, lighting and animation, learning how a lot of small parts add up to something that feels real. I still think about building that way.",
+		note: "Unity, before I built for the web.",
 	},
 ];
 
@@ -57,40 +59,67 @@ export default function AboutPage() {
 		<main className="page pb-20 pt-16 lg:pt-20">
 			<div className="max-w-3xl">
 				<h1 className="text-[clamp(1.4rem,3.4vw,2.1rem)] font-bold leading-[1.34] tracking-[-0.02em] text-ink">
-					I build the unglamorous half of a product — which is also
-					the half that decides whether anyone{" "}
+					I started in a game engine and ended up in{" "}
 					<span className="bg-amber px-2 text-[hsl(var(--fg))]">
-						trusts it
+						billing systems
 					</span>
 					.
 				</h1>
-				<p className="mt-7 text-[13px] leading-[1.85] text-ink-dim">
-					Six years of React, Next.js and TypeScript. What follows is
-					the long version; the{" "}
-					<Link
-						href="/"
-						className="underline decoration-line-strong underline-offset-4 transition-colors hover:text-amber-deep"
+			</div>
+
+			<div className="mt-9 flex max-w-2xl flex-col gap-5 text-[13px] leading-[1.85] text-ink-dim">
+				<p>
+					Game engines are an odd way into web development, and a
+					useful one. You learn early that a thing only feels real
+					when a lot of small parts agree with each other, and that
+					most of the work sits in the parts nobody is meant to
+					notice.
+				</p>
+				<p>
+					Since then it has mostly been products where being wrong is
+					expensive — commerce, billing, internal tools people sit in
+					all day. I like that kind of work. When a checkout charges
+					someone twice or a dashboard shows a number that is a day
+					old, nobody has to be persuaded that it matters.
+				</p>
+				<p>
+					Some of that has been mobile. I shipped native Android in
+					Kotlin early on, then spent longer in React Native, on an
+					app where the same screens had to serve three kinds of user
+					and keep working on phones that were not new.
+				</p>
+				<p>
+					I build{" "}
+					<a
+						href={saroh.href}
+						target="_blank"
+						rel="noopener noreferrer"
+						className="text-ink underline decoration-line-strong underline-offset-4 transition-colors hover:text-amber-deep"
 					>
-						front page
-					</Link>{" "}
-					is the short one.
+						Saroh
+					</a>{" "}
+					in my own time — website, commerce, appointments and CRM in
+					one system. It is the only thing I have built where every
+					decision is mine, design through to deploys, which is also
+					the only reliable way to find out which of your habits were
+					any good. The code is public.
 				</p>
 			</div>
 
 			<div className="mt-14 flex flex-col text-[13px]">
 				<div className="row border-t-line-strong text-ink-faint">
 					<span>when</span>
-					<span>what</span>
+					<span>where</span>
 				</div>
-				{history.map((h) => (
-					<div key={h.what} className="row">
-						<span className="text-ink-faint">{h.when}</span>
-						<span className="flex flex-col gap-1.5">
-							<span className="font-medium text-ink">
-								{h.what}
+				{dates.map((d) => (
+					<div key={d.what} className="row">
+						<span className="text-ink-faint">{d.when}</span>
+						<span className="flex flex-col gap-1 sm:flex-row sm:gap-4">
+							<span className="font-medium text-ink sm:w-40 sm:shrink-0">
+								{d.what}
 							</span>
 							<span className="leading-[1.75] text-ink-dim">
-								{h.body}
+								{d.note}
 							</span>
 						</span>
 					</div>
@@ -98,11 +127,22 @@ export default function AboutPage() {
 				<div className="border-t border-line-strong" />
 			</div>
 
+			<p className="mt-6 text-xs text-ink-muted">
+				What I actually shipped at each is on the{" "}
+				<Link
+					href="/projects"
+					className="underline decoration-line-strong underline-offset-4 transition-colors hover:text-amber-deep"
+				>
+					work page
+				</Link>
+				.
+			</p>
+
 			<div className="mt-12 flex flex-col gap-4 text-xs text-ink-muted sm:flex-row sm:items-center sm:justify-between">
 				<span>{availability}</span>
 				<div className="flex flex-wrap gap-6">
 					<a
-						href={saroh.repo}
+						href={founder.links.github}
 						target="_blank"
 						rel="noopener noreferrer"
 						className="underline decoration-line-strong underline-offset-4 transition-colors hover:text-amber-deep"
