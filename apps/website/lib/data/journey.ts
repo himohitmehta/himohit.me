@@ -68,7 +68,7 @@ export const story: StoryBeat[] = [
 		year: "2021 – 2024",
 		kicker: "Scaling up",
 		title: "Three years at Hivepath.",
-		body: "Lead frontend on the company's own products. I owned the front end of a multi-channel commerce platform: onboarding, inventory, purchase orders, billing. That's also where the App Router migration happened, and where I built a chat assistant end to end, including the Python service that indexes a customer's documents.",
+		body: "Lead frontend on the company's own products. I owned a large part of the front end of a multi-channel commerce platform: products, inventory, warehouses, vendors, purchase orders, onboarding and billing. That is also where I migrated an existing frontend from Create React App to Next.js and Turborepo, and built the chatbot frontend and the flow customers used to embed it.",
 		projects: [
 			{
 				name: "Lattis.ai",
@@ -101,7 +101,7 @@ export const story: StoryBeat[] = [
 		year: "2025 – 2026",
 		kicker: "Building at scale",
 		title: "Then a product studio.",
-		body: "Eighteen months at Dattam Labs, leading frontend across client work: climate data platforms, an internal knowledge system, two SaaS products. I built a subscriptions and entitlements engine that spanned the backend and the front end, so I ended up owning the billing rules as much as the screens.",
+		body: "Senior Software Engineer at Dattam Labs across AI, climate-data, SaaS and mobile products. I led frontend on CRAVIS, owned a climate-data dashboard's frontend, built an MCP integration for an internal knowledge system, and worked on subscription gating and order and payment flows in a SaaS product.",
 	},
 ];
 
@@ -114,14 +114,14 @@ export type CraftItem = {
 
 export const craftIntro: string[] = [
 	"The work I like is unglamorous. Checkout flows. Billing screens. Dashboards holding more data than fits on a screen, and editors that someone non-technical has to use without being frightened of them.",
-	"I'm comfortable on the other side of the API too: a Python retrieval backend, billing logic in FastAPI and NestJS, and the CI and deploys behind several products. When a frontend problem turns out to be a backend problem, I can keep going.",
+	"I'm comfortable on the other side of the API too: API and integration work in NestJS, and the CI and deploys behind several products. When a frontend problem turns out to be a backend problem, I can keep going.",
 ];
 
 export const craft: CraftItem[] = [
 	{
 		id: "architecture",
-		title: "Component architecture and design systems.",
-		body: "I've built shared UI libraries that other apps depend on. It's a different job from using one: you find out quickly whether your API was any good.",
+		title: "Component architecture and shared systems.",
+		body: "I've worked on reusable UI and application structures used across different parts of a product. You find out pretty quickly whether an abstraction is actually useful once other code depends on it.",
 	},
 	{
 		id: "state",
@@ -130,13 +130,13 @@ export const craft: CraftItem[] = [
 	},
 	{
 		id: "migration",
-		title: "Big changes without stopping the product.",
-		body: "I've moved a live product onto a new router in pieces small enough for someone else to review. A big-bang cutover would have been faster to write and impossible to roll back.",
+		title: "Changing the architecture without rebuilding the product.",
+		body: "I've migrated an existing frontend from Create React App to Next.js and Turborepo, reorganising it around shared code without treating the product as a ground-up rewrite.",
 	},
 	{
-		id: "accessibility",
-		title: "Accessibility that survives the next sprint.",
-		body: "Keyboard paths and focus order designed in at the start. The audit-then-patch cycle just breaks the same things again every release.",
+		id: "performance",
+		title: "Making the product feel lighter, not just score better.",
+		body: "Bundle size, lazy loading, page weight, rendering and state all affect what the user feels. I prefer fixing the underlying problem over chasing a number in a report.",
 	},
 ];
 
@@ -163,7 +163,7 @@ export const caseStudies: CaseStudy[] = [
 	{
 		id: "saroh",
 		name: "Saroh",
-		tag: "Personal project · one system to run a business",
+		tag: "Personal project · small-business commerce, in progress",
 		year: "2023 → now",
 		image: "/images/saroh/home.png",
 		gallery: [
@@ -185,7 +185,7 @@ export const caseStudies: CaseStudy[] = [
 		challenge:
 			"A small business ends up on five or six tools that don't talk to each other. Website in one place, bookings in another, payments somewhere else, and customer records spread across all of them.",
 		vision:
-			"Run the whole business from one place. Website, commerce, appointments and CRM in one system. Switch on the modules you need, and switch one off without losing what's behind it.",
+			"Somewhere to try out architecture, technologies and product decisions without somebody else setting the constraints. Today it covers parts of a small-business commerce system.",
 		system:
 			"I build all of it: design, frontend, backend. Next.js, Prisma and Postgres across a monorepo of ten apps and eight shared packages. Eight modules with clean dependencies between them: website, commerce, appointments, CRM, payments, communications, automations and insights. The home screen ranks your work by what needs attention, then what's overdue, then what's left to set up, rather than showing a wall of equal tiles.",
 		impact:
@@ -260,9 +260,9 @@ export type FocusItem = {
 export const currentFocus: FocusItem[] = [
 	{
 		state: "building",
-		title: "Saroh, one system to run a business",
+		title: "Saroh, a personal engineering project",
 		body: [
-			"A personal project, built in my own time. Website, commerce, appointments and CRM in one system, where you switch on only the modules you need. I do all of it: design, API, deploys.",
+			"A personal project, built in my own time. Today it covers parts of a small-business system: website, products, posts, orders and team management. I own the product and engineering direction end to end.",
 			"Two decisions I'd defend. The first: only the API touches the database. Every frontend is a thin client, so there's one place to change how data gets written. It didn't start that way. Database access had spread across five apps over two years, and pulling it back out took seven steps.",
 			"The second: checkout is idempotent, so a dropped connection and a retry can't charge someone twice. Stock is held while someone checks out, then committed or released. Two people can't buy the last one.",
 		],

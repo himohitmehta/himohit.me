@@ -87,9 +87,9 @@ export default function ChapterHero() {
 					className="mt-8 max-w-xl text-pretty text-lg leading-relaxed text-ink-dim"
 				>
 					Six years of React, Next.js and TypeScript, mostly on
-					commerce and billing systems. At Hivepath I moved six
-					applications onto the Next.js App Router without taking the
-					product down. Now I&apos;m building{" "}
+					commerce and billing systems. I&apos;ve migrated an existing
+					frontend from Create React App to Next.js and Turborepo.
+					Now I&apos;m building{" "}
 					<a
 						href="https://saroh.in"
 						target="_blank"
@@ -98,7 +98,7 @@ export default function ChapterHero() {
 					>
 						Saroh
 					</a>
-					. The code is public, so you can check any of this.
+					, a personal engineering project. The source is available.
 				</motion.p>
 
 				<motion.div

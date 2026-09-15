@@ -1,7 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { workGroups } from "@/lib/data/work";
-import { availability } from "@/lib/data/site";
 
 export const metadata: Metadata = {
 	title: "Work",
@@ -78,15 +77,16 @@ export default function ProjectsPage() {
 				<div className="border-t border-line-strong" />
 			</div>
 
-			<div className="mt-12 flex flex-col gap-4 text-xs text-ink-muted sm:flex-row sm:items-center sm:justify-between">
-				<span>{availability}</span>
+			<p className="mt-6 text-xs text-ink-muted">
+				The longer version is on the{" "}
 				<Link
 					href="/about"
-					className="tap underline decoration-line-strong underline-offset-4 transition-colors hover:text-amber-deep"
+					className="underline decoration-line-strong underline-offset-4 transition-colors hover:text-amber-deep"
 				>
-					the longer version →
+					about page
 				</Link>
-			</div>
+				.
+			</p>
 		</main>
 	);
 }

@@ -164,7 +164,7 @@ export default async function OpengraphImage() {
 						}}
 					>
 						<div style={{ display: "flex" }}>
-							building saroh — the code is public
+							building saroh — source available
 						</div>
 						<div style={{ display: "flex", color: INK }}>
 							himohit.me

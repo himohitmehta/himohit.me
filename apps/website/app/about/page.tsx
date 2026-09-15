@@ -1,17 +1,16 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { founder } from "@/lib/data/journey";
-import { availability, saroh } from "@/lib/data/site";
+import { saroh } from "@/lib/data/site";
 
 export const metadata: Metadata = {
 	title: "About",
 	description:
-		"How Mohit Mehta got from games built in Unity to commerce and billing systems, and to Saroh — one system to run a business, built in his own time.",
+		"How Mohit Mehta got from games built in Unity to commerce and billing systems, and to Saroh — a personal engineering project for small-business software.",
 	alternates: { canonical: "/about" },
 	openGraph: {
 		title: "About · Mohit Mehta",
 		description:
-			"From games built in Unity to commerce and billing systems, and to Saroh — how Mohit Mehta got here.",
+			"From games built in Unity to commerce and billing systems, and to Saroh — a personal engineering project for small-business software.",
 		url: "https://himohit.me/about",
 		type: "profile",
 		/* A child openGraph block replaces the parent's outright, so the
@@ -30,7 +29,7 @@ const dates = [
 	{
 		when: "2023→",
 		what: "Saroh",
-		note: "One system to run a business, in my own time.",
+		note: "A personal engineering project, in my own time.",
 	},
 	{
 		when: "2025–26",
@@ -40,7 +39,7 @@ const dates = [
 	{
 		when: "2021–24",
 		what: "Hivepath",
-		note: "Three years, mostly on one commerce platform.",
+		note: "Product frontend across commerce and AI tools.",
 	},
 	{
 		when: "2020–21",
@@ -83,10 +82,11 @@ export default function AboutPage() {
 					old, nobody has to be persuaded that it matters.
 				</p>
 				<p>
-					Some of that has been mobile. I shipped native Android in
-					Kotlin early on, then spent longer in React Native, on an
-					app where the same screens had to serve three kinds of user
-					and keep working on phones that were not new.
+					Some of that work has been mobile. I shipped native Android
+					in Kotlin early on, then later worked in React Native on a
+					role-based application serving teachers, parents and
+					students — authentication, reusable components, and the
+					video-heavy screens that needed the most attention.
 				</p>
 				<p>
 					I build{" "}
@@ -98,11 +98,14 @@ export default function AboutPage() {
 					>
 						Saroh
 					</a>{" "}
-					in my own time — website, commerce, appointments and CRM in
-					one system. It is the only thing I have built where every
-					decision is mine, design through to deploys, which is also
-					the only reliable way to find out which of your habits were
-					any good. The code is public.
+					in my own time. It started as somewhere I could try out
+					architecture, technologies and product decisions without
+					somebody else setting the constraints. Today it covers parts
+					of a small-business commerce system, and I own the product
+					and engineering direction end to end. It is the only thing I
+					have built where every decision is mine, which is also the
+					only reliable way to find out which of your habits were any
+					good. Still under development, and the source is available.
 				</p>
 			</div>
 
@@ -138,33 +141,6 @@ export default function AboutPage() {
 				.
 			</p>
 
-			<div className="mt-12 flex flex-col gap-4 text-xs text-ink-muted sm:flex-row sm:items-center sm:justify-between">
-				<span>{availability}</span>
-				<div className="flex flex-wrap gap-6">
-					<a
-						href={founder.links.github}
-						target="_blank"
-						rel="noopener noreferrer"
-						className="tap underline decoration-line-strong underline-offset-4 transition-colors hover:text-amber-deep"
-					>
-						github
-					</a>
-					<a
-						href={founder.links.linkedin}
-						target="_blank"
-						rel="noopener noreferrer"
-						className="tap underline decoration-line-strong underline-offset-4 transition-colors hover:text-amber-deep"
-					>
-						linkedin
-					</a>
-					<Link
-						href="mailto:mohit@himohit.me"
-						className="tap underline decoration-line-strong underline-offset-4 transition-colors hover:text-amber-deep"
-					>
-						mohit@himohit.me
-					</Link>
-				</div>
-			</div>
 		</main>
 	);
 }

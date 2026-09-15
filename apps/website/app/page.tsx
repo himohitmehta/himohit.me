@@ -1,6 +1,5 @@
-import Link from "next/link";
 import { craft, founder } from "@/lib/data/journey";
-import { availability, saroh, variantIntro } from "@/lib/data/site";
+import { saroh, variantIntro } from "@/lib/data/site";
 
 const personSchema = {
 	"@context": "https://schema.org",
@@ -30,7 +29,7 @@ const keys: Record<string, string> = {
 	architecture: "systems",
 	state: "state",
 	migration: "change",
-	accessibility: "access",
+	performance: "performance",
 };
 
 export default function Home() {
@@ -90,40 +89,18 @@ export default function Home() {
 						>
 							{saroh.name}
 						</a>
-						<span className="leading-[1.75] text-ink-dim">
-							{saroh.line}
-						</span>
+						{saroh.body.map((para, i) => (
+							<span
+								key={i}
+								className="leading-[1.75] text-ink-dim"
+							>
+								{para}
+							</span>
+						))}
 					</span>
 				</div>
 			</div>
 
-			<div className="mt-12 flex flex-col gap-4 text-xs text-ink-muted sm:flex-row sm:items-center sm:justify-between">
-				<span>{availability}</span>
-				<div className="flex flex-wrap gap-6">
-					<a
-						href={founder.links.github}
-						target="_blank"
-						rel="noopener noreferrer"
-						className="tap underline decoration-line-strong underline-offset-4 transition-colors hover:text-amber-deep"
-					>
-						github
-					</a>
-					<a
-						href={founder.links.linkedin}
-						target="_blank"
-						rel="noopener noreferrer"
-						className="tap underline decoration-line-strong underline-offset-4 transition-colors hover:text-amber-deep"
-					>
-						linkedin
-					</a>
-					<Link
-						href="mailto:mohit@himohit.me"
-						className="tap underline decoration-line-strong underline-offset-4 transition-colors hover:text-amber-deep"
-					>
-						mohit@himohit.me
-					</Link>
-				</div>
-			</div>
 		</main>
 	);
 }

@@ -20,7 +20,12 @@ export const saroh = {
 	name: "Saroh",
 	href: "https://saroh.in",
 	repo: "https://github.com/saroh-labs/saroh.in",
-	line: "One system to run a business. I do all of it: design, API, deploys. The code is public.",
+	/* One entry per paragraph. Source-available, not open source, and
+	   still in progress — say both plainly wherever it appears. */
+	body: [
+		"A personal engineering project, built in my own time. Today it covers parts of a small-business system: website, products, posts, orders and team management.",
+		"I own the product and engineering direction end to end. Still under development, and the source is available.",
+	],
 };
 
 export const availability = "Open to work — remote, or hybrid.";
