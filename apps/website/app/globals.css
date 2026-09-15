@@ -3,31 +3,37 @@
 @tailwind utilities;
 
 /*
-  himohit.me — "Builder of Worlds"
-  Dark, cinematic, editorial design system.
-  Warm amber accent on a near-black, slightly warm canvas.
+  himohit.me — "Index"
+  Light, monospace, tabular. Near-zero decoration: the type and the
+  rules do the work. Warm paper ground, near-black ink, amber kept as
+  the one accent — used as a highlight block, not as coloured text.
 */
 
 @layer base {
 	:root {
-		/* Surfaces */
-		--bg: 30 16% 4%; /* near-black, faint warm */
-		--bg-raised: 28 12% 7%;
-		--bg-elev: 26 10% 10%;
+		/* Surfaces — warm paper */
+		--bg: 43 20% 92%; /* #EFECE5 */
+		--bg-raised: 44 30% 96%;
+		--bg-elev: 45 33% 98%;
 
 		/* Ink */
-		--fg: 36 30% 92%; /* warm off-white */
-		--fg-dim: 34 10% 64%;
-		--fg-faint: 32 8% 42%;
+		--fg: 30 11% 6%; /* near-black, faint warm */
+		--fg-dim: 33 8% 24%;
+		/* Both clear WCAG AA (4.77:1) on --bg at normal text sizes —
+		   checked, not assumed. Don't lighten without re-checking. */
+		--fg-faint: 33 7% 40%;
+		--fg-muted: 33 7% 40%;
 
-		/* Accent — warm amber / gold */
+		/* Accent — warm amber / gold.
+		   --amber is the highlight-block fill (ink sits on top of it);
+		   --amber-deep is the only one safe as text on paper (4.74:1). */
 		--amber: 35 92% 60%;
 		--amber-bright: 40 96% 66%;
-		--amber-deep: 28 80% 46%;
+		--amber-deep: 28 78% 35%;
 
-		/* Lines */
-		--line: 34 14% 16%;
-		--line-strong: 34 12% 24%;
+		/* Rules */
+		--line: 38 15% 82%;
+		--line-strong: 38 13% 72%;
 
 		--radius: 0.75rem;
 
@@ -110,7 +116,7 @@
 		border: 3px solid hsl(var(--bg));
 	}
 	::-webkit-scrollbar-thumb:hover {
-		background: hsl(var(--amber) / 0.5);
+		background: hsl(var(--amber-deep) / 0.55);
 	}
 }
 
@@ -134,16 +140,16 @@
 	}
 
 	.amber-text {
-		color: hsl(var(--amber-bright));
+		color: hsl(var(--amber-deep));
 	}
 
 	/* Amber wash gradient text for emphasis words */
 	.amber-grad {
 		background: linear-gradient(
 			100deg,
-			hsl(var(--amber-bright)),
-			hsl(var(--amber)) 45%,
-			hsl(var(--amber-deep))
+			hsl(var(--amber-deep)),
+			hsl(28 80% 46%) 55%,
+			hsl(30 75% 38%)
 		);
 		-webkit-background-clip: text;
 		background-clip: text;
@@ -171,17 +177,41 @@
 	}
 
 	/* Section vertical rhythm */
-	.chapter {
-		position: relative;
-		padding-top: clamp(7rem, 16vh, 12rem);
-		padding-bottom: clamp(7rem, 16vh, 12rem);
+	/* The one page measure. The header and every page use this, so the
+	   left edge of the wordmark lines up with the left edge of the type
+	   on every route. Change it here or nowhere. */
+	.page {
+		width: 100%;
+		max-width: 64rem;
+		margin-inline: auto;
+		padding-inline: 1.5rem;
 	}
 
-	.shell {
-		width: 100%;
-		max-width: 78rem;
-		margin-inline: auto;
-		padding-inline: clamp(1.25rem, 5vw, 3.5rem);
+	@media (min-width: 640px) {
+		.page {
+			padding-inline: 2.5rem;
+		}
+	}
+
+	@media (min-width: 1024px) {
+		.page {
+			padding-inline: 3.5rem;
+		}
+	}
+
+	/* Row in a definition table: a short key, then the body. */
+	.row {
+		display: grid;
+		grid-template-columns: 5.5rem 1fr;
+		gap: 1.25rem;
+		padding-block: 1rem;
+		border-top: 1px solid hsl(var(--line));
+	}
+
+	@media (min-width: 640px) {
+		.row {
+			grid-template-columns: 6.5rem 1fr;
+		}
 	}
 }
 

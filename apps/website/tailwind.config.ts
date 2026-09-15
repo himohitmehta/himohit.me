@@ -24,6 +24,7 @@ module.exports = {
 			fontFamily: {
 				display: ["var(--font-display)", "ui-sans-serif", "system-ui", "sans-serif"],
 				sans: ["var(--font-sans)", "ui-sans-serif", "system-ui", "sans-serif"],
+				mono: ["var(--font-mono)", "ui-monospace", "SFMono-Regular", "monospace"],
 			},
 			colors: {
 				bg: {
@@ -35,6 +36,7 @@ module.exports = {
 					DEFAULT: "hsl(var(--fg))",
 					dim: "hsl(var(--fg-dim))",
 					faint: "hsl(var(--fg-faint))",
+					muted: "hsl(var(--fg-muted))",
 				},
 				amber: {
 					DEFAULT: "hsl(var(--amber))",

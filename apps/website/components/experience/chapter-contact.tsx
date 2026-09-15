@@ -79,7 +79,7 @@ export default function ChapterContact() {
 							aria-label="LinkedIn"
 							className="flex h-12 w-12 items-center justify-center rounded-full border border-line text-ink-dim transition-all hover:border-amber hover:text-amber-bright"
 						>
-							<SiLinkedin className="h-4 w-4" />
+							<SiLinkedin aria-hidden className="h-4 w-4" />
 						</a>
 						<a
 							href={founder.links.github}
@@ -88,7 +88,7 @@ export default function ChapterContact() {
 							aria-label="GitHub"
 							className="flex h-12 w-12 items-center justify-center rounded-full border border-line text-ink-dim transition-all hover:border-amber hover:text-amber-bright"
 						>
-							<SiGithub className="h-4 w-4" />
+							<SiGithub aria-hidden className="h-4 w-4" />
 						</a>
 						<a
 							href={founder.links.blog}
