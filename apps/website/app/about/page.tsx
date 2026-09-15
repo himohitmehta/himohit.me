@@ -145,7 +145,7 @@ export default function AboutPage() {
 						href={founder.links.github}
 						target="_blank"
 						rel="noopener noreferrer"
-						className="underline decoration-line-strong underline-offset-4 transition-colors hover:text-amber-deep"
+						className="tap underline decoration-line-strong underline-offset-4 transition-colors hover:text-amber-deep"
 					>
 						github
 					</a>
@@ -153,13 +153,13 @@ export default function AboutPage() {
 						href={founder.links.linkedin}
 						target="_blank"
 						rel="noopener noreferrer"
-						className="underline decoration-line-strong underline-offset-4 transition-colors hover:text-amber-deep"
+						className="tap underline decoration-line-strong underline-offset-4 transition-colors hover:text-amber-deep"
 					>
 						linkedin
 					</a>
 					<Link
 						href="mailto:mohit@himohit.me"
-						className="underline decoration-line-strong underline-offset-4 transition-colors hover:text-amber-deep"
+						className="tap underline decoration-line-strong underline-offset-4 transition-colors hover:text-amber-deep"
 					>
 						mohit@himohit.me
 					</Link>

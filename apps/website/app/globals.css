@@ -199,6 +199,15 @@
 		}
 	}
 
+	/* A link in a row is 16px of type, which is a 16px tap target. The
+	   padding gives it 44px; the matching negative margin means nothing
+	   moves. Use it on standalone links, never on links inside a
+	   paragraph — there it would overlap the lines above and below. */
+	.tap {
+		padding-block: 0.875rem;
+		margin-block: -0.875rem;
+	}
+
 	/* Row in a definition table: a short key, then the body. */
 	.row {
 		display: grid;

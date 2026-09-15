@@ -24,7 +24,7 @@ export default function SiteHeader() {
 		<header className="page flex flex-col gap-1 pt-10 text-xs tracking-[0.04em] text-ink-faint sm:flex-row sm:items-baseline sm:justify-between sm:pt-14">
 			<Link
 				href="/"
-				className="text-ink transition-colors hover:text-amber-deep"
+				className="tap w-fit text-ink transition-colors hover:text-amber-deep"
 			>
 				mohit
 			</Link>
@@ -36,7 +36,7 @@ export default function SiteHeader() {
 						{...(l.external
 							? { target: "_blank", rel: "noopener noreferrer" }
 							: {})}
-						className={`underline-offset-4 transition-colors hover:text-amber-deep hover:underline ${
+						className={`tap underline-offset-4 transition-colors hover:text-amber-deep hover:underline ${
 							pathname === l.href ? "text-ink" : ""
 						}`}
 					>

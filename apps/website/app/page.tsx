@@ -86,7 +86,7 @@ export default function Home() {
 							href={saroh.href}
 							target="_blank"
 							rel="noopener noreferrer"
-							className="w-fit font-medium text-ink underline decoration-line-strong underline-offset-4 transition-colors hover:text-amber-deep"
+							className="tap w-fit font-medium text-ink underline decoration-line-strong underline-offset-4 transition-colors hover:text-amber-deep"
 						>
 							{saroh.name}
 						</a>
@@ -104,7 +104,7 @@ export default function Home() {
 						href={founder.links.github}
 						target="_blank"
 						rel="noopener noreferrer"
-						className="underline decoration-line-strong underline-offset-4 transition-colors hover:text-amber-deep"
+						className="tap underline decoration-line-strong underline-offset-4 transition-colors hover:text-amber-deep"
 					>
 						github
 					</a>
@@ -112,13 +112,13 @@ export default function Home() {
 						href={founder.links.linkedin}
 						target="_blank"
 						rel="noopener noreferrer"
-						className="underline decoration-line-strong underline-offset-4 transition-colors hover:text-amber-deep"
+						className="tap underline decoration-line-strong underline-offset-4 transition-colors hover:text-amber-deep"
 					>
 						linkedin
 					</a>
 					<Link
 						href="mailto:mohit@himohit.me"
-						className="underline decoration-line-strong underline-offset-4 transition-colors hover:text-amber-deep"
+						className="tap underline decoration-line-strong underline-offset-4 transition-colors hover:text-amber-deep"
 					>
 						mohit@himohit.me
 					</Link>

@@ -65,7 +65,7 @@ export default function ProjectsPage() {
 											href={l.href}
 											target="_blank"
 											rel="noopener noreferrer"
-											className="text-ink underline decoration-line-strong underline-offset-4 transition-colors hover:text-amber-deep"
+											className="tap text-ink underline decoration-line-strong underline-offset-4 transition-colors hover:text-amber-deep"
 										>
 											{l.label}
 										</a>
@@ -82,7 +82,7 @@ export default function ProjectsPage() {
 				<span>{availability}</span>
 				<Link
 					href="/about"
-					className="underline decoration-line-strong underline-offset-4 transition-colors hover:text-amber-deep"
+					className="tap underline decoration-line-strong underline-offset-4 transition-colors hover:text-amber-deep"
 				>
 					the longer version →
 				</Link>
