@@ -6,12 +6,12 @@ import { availability, saroh } from "@/lib/data/variants";
 export const metadata: Metadata = {
 	title: "About",
 	description:
-		"Mohit Mehta is a senior software engineer. Games in Unity, then client sites, then platform work at Hivepath and Dattam Labs — and Saroh, built in his own time.",
+		"Mohit Mehta is a senior software engineer. Games built in Unity, then client sites, then platform work at Hivepath and Dattam Labs — and Saroh, built in his own time.",
 	alternates: { canonical: "/about" },
 	openGraph: {
 		title: "About · Mohit Mehta",
 		description:
-			"Games in Unity, then client sites, then platform work at Hivepath and Dattam Labs — how Mohit Mehta got to building Saroh.",
+			"Games built in Unity, then client sites, then platform work at Hivepath and Dattam Labs — how Mohit Mehta got to building Saroh.",
 		url: "https://himohit.me/about",
 		type: "profile",
 		/* A child openGraph block replaces the parent's outright, so the
@@ -44,9 +44,11 @@ const history = [
 		body: "Client sites end to end with React, Gatsby, Node and Firebase. Small projects, but I owned all of them, including the phone call when something broke on a Sunday.",
 	},
 	{
-		when: "before",
-		what: "Unity",
-		body: "I made games before I made websites. Nights on scenes, lighting and animation, learning how a lot of small parts add up to something that feels real. I still think about building that way.",
+		/* The column holds employers, so this row is named for the work
+		   rather than the engine — "Unity" alone read as a job there. */
+		when: "2020",
+		what: "Making games",
+		body: "I built games in Unity before I built for the web. Nights spent on scenes, lighting and animation, learning how a lot of small parts add up to something that feels real. I still think about building that way.",
 	},
 ];
 
