@@ -13,7 +13,7 @@ export default function ChapterThinking() {
 		<section id="thinking" className="chapter relative">
 			<div className="shell">
 				<ChapterMarker
-					index="03"
+					index="04"
 					title="Thinking Process"
 					className="mb-16"
 				/>
@@ -50,10 +50,11 @@ export default function ChapterThinking() {
 											{lens.label}
 										</span>
 										<span
+											aria-hidden
 											className={`text-xs tabular-nums transition-colors ${
 												isActive
 													? "text-amber-bright"
-													: "text-line-strong"
+													: "text-ink-muted"
 											}`}
 										>
 											0{i + 1}
@@ -85,7 +86,7 @@ export default function ChapterThinking() {
 								}}
 								className="lg:sticky lg:top-32"
 							>
-								<span className="font-display text-7xl text-line-strong">
+								<span aria-hidden className="font-display text-7xl text-ink-faint">
 									0{active + 1}
 								</span>
 								<h3 className="display mt-4 text-balance text-[clamp(1.8rem,4vw,3rem)] text-ink">

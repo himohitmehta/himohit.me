@@ -45,7 +45,7 @@ function CaseRoom({ study, index }: { study: CaseStudy; index: number }) {
 				<Reveal>
 					<div className="mb-6 flex items-baseline justify-between">
 						{caseStudies.length > 1 && (
-							<span className="font-display text-6xl text-line-strong">
+							<span aria-hidden className="font-display text-6xl text-ink-faint">
 								{String(index + 1).padStart(2, "0")}
 							</span>
 						)}
@@ -160,7 +160,7 @@ function CaseRoom({ study, index }: { study: CaseStudy; index: number }) {
 								href={study.repo}
 								target="_blank"
 								rel="noreferrer"
-								className="group inline-flex items-center gap-2 text-sm text-ink-dim transition-colors hover:text-amber-bright"
+								className="group inline-flex items-center gap-2 text-sm text-ink transition-colors hover:text-amber-bright"
 							>
 								<svg
 									width="15"
@@ -193,7 +193,7 @@ export default function ChapterWork() {
 		<section id="work" className="chapter relative bg-bg-raised/30">
 			<div className="shell">
 				<ChapterMarker
-					index="02"
+					index="03"
 					title="Selected Work"
 					className="mb-16"
 				/>

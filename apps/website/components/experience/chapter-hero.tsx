@@ -62,12 +62,7 @@ export default function ChapterHero() {
 				>
 					<span className="block overflow-hidden">
 						<motion.span variants={word} className="block">
-							I don&apos;t just build
-						</motion.span>
-					</span>
-					<span className="block overflow-hidden">
-						<motion.span variants={word} className="block amber-grad">
-							products.
+							I work on the screens
 						</motion.span>
 					</span>
 					<span className="block overflow-hidden">
@@ -75,12 +70,12 @@ export default function ChapterHero() {
 							variants={word}
 							className="block text-ink-dim"
 						>
-							I build the systems
+							where things actually
 						</motion.span>
 					</span>
 					<span className="block overflow-hidden">
-						<motion.span variants={word} className="block">
-							they live in.
+						<motion.span variants={word} className="block amber-grad">
+							go wrong.
 						</motion.span>
 					</span>
 				</motion.h1>
@@ -91,13 +86,10 @@ export default function ChapterHero() {
 					transition={{ duration: 1, delay: 0.9 }}
 					className="mt-8 max-w-xl text-pretty text-lg leading-relaxed text-ink-dim"
 				>
-					I&apos;m a software engineer who turns designs into fast,
-					polished web products people enjoy using. Most recently I
-					was an engineer at{" "}
-					<span className="text-ink">
-						{founder.previous.company}
-					</span>
-					. These days I&apos;m building{" "}
+					Six years of React, Next.js and TypeScript, mostly on
+					commerce and billing systems. At Hivepath I moved six
+					applications onto the Next.js App Router without taking the
+					product down. Now I&apos;m building{" "}
 					<a
 						href="https://saroh.in"
 						target="_blank"
@@ -106,7 +98,7 @@ export default function ChapterHero() {
 					>
 						Saroh
 					</a>
-					.
+					. The code is public, so you can check any of this.
 				</motion.p>
 
 				<motion.div
@@ -139,7 +131,7 @@ export default function ChapterHero() {
 						Begin the story
 					</a>
 					<span className="hidden h-4 w-px bg-line-strong sm:block" />
-					<span>A short scroll through my work and how I think</span>
+					<span>A short scroll through what I&apos;ve built</span>
 				</motion.div>
 			</motion.div>
 		</section>

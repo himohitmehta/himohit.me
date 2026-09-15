@@ -141,10 +141,8 @@ export default function ChapterStory() {
 
 				<Reveal className="mb-10 max-w-3xl">
 					<h2 className="display text-balance text-[clamp(2rem,5vw,4rem)] text-ink">
-						How I went from building game worlds to{" "}
-						<span className="amber-grad">
-							building real products.
-						</span>
+						How I{" "}
+						<span className="amber-grad">got here.</span>
 					</h2>
 				</Reveal>
 

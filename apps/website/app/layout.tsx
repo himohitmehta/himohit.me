@@ -1,13 +1,19 @@
 import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 import type { Metadata } from "next";
-import { Space_Grotesk, Inter } from "next/font/google";
+import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
 import AppProvider from "./provider";
-import SceneNav from "@/components/experience/scene-nav";
+import SiteHeader from "@/components/site-header";
 
 const display = Space_Grotesk({
 	subsets: ["latin"],
 	variable: "--font-display",
+	display: "swap",
+});
+
+const mono = JetBrains_Mono({
+	subsets: ["latin"],
+	variable: "--font-mono",
 	display: "swap",
 });
 
@@ -17,9 +23,9 @@ const sans = Inter({
 	display: "swap",
 });
 
-const title = "Mohit Mehta — Software Engineer & Product Builder";
+const title = "Mohit Mehta — Senior Software Engineer";
 const description =
-	"Mohit Mehta is a software engineer who builds fast, polished web products and turns designs into great frontends. Previously an engineer at Dattam Labs, now building Saroh, one system for running a whole business. Open to interesting problems and collaborations.";
+	"Mohit Mehta is a senior software engineer. Six years of React, Next.js and TypeScript — checkout flows, billing screens and dashboards, the screens where things actually go wrong. Currently building Saroh.";
 
 export const metadata: Metadata = {
 	title: {
@@ -30,17 +36,18 @@ export const metadata: Metadata = {
 	applicationName: "Mohit Mehta",
 	keywords: [
 		"Mohit Mehta",
+		"senior software engineer",
+		"frontend engineer",
 		"software engineer",
-		"frontend developer",
-		"full-stack developer",
 		"React developer",
 		"Next.js developer",
-		"product builder",
-		"Saroh",
-		"Dattam Labs",
 		"TypeScript",
-		"web developer portfolio",
-		"hire software engineer",
+		"design systems",
+		"component architecture",
+		"web accessibility",
+		"Saroh",
+		"software engineer portfolio",
+		"hire senior software engineer",
 	],
 	authors: [{ name: "Mohit Mehta", url: "https://himohit.me" }],
 	creator: "Mohit Mehta",
@@ -83,17 +90,17 @@ export default function RootLayout({
 	return (
 		<html lang="en" suppressHydrationWarning>
 			<body
-				className={`${display.variable} ${sans.variable} font-sans antialiased grain`}
+				className={`${display.variable} ${sans.variable} ${mono.variable} font-mono antialiased`}
 			>
 				<AppProvider>
 					<ThemeProvider
 						attribute="class"
-						defaultTheme="dark"
-						forcedTheme="dark"
+						defaultTheme="light"
+						forcedTheme="light"
 						enableSystem
 						disableTransitionOnChange
 					>
-						<SceneNav />
+						<SiteHeader />
 						{children}
 					</ThemeProvider>
 				</AppProvider>

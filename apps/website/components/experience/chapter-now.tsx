@@ -2,6 +2,7 @@
 
 import { ChapterMarker, Reveal } from "./primitives";
 import { currentFocus } from "@/lib/data/journey";
+import { SiGithub } from "react-icons/si";
 
 const stateMeta: Record<
 	(typeof currentFocus)[number]["state"],
@@ -51,9 +52,25 @@ export default function ChapterNow() {
 								<h3 className="display text-2xl text-ink">
 									{item.title}
 								</h3>
-								<p className="mt-4 text-pretty leading-relaxed text-ink-dim">
-									{item.body}
-								</p>
+								{item.body.map((para, pi) => (
+									<p
+										key={pi}
+										className="mt-4 text-pretty leading-relaxed text-ink-dim"
+									>
+										{para}
+									</p>
+								))}
+								{item.link && (
+									<a
+										href={item.link.href}
+										target="_blank"
+										rel="noreferrer"
+										className="group mt-6 inline-flex items-center gap-2 text-sm text-ink transition-colors hover:text-amber-bright"
+									>
+										<SiGithub aria-hidden className="h-4 w-4" />
+										{item.link.label}
+									</a>
+								)}
 							</Reveal>
 						);
 					})}

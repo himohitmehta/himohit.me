@@ -7,7 +7,7 @@
 
 export const founder = {
 	name: "Mohit Mehta",
-	roles: ["Software Engineer", "Frontend Developer", "Product Builder"],
+	roles: ["Senior Software Engineer", "React", "Next.js", "TypeScript"],
 	location: "Remote",
 	email: "mohit@himohit.me",
 	links: {
@@ -17,7 +17,7 @@ export const founder = {
 	},
 	now: {
 		focus: "Saroh",
-		title: "Software Engineer",
+		title: "Senior Software Engineer",
 		since: "2023",
 	},
 	previous: {
@@ -55,21 +55,20 @@ export const story: StoryBeat[] = [
 	{
 		year: "2020",
 		kicker: "The beginning",
-		title: "I started by building worlds — literally.",
-		body: "Before the web, I made games in Unity. I spent my nights working on scenes, lighting, cameras and animation — and learned how lots of small parts come together to make one thing feel real. That way of thinking has stayed with me ever since.",
-		cta: { label: "Watch the early Unity work", href: "/videos" },
+		title: "Games came before websites.",
+		body: "Before the web I made games in Unity. Nights spent on scenes, lighting and animation, learning how a lot of small parts add up to something that feels real. I still think about building that way.",
 	},
 	{
 		year: "2020 – 2021",
 		kicker: "Learning the craft",
-		title: "Freelancing taught me to build for real people.",
-		body: "At Savimo I built websites for clients from start to finish, using React, Gatsby, Node and Firebase. Real deadlines and real users taught me what matters most: shipping work that actually holds up once people depend on it.",
+		title: "Freelancing, where the deadlines were real.",
+		body: "At Savimo I built client sites end to end with React, Gatsby, Node and Firebase. Small projects, but I owned all of them, including the phone call when something broke on a Sunday.",
 	},
 	{
 		year: "2021 – 2024",
 		kicker: "Scaling up",
-		title: "Then I moved from building pages to building platforms.",
-		body: "I spent three years at the startup Hivepath, helping ship full products from the ground up. I learned to think beyond single screens and build the systems behind them — the kind other people build on top of.",
+		title: "Three years at Hivepath.",
+		body: "Lead frontend on the company's own products. I owned the front end of a multi-channel commerce platform: onboarding, inventory, purchase orders, billing. That's also where the App Router migration happened, and where I built a chat assistant end to end, including the Python service that indexes a customer's documents.",
 		projects: [
 			{
 				name: "Lattis.ai",
@@ -101,12 +100,47 @@ export const story: StoryBeat[] = [
 	{
 		year: "2025 – 2026",
 		kicker: "Building at scale",
-		title: "I built products people rely on.",
-		body: "At Dattam Labs I worked as a software engineer, building software used by real customers. A year and a half of shipping with a team, on systems that had to keep working once people depended on them every day.",
+		title: "Then a product studio.",
+		body: "Eighteen months at Dattam Labs, leading frontend across client work: climate data platforms, an internal knowledge system, two SaaS products. I built a subscriptions and entitlements engine that spanned the backend and the front end, so I ended up owning the billing rules as much as the screens.",
 	},
 ];
 
-/* ── Chapter 3 — Selected Work (case studies) ─────────────────── */
+/* ── Chapter 3 — What I'm deep in (the specialism) ────────────── */
+export type CraftItem = {
+	id: string;
+	title: string;
+	body: string;
+};
+
+export const craftIntro: string[] = [
+	"The work I like is unglamorous. Checkout flows. Billing screens. Dashboards holding more data than fits on a screen, and editors that someone non-technical has to use without being frightened of them.",
+	"I'm comfortable on the other side of the API too: a Python retrieval backend, billing logic in FastAPI and NestJS, and the CI and deploys behind several products. When a frontend problem turns out to be a backend problem, I can keep going.",
+];
+
+export const craft: CraftItem[] = [
+	{
+		id: "architecture",
+		title: "Component architecture and design systems.",
+		body: "I've built shared UI libraries that other apps depend on. It's a different job from using one: you find out quickly whether your API was any good.",
+	},
+	{
+		id: "state",
+		title: "Knowing where state belongs.",
+		body: "Server data, shareable view state and local state are three different problems. Most of the mess I've cleaned up came from code that treated them as one.",
+	},
+	{
+		id: "migration",
+		title: "Big changes without stopping the product.",
+		body: "I've moved a live product onto a new router in pieces small enough for someone else to review. A big-bang cutover would have been faster to write and impossible to roll back.",
+	},
+	{
+		id: "accessibility",
+		title: "Accessibility that survives the next sprint.",
+		body: "Keyboard paths and focus order designed in at the start. The audit-then-patch cycle just breaks the same things again every release.",
+	},
+];
+
+/* ── Chapter 4 — Selected Work (case studies) ─────────────────── */
 export type CaseStudy = {
 	id: string;
 	name: string;
@@ -149,13 +183,13 @@ export const caseStudies: CaseStudy[] = [
 		link: "https://saroh.in",
 		repo: "https://github.com/saroh-labs/saroh.in",
 		challenge:
-			"A small business ends up running on five or six tools that don't talk to each other — a website in one place, bookings in another, payments somewhere else, and customer records scattered across all of them.",
+			"A small business ends up on five or six tools that don't talk to each other. Website in one place, bookings in another, payments somewhere else, and customer records spread across all of them.",
 		vision:
-			"Run your whole business from one place. Website, commerce, appointments and CRM in one system, where you switch on only the modules you need — and switch one off without losing anything behind it.",
+			"Run the whole business from one place. Website, commerce, appointments and CRM in one system. Switch on the modules you need, and switch one off without losing what's behind it.",
 		system:
-			"I build all of it myself — the design, the frontend and the backend — with Next.js, Prisma and Postgres, across a monorepo of ten apps and eight shared packages. Eight modules that depend on each other cleanly: website, commerce, appointments, CRM, payments, communications, automations and insights. Home ranks your work by what needs attention, then what's overdue, then what's still to set up, instead of a dashboard of equal tiles.",
+			"I build all of it: design, frontend, backend. Next.js, Prisma and Postgres across a monorepo of ten apps and eight shared packages. Eight modules with clean dependencies between them: website, commerce, appointments, CRM, payments, communications, automations and insights. The home screen ranks your work by what needs attention, then what's overdue, then what's left to set up, rather than showing a wall of equal tiles.",
 		impact:
-			"Free to start, and source-available under the Elastic License 2.0, so anyone can read the code. Businesses are being onboarded from a waitlist in small batches, so each one gets set up properly.",
+			"Free to start, source-available under Elastic License 2.0. Businesses come off the waitlist in small batches so each one gets set up properly.",
 		stack: [
 			"nextjs",
 			"react",
@@ -167,7 +201,7 @@ export const caseStudies: CaseStudy[] = [
 	},
 ];
 
-/* ── Chapter 4 — Thinking Process (lenses / principles) ───────── */
+/* ── Thinking Process — cut from the page; kept in case it comes back ─ */
 export type Lens = {
 	id: string;
 	label: string;
@@ -218,23 +252,37 @@ export const lenses: Lens[] = [
 export type FocusItem = {
 	state: "shipping" | "building" | "exploring";
 	title: string;
-	body: string;
+	/* One entry per paragraph. */
+	body: string[];
+	link?: { label: string; href: string };
 };
 
 export const currentFocus: FocusItem[] = [
 	{
 		state: "building",
 		title: "Saroh, one system to run a business",
-		body: "A personal project I build in my own time — website, commerce, appointments and CRM in one system, where you turn on only the modules you need. I work on every part myself, from design to backend, using Claude and other AI tools to learn as I go. It's source-available, so anyone can read the code.",
+		body: [
+			"A personal project, built in my own time. Website, commerce, appointments and CRM in one system, where you switch on only the modules you need. I do all of it: design, API, deploys.",
+			"Two decisions I'd defend. The first: only the API touches the database. Every frontend is a thin client, so there's one place to change how data gets written. It didn't start that way. Database access had spread across five apps over two years, and pulling it back out took seven steps.",
+			"The second: checkout is idempotent, so a dropped connection and a retry can't charge someone twice. Stock is held while someone checks out, then committed or released. Two people can't buy the last one.",
+		],
+		link: {
+			label: "Read the code",
+			href: "https://github.com/saroh-labs/saroh.in",
+		},
 	},
 	{
 		state: "exploring",
-		title: "What comes after Dattam Labs",
-		body: "I spent Feb 2025 to Aug 2026 as an engineer at Dattam Labs, shipping software with a team at real scale. That chapter is closed, and I'm working out which problem is worth the next one.",
+		title: "Open to what comes next",
+		body: [
+			"I was at Dattam Labs from February 2025 to August 2026, shipping with a team at real scale. That's finished now.",
+			"I'm looking for senior or staff frontend work on products where the system is the hard part. Remote, or hybrid.",
+			"If you want to know whether I'd be useful, read Saroh's code.",
+		],
 	},
 ];
 
-/* ── Chapter 6 — Future Vision ────────────────────────────────── */
+/* ── Future Vision — hidden from the page ─────────────────────── */
 export type Horizon = {
 	span: string;
 	title: string;
