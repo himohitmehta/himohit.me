@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { founder } from "@/lib/data/journey";
-import { availability, saroh } from "@/lib/data/variants";
+import { availability, saroh } from "@/lib/data/site";
 
 export const metadata: Metadata = {
 	title: "About",

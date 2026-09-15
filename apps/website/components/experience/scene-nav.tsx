@@ -19,8 +19,6 @@ const CHAPTERS = [
 export default function SceneNav() {
 	const pathname = usePathname();
 	const isHome = pathname === "/";
-	/* Landing-page variants under /v bring their own header. */
-	const isVariant = pathname?.startsWith("/v") ?? false;
 	const { scrollYProgress } = useScroll();
 	const scaleX = useSpring(scrollYProgress, {
 		stiffness: 120,
@@ -53,8 +51,6 @@ export default function SceneNav() {
 		});
 		return () => observer.disconnect();
 	}, [isHome]);
-
-	if (isVariant) return null;
 
 	return (
 		<>

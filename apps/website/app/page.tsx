@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { craft, founder } from "@/lib/data/journey";
-import { availability, saroh, variantIntro } from "@/lib/data/variants";
+import { availability, saroh, variantIntro } from "@/lib/data/site";
 
 const personSchema = {
 	"@context": "https://schema.org",

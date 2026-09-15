@@ -17,8 +17,6 @@ const LINKS = [
 */
 export default function SiteHeader() {
 	const pathname = usePathname();
-	/* The landing-page drafts under /v carry their own headers. */
-	if (pathname?.startsWith("/v")) return null;
 
 	return (
 		<header className="page flex flex-col gap-1 pt-10 text-xs tracking-[0.04em] text-ink-faint sm:flex-row sm:items-baseline sm:justify-between sm:pt-14">

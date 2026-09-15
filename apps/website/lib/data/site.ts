@@ -1,9 +1,10 @@
 /*
-  variants.ts — shared content for the /v landing-page variants.
+  site.ts — the framing copy shared by every page.
 
   Qualities plus Saroh, and nothing else: no client work is named here.
-  The qualities themselves come from `craft` in journey.ts, so the variants
-  and the live site never drift apart. Only the framing lines live here.
+  The qualities themselves live in `craft` in journey.ts; this file holds
+  only the lines that wrap them — the headline, the one-line scope, the
+  Saroh summary and the availability line.
 */
 
 export const variantIntro = {
@@ -23,10 +24,3 @@ export const saroh = {
 };
 
 export const availability = "Open to work — remote, or hybrid.";
-
-export const variants = [
-	{ slug: "index", name: "Index", note: "Monospace, tabular, austere." },
-	{ slug: "nocturne", name: "Nocturne", note: "Your dark palette, one screen." },
-	{ slug: "three", name: "Three", note: "Three statements, nothing else." },
-	{ slug: "cards", name: "Cards", note: "Qualities as cards." },
-];

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { workGroups } from "@/lib/data/work";
-import { availability } from "@/lib/data/variants";
+import { availability } from "@/lib/data/site";
 
 export const metadata: Metadata = {
 	title: "Work",
