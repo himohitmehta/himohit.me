@@ -26,7 +26,7 @@ export default function SiteHeader() {
 				href="/"
 				className="text-ink transition-colors hover:text-amber-deep"
 			>
-				mohit mehta
+				mohit
 			</Link>
 			<nav className="flex flex-wrap gap-5">
 				{LINKS.map((l) => (

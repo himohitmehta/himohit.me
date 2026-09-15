@@ -93,7 +93,7 @@ export default async function OpengraphImage() {
 						color: INK_FAINT,
 					}}
 				>
-					<div style={{ display: "flex" }}>mohit mehta</div>
+					<div style={{ display: "flex" }}>mohit</div>
 					<div style={{ display: "flex" }}>
 						senior software engineer · remote
 					</div>
