@@ -7,6 +7,12 @@ export default {
 			)}
 			{meta.tag && <meta name="keywords" content={meta.tag} />}
 			{meta.author && <meta name="author" content={meta.author} />}
+			<link
+				rel="alternate"
+				type="application/rss+xml"
+				title="Mohit Mehta"
+				href="/feed.xml"
+			/>
 		</>
 	),
 	readMore: "Read More →",
